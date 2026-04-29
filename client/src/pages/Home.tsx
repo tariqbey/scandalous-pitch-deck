@@ -1,25 +1,35 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+import NavBar from "@/components/NavBar";
+import HeroSection from "@/components/HeroSection";
+import LoglineSection from "@/components/LoglineSection";
+import SeriesSummarySection from "@/components/SeriesSummarySection";
+import LeadCharactersSection from "@/components/LeadCharactersSection";
+import VerticalShowcaseSection from "@/components/VerticalShowcaseSection";
+import ScriptsSection from "@/components/ScriptsSection";
+import BeatSheetsSection from "@/components/BeatSheetsSection";
+import SeasonArcSection from "@/components/SeasonArcSection";
+import ComparablesSection from "@/components/ComparablesSection";
+import AnalyticsSection from "@/components/AnalyticsSection";
+import ComplianceSection from "@/components/ComplianceSection";
+import ContactSection from "@/components/ContactSection";
+import FooterSection from "@/components/FooterSection";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
- */
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div style={{ background: "#000", minHeight: "100vh", overflowX: "hidden" }}>
+      <NavBar />
+      <HeroSection />
+      <LoglineSection />
+      <SeriesSummarySection />
+      <LeadCharactersSection />
+      <VerticalShowcaseSection />
+      <ScriptsSection />
+      <BeatSheetsSection />
+      <SeasonArcSection />
+      <ComparablesSection />
+      <AnalyticsSection />
+      <ComplianceSection />
+      <ContactSection />
+      <FooterSection />
     </div>
   );
 }
