@@ -1,15 +1,18 @@
 import { useEffect, useRef, useState } from "react";
+import { useAudio } from "@/contexts/AudioController";
 
 const HERO_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/pOISOnpfDmMdXEEU.jpg";
-const UPSCALE_LOGO = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/VKEMZNzLWUUdYuSr.png";
+const UPSCALE_LOGO = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/RtaaZtYQelqLcSao.png";
+// Album cover art for spinning animation
+const COVER_ART = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/AosWsbmtdbJmwUlM.jpg";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
   const [particles, setParticles] = useState<{ x: number; y: number; size: number; delay: number }[]>([]);
+  const { themeStarted, startTheme } = useAudio();
 
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
-    // Generate floating particles
     const pts = Array.from({ length: 30 }, () => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -42,30 +45,24 @@ export default function HeroSection() {
         {/* Gradient overlay at bottom */}
         <div style={{
           position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
+          bottom: 0, left: 0, right: 0,
           height: "50%",
           background: "linear-gradient(to bottom, transparent, #000)",
         }} />
-
         {/* Floating particles */}
         {particles.map((p, i) => (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              left: `${p.x}%`,
-              top: `${p.y}%`,
-              width: p.size,
-              height: p.size,
-              borderRadius: "50%",
-              background: "#D4AF37",
-              opacity: 0.3,
-              animation: `pulse-gold ${2 + p.delay}s ease-in-out infinite`,
-              animationDelay: `${p.delay}s`,
-            }}
-          />
+          <div key={i} style={{
+            position: "absolute",
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: p.size,
+            height: p.size,
+            borderRadius: "50%",
+            background: "#D4AF37",
+            opacity: 0.3,
+            animation: `pulse-gold ${2 + p.delay}s ease-in-out infinite`,
+            animationDelay: `${p.delay}s`,
+          }} />
         ))}
       </div>
 
@@ -82,6 +79,42 @@ export default function HeroSection() {
         transform: visible ? "translateY(0)" : "translateY(30px)",
         transition: "opacity 1.2s ease, transform 1.2s ease",
       }}>
+
+        {/* PLAY THEME SONG button — disappears after clicked, shows spinning album */}
+        {!themeStarted ? (
+          <button
+            onClick={startTheme}
+            className="gold-btn"
+            style={{ fontSize: "0.7rem", padding: "0.65rem 2rem", letterSpacing: "0.2em" }}
+          >
+            ▶ PLAY THEME SONG
+          </button>
+        ) : (
+          /* Spinning album animation */
+          <div style={{ position: "relative", width: 64, height: 64 }}>
+            <div style={{
+              width: 64,
+              height: 64,
+              borderRadius: "50%",
+              overflow: "hidden",
+              animation: "spin-album 3s linear infinite",
+              border: "2px solid #D4AF37",
+            }}>
+              <img src={COVER_ART} alt="Now Playing" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            {/* Center hole */}
+            <div style={{
+              position: "absolute",
+              top: "50%", left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: 10, height: 10,
+              borderRadius: "50%",
+              background: "#000",
+              border: "1px solid #D4AF37",
+            }} />
+          </div>
+        )}
+
         {/* Upscale logo */}
         <img
           src={UPSCALE_LOGO}
@@ -94,7 +127,7 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Producer name */}
+        {/* Producer name — pulled tight under logo */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
           fontWeight: 900,
@@ -185,6 +218,14 @@ export default function HeroSection() {
           </button>
         </div>
       </div>
+
+      {/* Spinning album keyframe */}
+      <style>{`
+        @keyframes spin-album {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
+        }
+      `}</style>
     </section>
   );
 }
