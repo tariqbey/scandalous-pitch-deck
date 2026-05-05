@@ -1,31 +1,36 @@
 import React, { createContext, useContext, useRef, useState } from "react";
 
 // ── CDN audio assets ──────────────────────────────────────────────────────────
-// Theme song: using a royalty-free dramatic orchestral piece as placeholder
-// (Replace THEME_URL with actual Scandalous theme when available)
 const THEME_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/QUaCVDiiMFbFunXS.mp3";
 const INSTRUMENTAL_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/TableFor2(Instrumental).mp3";
 
-// Character VOs — placeholder until Scandalous-specific VOs are recorded
-// Using the Single Ladies VO assets as structural placeholders
+// Character VOs
 const VO_URLS: Record<string, string> = {
   marcus:  "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/dante2.mp3",
   vanessa: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/angi2.mp3",
   elena:   "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/lisa2.mp3",
   tiana:   "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/tammy2.mp3",
-  leo:     "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/faleshia.mp3",
+  leo:     "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/faleshia2.mp3",
+  michael: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/dante2.mp3",
+  renee:   "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/angi2.mp3",
+  jada:    "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/tammy2.mp3",
+  darius:  "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/faleshia.mp3",
+  tonya:   "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/lisa2.mp3",
+  calvin:  "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/dante2.mp3",
 };
 
 interface AudioContextValue {
   themeStarted: boolean;
-  startTheme: () => void;
+  themePlaying: boolean;
+  toggleTheme: () => void;
   playVO: (character: string) => void;
   stopVO: () => void;
 }
 
 const AudioContext = createContext<AudioContextValue>({
   themeStarted: false,
-  startTheme: () => {},
+  themePlaying: false,
+  toggleTheme: () => {},
   playVO: () => {},
   stopVO: () => {},
 });
@@ -35,23 +40,36 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   const instrumentalRef = useRef<HTMLAudioElement | null>(null);
   const voRef = useRef<HTMLAudioElement | null>(null);
   const [themeStarted, setThemeStarted] = useState(false);
+  const [themePlaying, setThemePlaying] = useState(false);
 
-  const startTheme = () => {
+  const toggleTheme = () => {
+    // First time: create and play
     if (!themeRef.current) {
       const audio = new Audio(THEME_URL);
       audio.loop = true;
       audio.volume = 1;
       themeRef.current = audio;
+      audio.play().catch(() => {});
+      setThemeStarted(true);
+      setThemePlaying(true);
+      return;
     }
-    themeRef.current.play().catch(() => {});
-    setThemeStarted(true);
+
+    // Already created: toggle pause/play
+    if (themeRef.current.paused) {
+      themeRef.current.play().catch(() => {});
+      setThemePlaying(true);
+    } else {
+      themeRef.current.pause();
+      setThemePlaying(false);
+    }
   };
 
   const playVO = (character: string) => {
     const url = VO_URLS[character.toLowerCase()];
     if (!url) return;
 
-    // Fade theme to 0 (do NOT use .muted — use .volume = 0)
+    // Fade theme to 0 (keep it running in background, just silent)
     if (themeRef.current) themeRef.current.volume = 0;
 
     // Start instrumental bed at 18%
@@ -73,9 +91,9 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     voRef.current = vo;
     vo.play().catch(() => {});
 
-    // On VO end: restore theme, stop instrumental
+    // On VO end: restore theme volume if it was playing, stop instrumental
     vo.onended = () => {
-      if (themeRef.current) themeRef.current.volume = 1;
+      if (themeRef.current && themePlaying) themeRef.current.volume = 1;
       if (instrumentalRef.current) {
         instrumentalRef.current.pause();
         instrumentalRef.current.currentTime = 0;
@@ -92,11 +110,11 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       instrumentalRef.current.pause();
       instrumentalRef.current.currentTime = 0;
     }
-    if (themeRef.current) themeRef.current.volume = 1;
+    if (themeRef.current && themePlaying) themeRef.current.volume = 1;
   };
 
   return (
-    <AudioContext.Provider value={{ themeStarted, startTheme, playVO, stopVO }}>
+    <AudioContext.Provider value={{ themeStarted, themePlaying, toggleTheme, playVO, stopVO }}>
       {children}
     </AudioContext.Provider>
   );

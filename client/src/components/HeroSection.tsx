@@ -9,7 +9,7 @@ const COVER_ART = "https://files.manuscdn.com/user_upload_by_module/session_file
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
   const [particles, setParticles] = useState<{ x: number; y: number; size: number; delay: number }[]>([]);
-  const { themeStarted, startTheme } = useAudio();
+  const { themeStarted, themePlaying, toggleTheme } = useAudio();
 
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
@@ -83,22 +83,28 @@ export default function HeroSection() {
         {/* PLAY THEME SONG button — disappears after clicked, shows spinning album */}
         {!themeStarted ? (
           <button
-            onClick={startTheme}
+            onClick={toggleTheme}
             className="gold-btn"
             style={{ fontSize: "0.7rem", padding: "0.65rem 2rem", letterSpacing: "0.2em" }}
           >
             ▶ PLAY THEME SONG
           </button>
         ) : (
-          /* Spinning album animation */
-          <div style={{ position: "relative", width: 64, height: 64 }}>
+          /* Spinning album with pause/play toggle */
+          <div
+            onClick={toggleTheme}
+            title={themePlaying ? "Pause theme" : "Resume theme"}
+            style={{ position: "relative", width: 64, height: 64, cursor: "pointer" }}
+          >
+            {/* Spinning record */}
             <div style={{
               width: 64,
               height: 64,
               borderRadius: "50%",
               overflow: "hidden",
-              animation: "spin-album 3s linear infinite",
+              animation: themePlaying ? "spin-album 3s linear infinite" : "none",
               border: "2px solid #D4AF37",
+              transition: "border-color 0.2s ease",
             }}>
               <img src={COVER_ART} alt="Now Playing" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
@@ -112,6 +118,25 @@ export default function HeroSection() {
               background: "#000",
               border: "1px solid #D4AF37",
             }} />
+            {/* Pause/Play overlay icon — shows on hover */}
+            <div style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              background: "rgba(0,0,0,0.55)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              opacity: themePlaying ? 0 : 1,
+              transition: "opacity 0.2s ease",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={e => (e.currentTarget.style.opacity = themePlaying ? "0" : "1")}
+            >
+              <span style={{ color: "#D4AF37", fontSize: "1.1rem", lineHeight: 1 }}>
+                {themePlaying ? "⏸" : "▶"}
+              </span>
+            </div>
           </div>
         )}
 
