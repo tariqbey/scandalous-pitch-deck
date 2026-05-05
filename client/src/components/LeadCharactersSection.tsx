@@ -92,7 +92,7 @@ export default function LeadCharactersSection() {
   const isDark = char.id === "calvin";
 
   return (
-    <section id="lead-characters" ref={ref} style={{ background: "#000", padding: "6rem 1.5rem" }}>
+    <section id="lead-characters" ref={ref} className="resp-section" style={{ background: "#000" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div className="section-label">The Players</div>
         <div className="gold-rule" style={{ maxWidth: 80, margin: "0 0 1rem" }} />
@@ -126,10 +126,10 @@ export default function LeadCharactersSection() {
         </div>
 
         {/* Active character card */}
-        <div style={{
+        <div className="char-card-grid" style={{
           display: "grid",
-          gridTemplateColumns: "minmax(0, 360px) minmax(0, 1fr)",
-          gap: "4rem",
+          gridTemplateColumns: "1fr",
+          gap: "2rem",
           alignItems: "flex-start",
           opacity: visible ? 1 : 0,
           transition: "opacity 0.6s ease",
@@ -291,6 +291,14 @@ export default function LeadCharactersSection() {
           ))}
         </div>
       </div>
+      <style>{`
+        @media (min-width: 768px) {
+          .char-card-grid {
+            grid-template-columns: minmax(0, 320px) minmax(0, 1fr) !important;
+            gap: 3.5rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

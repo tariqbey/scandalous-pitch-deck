@@ -20,7 +20,7 @@ export default function SeriesSummarySection() {
   }, []);
 
   return (
-    <section id="series-summary" ref={ref} style={{ background: "#050505", padding: "6rem 1.5rem" }}>
+    <section id="series-summary" ref={ref} className="resp-section" style={{ background: "#050505" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div className="section-label">Series Overview</div>
         <div className="gold-rule" style={{ maxWidth: 80, margin: "0 0 1rem" }} />

@@ -218,4 +218,97 @@
     from { transform: rotateY(0deg); }
     to   { transform: rotateY(360deg); }
   }
+
+  /* ── Mobile responsive helpers ── */
+  .resp-section {
+    padding: 4rem 1rem;
+  }
+  @media (min-width: 640px) {
+    .resp-section { padding: 5rem 1.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .resp-section { padding: 6rem 2rem; }
+  }
+
+  /* Stack any grid to single column on mobile */
+  .resp-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .resp-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Responsive section heading */
+  .resp-h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
+  }
+
+  /* Responsive inner max-width wrapper */
+  .resp-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Screenplay page — full-width on mobile */
+  .sp-page {
+    background: #fff;
+    color: #000;
+    padding: 2rem 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+  @media (min-width: 640px) {
+    .sp-page { padding: 3rem 2.5rem; font-size: 0.85rem; }
+  }
+
+  /* Legal note row — stacks on mobile */
+  .legal-note-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  @media (min-width: 640px) {
+    .legal-note-row {
+      grid-template-columns: 130px 90px 1fr;
+      align-items: start;
+    }
+  }
+
+  /* Beat sheet row — stacks on mobile */
+  .beat-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  @media (min-width: 480px) {
+    .beat-row {
+      grid-template-columns: 90px 120px 1fr;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+  }
+
+  /* Touch-friendly tap targets */
+  @media (max-width: 639px) {
+    .gold-btn {
+      padding: 0.85rem 1.5rem;
+      font-size: 0.7rem;
+      width: 100%;
+      text-align: center;
+    }
+    .section-label { font-size: 0.65rem; }
+  }
 }

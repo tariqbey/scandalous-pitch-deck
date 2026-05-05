@@ -95,7 +95,7 @@ export default function AnalyticsSection() {
   }, []);
 
   return (
-    <section id="analytics" ref={ref} style={{ background: "#000", padding: "6rem 1.5rem" }}>
+    <section id="analytics" ref={ref} className="resp-section" style={{ background: "#000" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div className="section-label">Social Proof</div>
         <div className="gold-rule" style={{ maxWidth: 80, margin: "0 0 1rem" }} />
@@ -157,8 +157,8 @@ export default function AnalyticsSection() {
           ))}
         </div>
 
-        {/* Charts row */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem", marginBottom: "4rem" }}>
+          {/* Charts row */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "2rem", marginBottom: "4rem" }}>
           {/* Platform bar chart */}
           <div style={{ background: "#0A0A0A", border: "1px solid rgba(212,175,55,0.1)", padding: "2rem" }}>
             <div className="section-label" style={{ marginBottom: "1.5rem" }}>Views by Platform (000s)</div>

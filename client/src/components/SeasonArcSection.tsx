@@ -68,7 +68,7 @@ export default function SeasonArcSection() {
   }, []);
 
   return (
-    <section id="season-arc" ref={ref} style={{ background: "#000", padding: "6rem 1.5rem" }}>
+    <section id="season-arc" ref={ref} className="resp-section" style={{ background: "#000" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div className="section-label">Series Structure</div>
         <div className="gold-rule" style={{ maxWidth: 80, margin: "0 0 1rem" }} />
@@ -76,10 +76,10 @@ export default function SeasonArcSection() {
           Season Arc
         </h2>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", marginBottom: "4rem" }}>
-          Three acts. Sixty episodes. One complete story, engineered for maximum retention and platform flexibility.
+          Six acts. Sixty episodes. One complete story, engineered for maximum retention and platform flexibility.
         </p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2px", background: "rgba(212,175,55,0.1)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "2px", background: "rgba(212,175,55,0.1)" }}>
           {SEASON_ARCS.map((arc, i) => (
             <div key={arc.season} style={{
               background: "#060606",

@@ -50,7 +50,7 @@ export default function BeatSheetsSection() {
   const ep = BEATS[active];
 
   return (
-    <section id="beat-sheets" ref={ref} style={{ background: "#050505", padding: "6rem 1.5rem" }}>
+    <section id="beat-sheets" ref={ref} className="resp-section" style={{ background: "#050505" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div className="section-label">Episode Structure</div>
         <div className="gold-rule" style={{ maxWidth: 80, margin: "0 0 1rem" }} />
@@ -58,7 +58,7 @@ export default function BeatSheetsSection() {
           Beat Sheets
         </h2>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", marginBottom: "2.5rem" }}>
-          Every 90-second episode follows a precision-engineered structure. Hook in 5 seconds. Cliffhanger at 90.
+          Every 60-second episode follows a precision-engineered structure. Hook in 5 seconds. Cliffhanger at 60.
         </p>
 
         {/* Tabs */}
@@ -101,7 +101,7 @@ export default function BeatSheetsSection() {
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", fontWeight: 700, color: "#fff" }}>{ep.title}</div>
             </div>
             <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", color: "rgba(255,255,255,0.3)", textAlign: "right" }}>
-              RUNTIME: 1:30<br />FORMAT: 9:16 VERTICAL
+              RUNTIME: 1:00<br />FORMAT: 9:16 VERTICAL
             </div>
           </div>
 
@@ -127,17 +127,13 @@ export default function BeatSheetsSection() {
           {/* Beat rows */}
           {ep.beats.map((beat, i) => (
             <div key={beat.label} style={{
-              display: "grid",
-              gridTemplateColumns: "100px 140px 1fr",
-              gap: "1.5rem",
-              alignItems: "flex-start",
               paddingBottom: "1.25rem",
               marginBottom: "1.25rem",
               borderBottom: i < ep.beats.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(-10px)",
               transition: `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`,
-            }}>
+            }} className="beat-row">
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", color: "rgba(255,255,255,0.35)", paddingTop: 2 }}>{beat.time}</div>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em", color: "#D4AF37", textTransform: "uppercase", paddingTop: 2 }}>{beat.label}</div>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.6 }}>{beat.desc}</div>

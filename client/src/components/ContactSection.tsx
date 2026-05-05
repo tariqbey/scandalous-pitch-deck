@@ -15,7 +15,7 @@ export default function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Build mailto with summary to both addresses
-    const subject = encodeURIComponent(`SCANDALOUS Pitch Inquiry — ${form.name} / ${form.company}`);
+    const subject = encodeURIComponent(`BLOODLINE LIES Pitch Inquiry — ${form.name} / ${form.company}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
     );
@@ -114,7 +114,7 @@ export default function ContactSection() {
                   Message Sent
                 </div>
                 <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.5)" }}>
-                  Thank you for your interest in SCANDALOUS: BLOODLINE BETRAYAL. We'll be in touch shortly.
+                  Thank you for your interest in BLOODLINE LIES. We'll be in touch shortly.
                 </div>
               </div>
             ) : (

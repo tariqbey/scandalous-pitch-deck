@@ -17,17 +17,18 @@ const EPISODES: { key: EpKey; label: string; title: string }[] = [
 
 const scriptStyle: React.CSSProperties = {
   background: "#fff",
-  padding: "3rem 3.5rem",
+  padding: "clamp(1rem, 4vw, 3rem) clamp(1rem, 5vw, 3.5rem)",
   borderRadius: "2px",
   border: "1px solid rgba(0,0,0,0.08)",
   boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
   fontFamily: "'Courier New', Courier, monospace",
-  fontSize: "1rem",
+  fontSize: "clamp(0.75rem, 2vw, 0.95rem)",
   lineHeight: "1.8",
   color: "#111",
   wordBreak: "break-word",
   overflowWrap: "break-word",
   overflowX: "hidden",
+  maxWidth: "100%",
 };
 
 const titleBlockStyle: React.CSSProperties = {
@@ -523,7 +524,7 @@ export default function ScriptsSection() {
   const ActiveScript = SCRIPT_COMPONENTS[activeEp];
 
   return (
-    <section id="scripts" ref={ref} style={{ background: "#050505", padding: "6rem 1.5rem" }}>
+    <section id="scripts" ref={ref} className="resp-section" style={{ background: "#050505" }}>
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
         <div className="section-label">Sample Scripts</div>
         <div className="gold-rule" style={{ maxWidth: 80, margin: "0 0 1rem" }} />
