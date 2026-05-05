@@ -3,63 +3,75 @@ import { useAudio } from "@/contexts/AudioController";
 
 const CHARS = [
   {
-    id: "marcus",
-    name: "MARCUS HAYES",
+    id: "michael",
+    name: "MICHAEL REED",
     role: "LEAD — THE PATRIARCH",
     roleColor: "#D4AF37",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/EtrWZOIjGikFkSER.jpg",
-    desc: "Tech mogul. Devoted father. Man with one buried secret that is about to destroy everything he built. Twenty years ago he walked away from a woman — and a child he never knew existed.",
-    arc: "From denial to devastation to redemption — or ruin.",
-    credits: ["Original Character", "SCANDALOUS: Bloodline Betrayal"],
+    desc: "Married to Tonya. Father of Jada. Michael is a man who buried a mistake and called it survival. When Darius shows him Renee's photo, Michael realizes the past is sitting in his living room holding his daughter's hand.",
+    arc: "From denial to devastation — he waited 20 years because the truth was inconvenient.",
+    credits: ["Original Character", "BLOODLINE LIES"],
     audience: "Primary: 25–44 Black women. Secondary: Drama fans 18–54.",
     reach: 85,
   },
   {
-    id: "vanessa",
-    name: "VANESSA COLE",
+    id: "renee",
+    name: "RENEE COLE",
     role: "LEAD — THE GHOST",
     roleColor: "#e05c8a",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/RgpPMudkgwfkFaOI.jpg",
-    desc: "The woman Marcus abandoned 20 years ago. She raised Leo alone, in silence, with a secret she swore she'd take to her grave. She never forgot. She never forgave. And now she doesn't have to.",
-    arc: "From victim to power broker — her silence has a price.",
-    credits: ["Original Character", "SCANDALOUS: Bloodline Betrayal"],
+    desc: "Married to Calvin. Mother of Darius. Renee protected her marriage by refusing a DNA test. She has lived 20 years inside that decision. When Michael calls, she is defensive — then he tells her their children are dating.",
+    arc: "From victim to power broker — she thinks silence equals protection.",
+    credits: ["Original Character", "BLOODLINE LIES"],
     audience: "Primary: 30–50 women. Secondary: Revenge drama fans.",
     reach: 78,
   },
   {
-    id: "elena",
-    name: "ELENA HAYES",
-    role: "LEAD — THE WIFE",
-    roleColor: "#4ecdc4",
-    img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/nPbUqfwlaEPLKHeU.jpg",
-    desc: "Marcus's wife. Brilliant, perceptive, and the last person to know — until she becomes the first to act. She built this family. She will not watch it burn without striking the match herself.",
-    arc: "From loyal wife to the most dangerous woman in the room.",
-    credits: ["Original Character", "SCANDALOUS: Bloodline Betrayal"],
-    audience: "Primary: 28–45 women. Secondary: Thriller fans.",
-    reach: 72,
-  },
-  {
-    id: "tiana",
-    name: "TIANA HAYES",
+    id: "jada",
+    name: "JADA REED",
     role: "LEAD — THE DAUGHTER",
     roleColor: "#e05c8a",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/RKUuubvLMkNKOBwg.jpg",
-    desc: "She found her soulmate. She planned her future. She has no idea her love story is a biological catastrophe. When the truth arrives, she will have to choose between love and survival.",
+    desc: "Michael's daughter. Darius's girlfriend. Jada is in love and expects Michael to respect her choice. She does not know her father recognizes Darius's mother — or what that recognition means.",
     arc: "From bliss to horror to the hardest choice of her life.",
-    credits: ["Original Character", "SCANDALOUS: Bloodline Betrayal"],
+    credits: ["Original Character", "BLOODLINE LIES"],
     audience: "Primary: 18–35 women. Secondary: Romance drama fans.",
     reach: 90,
   },
   {
-    id: "leo",
-    name: "LEO COLE",
-    role: "VILLAIN — THE CATALYST",
-    roleColor: "#8B0000",
+    id: "darius",
+    name: "DARIUS COLE",
+    role: "LEAD — THE CATALYST",
+    roleColor: "#4ecdc4",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/ZISqUnqzgXzOqwUY.jpg",
-    desc: "He loves Tiana completely. He idolizes his mother. He is the innocent center of a storm he didn't create — but once he learns the truth, innocence becomes a choice.",
-    arc: "From devoted fiancé to a man whose identity is a lie.",
-    credits: ["Original Character", "SCANDALOUS: Bloodline Betrayal"],
+    desc: "Renee and Calvin's son. Darius fully believes Calvin is his dad. He is proud of him. Calvin raised him. Calvin shaped him. He is the innocent center of a storm he didn't create.",
+    arc: "From devoted boyfriend to a man whose identity may be a lie.",
+    credits: ["Original Character", "BLOODLINE LIES"],
     audience: "Primary: 20–40 men and women. Secondary: Thriller fans.",
+    reach: 75,
+  },
+  {
+    id: "tonya",
+    name: "TONYA REED",
+    role: "SUPPORTING — THE WIFE",
+    roleColor: "#D4AF37",
+    img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/nPbUqfwlaEPLKHeU.jpg",
+    desc: "Michael's wife. Jada's mother. Tonya is not involved at first. She slowly notices Michael acting different after Darius comes over. She is the last to know — and the first to act.",
+    arc: "From loyal wife to the most dangerous woman in the room.",
+    credits: ["Original Character", "BLOODLINE LIES"],
+    audience: "Primary: 28–45 women. Secondary: Thriller fans.",
+    reach: 72,
+  },
+  {
+    id: "calvin",
+    name: "CALVIN COLE",
+    role: "SUPPORTING — THE HUSBAND",
+    roleColor: "#8B0000",
+    img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/nPbUqfwlaEPLKHeU.jpg",
+    desc: "Renee's husband. Darius's father. Calvin does not find out early. He senses Renee is hiding something, but she throws him off. His suspicion builds slowly over many episodes.",
+    arc: "From trusting husband to a man whose entire family may be built on a lie.",
+    credits: ["Original Character", "BLOODLINE LIES"],
+    audience: "Primary: 30–50 men and women. Secondary: Family drama fans.",
     reach: 68,
   },
 ];
@@ -77,7 +89,7 @@ export default function LeadCharactersSection() {
   }, []);
 
   const char = CHARS[active];
-  const isVillain = char.id === "leo";
+  const isDark = char.id === "calvin";
 
   return (
     <section id="lead-characters" ref={ref} style={{ background: "#000", padding: "6rem 1.5rem" }}>
@@ -97,7 +109,7 @@ export default function LeadCharactersSection() {
               style={{
                 background: active === i ? c.roleColor : "transparent",
                 border: `1px solid ${c.roleColor}`,
-                color: active === i ? (c.id === "leo" ? "#fff" : "#000") : c.roleColor,
+                color: active === i ? (isDark && i === active ? "#fff" : "#000") : c.roleColor,
                 fontFamily: "'Inter', sans-serif",
                 fontSize: "0.65rem",
                 fontWeight: 700,
@@ -113,7 +125,7 @@ export default function LeadCharactersSection() {
           ))}
         </div>
 
-        {/* Active character card — skill layout: portrait left, bio right */}
+        {/* Active character card */}
         <div style={{
           display: "grid",
           gridTemplateColumns: "minmax(0, 360px) minmax(0, 1fr)",
@@ -122,7 +134,7 @@ export default function LeadCharactersSection() {
           opacity: visible ? 1 : 0,
           transition: "opacity 0.6s ease",
         }}>
-          {/* Left: 9:16 portrait image */}
+          {/* Left: 9:16 portrait */}
           <div style={{ position: "relative", flexShrink: 0 }}>
             <div style={{
               aspectRatio: "9/16",
@@ -146,10 +158,7 @@ export default function LeadCharactersSection() {
                 }}
               />
             </div>
-            {/* Color accent bar */}
             <div style={{ height: 4, background: char.roleColor, maxWidth: 360 }} />
-
-            {/* PLAY VOICEOVER button */}
             <button
               onClick={() => playVO(char.id)}
               style={{
@@ -171,7 +180,7 @@ export default function LeadCharactersSection() {
               }}
               onMouseEnter={e => {
                 (e.target as HTMLButtonElement).style.background = char.roleColor;
-                (e.target as HTMLButtonElement).style.color = isVillain ? "#fff" : "#000";
+                (e.target as HTMLButtonElement).style.color = isDark ? "#fff" : "#000";
               }}
               onMouseLeave={e => {
                 (e.target as HTMLButtonElement).style.background = "transparent";
@@ -184,11 +193,10 @@ export default function LeadCharactersSection() {
 
           {/* Right: bio + badges */}
           <div style={{ paddingTop: "0.5rem" }}>
-            {/* Role badge */}
             <div style={{
               display: "inline-block",
               background: char.roleColor,
-              color: isVillain ? "#fff" : "#000",
+              color: isDark ? "#fff" : "#000",
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.6rem",
               fontWeight: 800,
@@ -200,7 +208,6 @@ export default function LeadCharactersSection() {
               {char.role}
             </div>
 
-            {/* Character name */}
             <h3 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: "clamp(1.8rem, 4vw, 3rem)",
@@ -212,7 +219,6 @@ export default function LeadCharactersSection() {
               {char.name}
             </h3>
 
-            {/* Description */}
             <p style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.9rem",
@@ -223,7 +229,6 @@ export default function LeadCharactersSection() {
               {char.desc}
             </p>
 
-            {/* Credits */}
             <div style={{ marginBottom: "1.5rem" }}>
               <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>CREDITS</div>
               {char.credits.map((c) => (
@@ -233,7 +238,6 @@ export default function LeadCharactersSection() {
               ))}
             </div>
 
-            {/* Audience */}
             <div style={{ marginBottom: "1.5rem" }}>
               <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>AUDIENCE</div>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
@@ -241,7 +245,6 @@ export default function LeadCharactersSection() {
               </div>
             </div>
 
-            {/* Character arc */}
             <div style={{ paddingLeft: "1.5rem", borderLeft: `3px solid ${char.roleColor}`, marginBottom: "2rem" }}>
               <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>Character Arc</div>
               <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1rem", color: "#fff", lineHeight: 1.6 }}>
@@ -249,7 +252,6 @@ export default function LeadCharactersSection() {
               </p>
             </div>
 
-            {/* TOTAL REACH bar */}
             <div>
               <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>TOTAL REACH</div>
               <div style={{ background: "rgba(255,255,255,0.06)", height: 6, borderRadius: 0, overflow: "hidden", maxWidth: 400 }}>

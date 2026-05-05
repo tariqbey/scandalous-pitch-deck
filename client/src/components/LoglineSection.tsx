@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const WHY_IT_WORKS = [
-  { label: "Forbidden Love", desc: "The #1 revenue driver on vertical platforms — amplified by biological horror." },
-  { label: "Four-Way Power War", desc: "Two marriages, two secrets, one DNA test. Every character has something to lose." },
-  { label: "Real-Time Drama", desc: "Inspired by a viral story with 3–5M+ documented views across platforms." },
-  { label: "Mobile-First Format", desc: "9:16 vertical, 90-second episodes, 60-ep arc — engineered for scroll culture." },
+  { label: "Invisible Danger", desc: "The audience sees Michael panic. The kids do not. Renee does not know why he is calling. The danger stretches instead of exploding too soon." },
+  { label: "Six-Person War", desc: "Two marriages, one buried pregnancy, one DNA test. Every character has something to lose — and the truth destroys all of them differently." },
+  { label: "Real-World Source", desc: "Inspired by a viral story with 7M+ documented views across platforms — with zero paid promotion." },
+  { label: "Mobile-First Format", desc: "9:16 vertical, 60-second episodes, 60-ep arc — engineered for scroll culture and binge retention." },
 ];
 
 export default function LoglineSection() {
@@ -36,7 +36,7 @@ export default function LoglineSection() {
           transform: visible ? "translateX(0)" : "translateX(-30px)",
           transition: "opacity 0.9s ease, transform 0.9s ease",
         }}>
-          Twenty years after a scandalous Jersey motel affair ended in a ghosted pregnancy, a tech mogul's perfect life shatters when his daughter's fiancé shows him a family photo — revealing the boy's mother is the woman Marcus abandoned and sparking a desperate race to prove the kid isn't his son before a wedding turns into a biological crime.
+          When Michael's daughter brings home her boyfriend, Michael silently recognizes the boy's mother as Renee — the married woman who got pregnant during their affair 20 years ago and refused a DNA test. Now Michael must force Renee to face the truth before their children's relationship goes too far, while both of them fight to keep their spouses from discovering the secret that could destroy two families.
         </blockquote>
 
         {/* Format specs */}
@@ -51,7 +51,7 @@ export default function LoglineSection() {
           {[
             { label: "Format", value: "9:16 Vertical" },
             { label: "Episodes", value: "60 LOCKED" },
-            { label: "Runtime", value: "90 Seconds" },
+            { label: "Runtime", value: "60 Seconds" },
             { label: "Locations", value: "4 Standing" },
           ].map((spec) => (
             <div key={spec.label} style={{ background: "#0A0A0A", padding: "1.5rem 2rem" }}>

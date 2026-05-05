@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
 const ARCS = [
-  { ep: "Ep 1–10", title: "The Revelation", color: "#D4AF37", desc: "Marcus discovers the truth. Panic, denial, and desperate research as he races to confirm the unthinkable." },
-  { ep: "Ep 11–20", title: "The Cover-Up", color: "#8B0000", desc: "Marcus and Vanessa conspire to separate the kids without revealing why. Lies compound. Marriages crack." },
-  { ep: "Ep 21–35", title: "The Unraveling", color: "#4ecdc4", desc: "Tiana and Leo grow closer. Elena suspects something. Dominic starts his own investigation." },
-  { ep: "Ep 36–50", title: "The Exposure", color: "#e05c8a", desc: "The DNA test results go public. Tiana and Leo discover the truth. Families implode." },
-  { ep: "Ep 51–60", title: "The Reckoning", color: "#D4AF37", desc: "Can love survive biology? Can families survive honesty? Every character faces their defining moment." },
+  { ep: "Ep 1–10", title: "The Photo & The First Call", color: "#D4AF37", desc: "Michael meets Darius, recognizes Renee in a family photo, and calls her from the bathroom. Renee is defensive and clueless — until Michael explains their children are dating." },
+  { ep: "Ep 11–20", title: "The Silent War", color: "#8B0000", desc: "Michael tells Jada to slow down with no explanation. Renee warns Darius. Calvin grows suspicious. Tonya finds Renee's name on Michael's phone." },
+  { ep: "Ep 21–30", title: "Pressure From Both Homes", color: "#4ecdc4", desc: "Tonya confronts Michael. Calvin checks Renee's phone. Jada considers moving in with Darius. Michael and Renee meet in person. Renee cannot say Darius is not Michael's son." },
+  { ep: "Ep 31–40", title: "The Affair Surfaces", color: "#e05c8a", desc: "Tonya follows Michael and sees him with Renee. Michael confesses the affair. Calvin questions Renee. Jada leaves home. Michael tells Tonya Renee was pregnant." },
+  { ep: "Ep 41–50", title: "The DNA Question Explodes", color: "#D4AF37", desc: "Tonya realizes Jada may be dating Michael's child. Darius learns the truth. Renee refuses the DNA test again. Jada and Darius book the test themselves." },
+  { ep: "Ep 51–60", title: "Bloodline Reckoning", color: "#8B0000", desc: "All six sit in the clinic waiting room. The results arrive. Darius is not Michael's son. Then the second page: he is not Calvin's either. Marcus enters. 'Tell them why you put my son in Calvin's house.'" },
 ];
 
 export default function SeriesSummarySection() {
@@ -27,7 +28,7 @@ export default function SeriesSummarySection() {
           60 Episodes.<br />One Devastating Truth.
         </h2>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", maxWidth: 700, lineHeight: 1.8, marginBottom: "4rem" }}>
-          SCANDALOUS: BLOODLINE BETRAYAL is a 60-episode vertical micro-drama series. Each episode runs 90 seconds, designed for mobile-first consumption. The full arc is pre-written, production-ready, and built for binge retention — with a cliffhanger every single episode.
+          BLOODLINE LIES is a 60-episode vertical micro-drama series. Each episode runs 60 seconds, designed for mobile-first consumption. The full arc is pre-written, production-ready, and built for binge retention — with a cliffhanger every single episode.
         </p>
 
         {/* Arc timeline */}
@@ -39,7 +40,7 @@ export default function SeriesSummarySection() {
             top: 0,
             bottom: 0,
             width: 2,
-            background: "linear-gradient(to bottom, #D4AF37, #8B0000, #4ecdc4, #e05c8a, #D4AF37)",
+            background: "linear-gradient(to bottom, #D4AF37, #8B0000, #4ecdc4, #e05c8a, #D4AF37, #8B0000)",
           }} />
 
           {ARCS.map((arc, i) => (

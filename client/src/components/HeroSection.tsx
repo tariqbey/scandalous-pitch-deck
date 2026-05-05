@@ -33,7 +33,7 @@ export default function HeroSection() {
       <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
         <img
           src={HERO_IMG}
-          alt="SCANDALOUS: BLOODLINE BETRAYAL"
+          alt="BLOODLINE LIES"
           style={{
             width: "100%",
             display: "block",
@@ -164,7 +164,7 @@ export default function HeroSection() {
           letterSpacing: "-0.02em",
           textShadow: "0 0 60px rgba(212,175,55,0.3)",
         }}>
-          SCANDALOUS
+          BLOODLINE LIES
         </div>
 
         {/* Subtitle */}
@@ -176,7 +176,7 @@ export default function HeroSection() {
           textTransform: "uppercase",
           color: "#D4AF37",
         }}>
-          BLOODLINE BETRAYAL
+          A VERTICAL MICRO-DRAMA SERIES
         </div>
 
         {/* Tagline */}
@@ -187,7 +187,7 @@ export default function HeroSection() {
           color: "rgba(255,255,255,0.7)",
           maxWidth: 600,
         }}>
-          "To save his daughter's heart, he must admit he's a monster—or let the bloodline corrupt itself."
+          "He recognized her in a family photo. He said nothing. Then he went to the bathroom and called her."
         </div>
 
         {/* Genre pills */}

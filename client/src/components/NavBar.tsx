@@ -47,7 +47,7 @@ export default function NavBar() {
     >
       {/* Logo text */}
       <div style={{ fontFamily: "'Playfair Display', serif", color: "#D4AF37", fontSize: "1rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-        SCANDALOUS
+        BLOODLINE LIES
       </div>
 
       {/* Desktop nav */}

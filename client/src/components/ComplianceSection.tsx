@@ -17,7 +17,7 @@ const CHECKLIST = [
     color: "#4ecdc4",
     items: [
       { label: "Serialized narrative structure", met: true },
-      { label: "90-second episode format", met: true },
+      { label: "60-second episode format", met: true },
       { label: "Cliffhanger / hook at episode end", met: true },
       { label: "Mobile-first visual language", met: true },
     ],

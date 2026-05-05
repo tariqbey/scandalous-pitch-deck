@@ -16,7 +16,7 @@ export default function FooterSection() {
             style={{ height: 80, objectFit: "contain" }}
           />
           <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.9rem", color: "#D4AF37", letterSpacing: "0.1em", textAlign: "center" }}>
-            SCANDALOUS: BLOODLINE BETRAYAL
+            BLOODLINE LIES
           </div>
         </div>
 
