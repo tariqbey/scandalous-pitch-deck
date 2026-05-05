@@ -76,226 +76,234 @@ const CHARS = [
   },
 ];
 
-export default function LeadCharactersSection() {
+function CharCard({ char, index }: { char: typeof CHARS[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const [active, setActive] = useState(0);
-  const { playVO, stopVO } = useAudio();
+  const { playVO } = useAudio();
+  const isEven = index % 2 === 0;
 
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.1 });
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.15 }
+    );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
-  const char = CHARS[active];
-  const isDark = char.id === "calvin";
-
   return (
-    <section id="lead-characters" ref={ref} className="resp-section" style={{ background: "#000" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div className="section-label">The Players</div>
-        <div className="gold-rule" style={{ maxWidth: 80, margin: "0 0 1rem" }} />
-        <h2 className="display-heading" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", marginBottom: "3rem" }}>
-          Lead Characters
-        </h2>
-
-        {/* Character selector tabs */}
-        <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "3rem" }}>
-          {CHARS.map((c, i) => (
-            <button
-              key={c.id}
-              onClick={() => { stopVO(); setActive(i); }}
-              style={{
-                background: active === i ? c.roleColor : "transparent",
-                border: `1px solid ${c.roleColor}`,
-                color: active === i ? (isDark && i === active ? "#fff" : "#000") : c.roleColor,
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "0.65rem",
-                fontWeight: 700,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                padding: "0.5rem 1.25rem",
-                cursor: "pointer",
-                transition: "all 0.25s ease",
-              }}
-            >
-              {c.name.split(" ")[0]}
-            </button>
-          ))}
-        </div>
-
-        {/* Active character card */}
-        <div className="char-card-grid" style={{
-          display: "grid",
-          gridTemplateColumns: "1fr",
-          gap: "2rem",
-          alignItems: "flex-start",
-          opacity: visible ? 1 : 0,
-          transition: "opacity 0.6s ease",
+    <div
+      ref={ref}
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr",
+        gap: "2.5rem",
+        alignItems: "flex-start",
+        paddingBottom: "5rem",
+        marginBottom: "5rem",
+        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(40px)",
+        transition: `opacity 0.8s ease ${index * 0.05}s, transform 0.8s ease ${index * 0.05}s`,
+      }}
+      className="char-full-row"
+    >
+      {/* Portrait — alternates left/right on desktop */}
+      <div className={isEven ? "char-portrait-left" : "char-portrait-right"} style={{ position: "relative" }}>
+        <div style={{
+          aspectRatio: "9/16",
+          width: "100%",
+          maxWidth: 320,
+          margin: "0 auto",
+          background: "#000",
+          overflow: "hidden",
+          border: `1px solid ${char.roleColor}`,
+          boxShadow: `0 0 80px ${char.roleColor}25`,
         }}>
-          {/* Left: 9:16 portrait */}
-          <div style={{ position: "relative", flexShrink: 0 }}>
-            <div style={{
-              aspectRatio: "9/16",
+          <img
+            src={char.img}
+            alt={char.name}
+            style={{
               width: "100%",
-              maxWidth: 360,
-              background: "#000",
-              overflow: "hidden",
-              border: `1px solid ${char.roleColor}`,
-              boxShadow: `0 0 60px ${char.roleColor}30`,
-            }}>
-              <img
-                src={char.img}
-                alt={char.name}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "top",
-                  display: "block",
-                  transition: "all 0.4s ease",
-                }}
-              />
-            </div>
-            <div style={{ height: 4, background: char.roleColor, maxWidth: 360 }} />
-            <button
-              onClick={() => playVO(char.id)}
-              style={{
-                display: "block",
-                width: "100%",
-                maxWidth: 360,
-                marginTop: "0.75rem",
-                background: "transparent",
-                border: `1px solid ${char.roleColor}`,
-                color: char.roleColor,
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "0.65rem",
-                fontWeight: 700,
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                padding: "0.6rem 1rem",
-                cursor: "pointer",
-                transition: "all 0.25s ease",
-              }}
-              onMouseEnter={e => {
-                (e.target as HTMLButtonElement).style.background = char.roleColor;
-                (e.target as HTMLButtonElement).style.color = isDark ? "#fff" : "#000";
-              }}
-              onMouseLeave={e => {
-                (e.target as HTMLButtonElement).style.background = "transparent";
-                (e.target as HTMLButtonElement).style.color = char.roleColor;
-              }}
-            >
-              ▶ PLAY VOICEOVER
-            </button>
-          </div>
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "top",
+              display: "block",
+            }}
+          />
+        </div>
+        {/* Color bar under portrait */}
+        <div style={{ height: 4, background: char.roleColor, maxWidth: 320, margin: "0 auto" }} />
+        {/* VO button */}
+        <button
+          onClick={() => playVO(char.id)}
+          style={{
+            display: "block",
+            width: "100%",
+            maxWidth: 320,
+            margin: "0.75rem auto 0",
+            background: "transparent",
+            border: `1px solid ${char.roleColor}`,
+            color: char.roleColor,
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "0.65rem",
+            fontWeight: 700,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            padding: "0.6rem 1rem",
+            cursor: "pointer",
+            transition: "all 0.25s ease",
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLButtonElement).style.background = char.roleColor;
+            (e.currentTarget as HTMLButtonElement).style.color = char.id === "calvin" ? "#fff" : "#000";
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+            (e.currentTarget as HTMLButtonElement).style.color = char.roleColor;
+          }}
+        >
+          ▶ PLAY VOICEOVER
+        </button>
+      </div>
 
-          {/* Right: bio + badges */}
-          <div style={{ paddingTop: "0.5rem" }}>
-            <div style={{
-              display: "inline-block",
-              background: char.roleColor,
-              color: isDark ? "#fff" : "#000",
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "0.6rem",
-              fontWeight: 800,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              padding: "0.3rem 0.9rem",
-              marginBottom: "1rem",
-            }}>
-              {char.role}
-            </div>
+      {/* Bio block */}
+      <div style={{ paddingTop: "0.5rem" }}>
+        {/* Role badge */}
+        <div style={{
+          display: "inline-block",
+          background: char.roleColor,
+          color: char.id === "calvin" ? "#fff" : "#000",
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.6rem",
+          fontWeight: 800,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+          padding: "0.3rem 0.9rem",
+          marginBottom: "1rem",
+        }}>
+          {char.role}
+        </div>
 
-            <h3 style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "clamp(1.8rem, 4vw, 3rem)",
-              fontWeight: 900,
-              color: "#fff",
-              marginBottom: "1.5rem",
-              lineHeight: 1.1,
-            }}>
-              {char.name}
-            </h3>
+        <h3 style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: "clamp(2rem, 5vw, 3.2rem)",
+          fontWeight: 900,
+          color: "#fff",
+          marginBottom: "1.5rem",
+          lineHeight: 1.05,
+        }}>
+          {char.name}
+        </h3>
 
-            <p style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "0.9rem",
-              color: "rgba(255,255,255,0.7)",
-              lineHeight: 1.8,
-              marginBottom: "2rem",
-            }}>
-              {char.desc}
-            </p>
+        <p style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.92rem",
+          color: "rgba(255,255,255,0.7)",
+          lineHeight: 1.85,
+          marginBottom: "2rem",
+          maxWidth: 560,
+        }}>
+          {char.desc}
+        </p>
 
-            <div style={{ marginBottom: "1.5rem" }}>
-              <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>CREDITS</div>
-              {char.credits.map((c) => (
-                <div key={c} style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
-                  {c}
-                </div>
-              ))}
-            </div>
+        {/* Character Arc */}
+        <div style={{
+          paddingLeft: "1.5rem",
+          borderLeft: `3px solid ${char.roleColor}`,
+          marginBottom: "2rem",
+        }}>
+          <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>Character Arc</div>
+          <p style={{
+            fontFamily: "'Playfair Display', serif",
+            fontStyle: "italic",
+            fontSize: "1rem",
+            color: "#fff",
+            lineHeight: 1.6,
+          }}>
+            {char.arc}
+          </p>
+        </div>
 
-            <div style={{ marginBottom: "1.5rem" }}>
-              <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>AUDIENCE</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
-                {char.audience}
-              </div>
-            </div>
-
-            <div style={{ paddingLeft: "1.5rem", borderLeft: `3px solid ${char.roleColor}`, marginBottom: "2rem" }}>
-              <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>Character Arc</div>
-              <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1rem", color: "#fff", lineHeight: 1.6 }}>
-                {char.arc}
-              </p>
-            </div>
-
-            <div>
-              <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>TOTAL REACH</div>
-              <div style={{ background: "rgba(255,255,255,0.06)", height: 6, borderRadius: 0, overflow: "hidden", maxWidth: 400 }}>
-                <div style={{
-                  height: "100%",
-                  width: `${char.reach}%`,
-                  background: char.roleColor,
-                  transition: "width 1s ease",
-                }} />
-              </div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", color: "rgba(255,255,255,0.3)", marginTop: "0.3rem" }}>
-                Audience engagement potential: {char.reach}%
-              </div>
-            </div>
+        {/* Audience */}
+        <div style={{ marginBottom: "1.5rem" }}>
+          <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>Audience</div>
+          <div style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "0.78rem",
+            color: "rgba(255,255,255,0.5)",
+            lineHeight: 1.7,
+          }}>
+            {char.audience}
           </div>
         </div>
 
-        {/* Thumbnail strip */}
-        <div style={{ display: "flex", gap: "1rem", marginTop: "3rem", flexWrap: "wrap" }}>
-          {CHARS.map((c, i) => (
-            <div
-              key={c.id}
-              onClick={() => { stopVO(); setActive(i); }}
-              style={{
-                cursor: "pointer",
-                opacity: active === i ? 1 : 0.4,
-                transition: "opacity 0.3s ease",
-                border: active === i ? `2px solid ${c.roleColor}` : "2px solid transparent",
-              }}
-            >
-              <img
-                src={c.img}
-                alt={c.name}
-                style={{ width: 60, height: 80, objectFit: "cover", objectPosition: "top", display: "block" }}
-              />
-            </div>
-          ))}
+        {/* Reach bar */}
+        <div>
+          <div className="section-label" style={{ color: char.roleColor, marginBottom: "0.5rem" }}>Audience Engagement Potential</div>
+          <div style={{
+            background: "rgba(255,255,255,0.06)",
+            height: 6,
+            borderRadius: 0,
+            overflow: "hidden",
+            maxWidth: 400,
+          }}>
+            <div style={{
+              height: "100%",
+              width: visible ? `${char.reach}%` : "0%",
+              background: char.roleColor,
+              transition: "width 1.2s ease 0.4s",
+            }} />
+          </div>
+          <div style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "0.65rem",
+            color: "rgba(255,255,255,0.3)",
+            marginTop: "0.3rem",
+          }}>
+            {char.reach}%
+          </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+export default function LeadCharactersSection() {
+  return (
+    <section id="lead-characters" className="resp-section" style={{ background: "#000" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div className="section-label">The Players</div>
+        <div className="gold-rule" style={{ maxWidth: 80, margin: "0 0 1rem" }} />
+        <h2 className="display-heading" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", marginBottom: "0.5rem" }}>
+          Lead Characters
+        </h2>
+        <p style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.85rem",
+          color: "rgba(255,255,255,0.5)",
+          marginBottom: "4rem",
+        }}>
+          Six people. One secret. Every character is a loaded gun pointed at someone else.
+        </p>
+
+        {CHARS.map((char, i) => (
+          <CharCard key={char.id} char={char} index={i} />
+        ))}
+      </div>
+
       <style>{`
+        /* Desktop: portrait left on even, right on odd */
         @media (min-width: 768px) {
-          .char-card-grid {
-            grid-template-columns: minmax(0, 320px) minmax(0, 1fr) !important;
-            gap: 3.5rem !important;
+          .char-full-row {
+            grid-template-columns: minmax(0, 300px) minmax(0, 1fr) !important;
+            gap: 4rem !important;
+          }
+          .char-portrait-right {
+            order: 2;
+          }
+          .char-portrait-right + div {
+            order: 1;
           }
         }
       `}</style>
