@@ -90,7 +90,6 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
     vid.muted = true;
     const play = () => vid.play().catch(() => {});
     play();
-    // iOS autoplay fallback
     document.addEventListener("touchstart", play, { once: true });
     return () => document.removeEventListener("touchstart", play);
   }, []);
@@ -145,11 +144,11 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
               border: `1px solid ${char.roleColor}`,
               color: char.roleColor,
               fontFamily: "'Inter', sans-serif",
-              fontSize: "0.62rem",
+              fontSize: "0.85rem",
               fontWeight: 700,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              padding: "0.65rem 1rem",
+              padding: "0.8rem 1.25rem",
               cursor: "pointer",
               transition: "background 0.2s, color 0.2s",
             }}
@@ -174,11 +173,11 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
             background: char.roleColor,
             color: char.textOnBadge,
             fontFamily: "'Inter', sans-serif",
-            fontSize: "0.58rem",
+            fontSize: "0.75rem",
             fontWeight: 800,
             letterSpacing: "0.15em",
             textTransform: "uppercase",
-            padding: "0.3rem 0.85rem",
+            padding: "0.35rem 0.9rem",
             marginBottom: "1rem",
           }}>
             {char.role}
@@ -199,9 +198,9 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
           {/* Description */}
           <p style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: "0.9rem",
-            color: "rgba(255,255,255,0.7)",
-            lineHeight: 1.85,
+            fontSize: "1rem",
+            color: "rgba(255,255,255,0.75)",
+            lineHeight: 1.9,
             marginBottom: "1.75rem",
             maxWidth: 540,
           }}>
@@ -216,7 +215,7 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
           }}>
             <div style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: "0.58rem",
+              fontSize: "0.75rem",
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -228,7 +227,7 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
             <p style={{
               fontFamily: "'Playfair Display', serif",
               fontStyle: "italic",
-              fontSize: "0.95rem",
+              fontSize: "1.05rem",
               color: "#fff",
               lineHeight: 1.65,
               margin: 0,
@@ -241,7 +240,7 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
           <div style={{ marginBottom: "1.5rem" }}>
             <div style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: "0.58rem",
+              fontSize: "0.75rem",
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -252,9 +251,9 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
             </div>
             <div style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: "0.8rem",
-              color: "rgba(255,255,255,0.55)",
-              lineHeight: 1.7,
+              fontSize: "0.95rem",
+              color: "rgba(255,255,255,0.65)",
+              lineHeight: 1.75,
             }}>
               {char.audience}
             </div>
@@ -264,7 +263,7 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
           <div>
             <div style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: "0.58rem",
+              fontSize: "0.75rem",
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -275,21 +274,23 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
             </div>
             <div style={{
               background: "rgba(255,255,255,0.07)",
-              height: 5,
+              height: 6,
               maxWidth: 360,
               overflow: "hidden",
+              borderRadius: 3,
             }}>
               <div style={{
                 height: "100%",
                 width: `${char.reach}%`,
                 background: char.roleColor,
+                borderRadius: 3,
               }} />
             </div>
             <div style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: "0.62rem",
-              color: "rgba(255,255,255,0.3)",
-              marginTop: "0.3rem",
+              fontSize: "0.85rem",
+              color: "rgba(255,255,255,0.45)",
+              marginTop: "0.35rem",
             }}>
               {char.reach}%
             </div>
@@ -308,7 +309,7 @@ export default function LeadCharactersSection() {
         {/* Section header */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: "0.6rem",
+          fontSize: "0.85rem",
           fontWeight: 700,
           letterSpacing: "0.25em",
           textTransform: "uppercase",
@@ -330,11 +331,11 @@ export default function LeadCharactersSection() {
         </h2>
         <p style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: "0.85rem",
-          color: "rgba(255,255,255,0.5)",
+          fontSize: "1rem",
+          color: "rgba(255,255,255,0.6)",
           marginBottom: "4rem",
           maxWidth: 600,
-          lineHeight: 1.7,
+          lineHeight: 1.75,
         }}>
           Six people. One secret. Every character is a loaded gun pointed at someone else.
         </p>

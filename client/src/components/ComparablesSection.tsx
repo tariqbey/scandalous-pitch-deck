@@ -57,7 +57,7 @@ export default function ComparablesSection() {
         <h2 className="display-heading" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", marginBottom: "0.75rem" }}>
           Comparable Titles
         </h2>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", marginBottom: "3rem" }}>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.6)", marginBottom: "3rem", lineHeight: 1.8 }}>
           SCANDALOUS: BLOODLINE LIES sits at the intersection of premium family drama and viral social content — a market position no current title occupies.
         </p>
 
@@ -114,7 +114,7 @@ export default function ComparablesSection() {
                 </div>
                 <div style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.65rem",
+                  fontSize: "0.8rem",
                   color: "#D4AF37",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
@@ -124,9 +124,9 @@ export default function ComparablesSection() {
                 </div>
                 <div style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.72rem",
-                  color: "rgba(255,255,255,0.55)",
-                  lineHeight: 1.6,
+                  fontSize: "0.88rem",
+                  color: "rgba(255,255,255,0.65)",
+                  lineHeight: 1.65,
                 }}>
                   {comp.note}
                 </div>
@@ -150,7 +150,7 @@ export default function ComparablesSection() {
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", color: "#D4AF37" }}>
               Pre-existing audience
             </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginTop: "0.25rem" }}>
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginTop: "0.25rem" }}>
               3–5M+ documented views on the source story before a single episode is shot.
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function ComparablesSection() {
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", color: "#D4AF37" }}>
               Proven format
             </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginTop: "0.25rem" }}>
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginTop: "0.25rem" }}>
               Vertical micro-drama is the fastest-growing content format on every major platform.
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function ComparablesSection() {
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", color: "#D4AF37" }}>
               Complete package
             </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginTop: "0.25rem" }}>
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginTop: "0.25rem" }}>
               60 episodes written, beat sheets locked, characters cast-ready, compliance documented.
             </div>
           </div>

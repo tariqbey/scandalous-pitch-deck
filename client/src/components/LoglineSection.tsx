@@ -56,7 +56,7 @@ export default function LoglineSection() {
           ].map((spec) => (
             <div key={spec.label} style={{ background: "#0A0A0A", padding: "1.5rem 2rem" }}>
               <div className="section-label" style={{ marginBottom: "0.5rem" }}>{spec.label}</div>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", color: "#D4AF37", fontWeight: 700 }}>{spec.value}</div>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.85rem", color: "#D4AF37", fontWeight: 700 }}>{spec.value}</div>
             </div>
           ))}
         </div>
@@ -77,12 +77,12 @@ export default function LoglineSection() {
             }}>
               <div style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "1.1rem",
-                fontWeight: 700,
-                color: "#D4AF37",
-                marginBottom: "0.5rem",
+              fontSize: "1.25rem",
+              fontWeight: 700,
+              color: "#D4AF37",
+              marginBottom: "0.5rem",
               }}>{item.label}</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.6 }}>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.75 }}>
                 {item.desc}
               </div>
             </div>

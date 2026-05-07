@@ -58,7 +58,7 @@ export default function ContactSection() {
           <h2 className="display-heading" style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", marginBottom: "1.5rem" }}>
             Let's Make<br />This Series.
           </h2>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.8, maxWidth: 600, margin: "0 auto" }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.05rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.85, maxWidth: 640, margin: "0 auto" }}>
             The audience exists. The scripts are written. The story is proven. All that's missing is the right platform partner.
           </p>
           <div className="gold-rule" style={{ maxWidth: 200, margin: "2rem auto 0" }} />
@@ -77,13 +77,13 @@ export default function ContactSection() {
             </div>
             <div>
               <div className="section-label" style={{ marginBottom: "0.5rem" }}>Business Inquiries</div>
-              <a href="mailto:malik.upscaleproductions@gmail.com" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.6)", textDecoration: "none", display: "block", marginBottom: "0.25rem" }}>
+              <a href="mailto:malik.upscaleproductions@gmail.com" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", textDecoration: "none", display: "block", marginBottom: "0.25rem" }}>
                 malik.upscaleproductions@gmail.com
               </a>
             </div>
             <div>
               <div className="section-label" style={{ marginBottom: "0.5rem" }}>Legal Representation</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}>
                 The Law Office of Omara S. Harris, Esq, LLC<br />
                 <a href="mailto:musicandfilmlaw@omaraharris.com" style={{ color: "#D4AF37", textDecoration: "none" }}>musicandfilmlaw@omaraharris.com</a><br />
                 404-409-7354
@@ -91,7 +91,7 @@ export default function ContactSection() {
             </div>
             <div>
               <div className="section-label" style={{ marginBottom: "0.5rem" }}>Available Upon Request</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", color: "rgba(255,255,255,0.4)", lineHeight: 1.7 }}>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.8 }}>
                 Full 60-episode script package<br />
                 Beat sheets (Episodes 1–60)<br />
                 Production bible<br />
@@ -113,7 +113,7 @@ export default function ContactSection() {
                 <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", color: "#D4AF37", marginBottom: "1rem" }}>
                   Message Sent
                 </div>
-                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.5)" }}>
+                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.95rem", color: "rgba(255,255,255,0.6)" }}>
                   Thank you for your interest in SCANDALOUS: BLOODLINE LIES. We'll be in touch shortly.
                 </div>
               </div>
@@ -125,7 +125,7 @@ export default function ContactSection() {
                   { key: "email", label: "Email Address", type: "email", placeholder: "your@email.com" },
                 ].map((field) => (
                   <div key={field.key}>
-                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.15em", color: "#D4AF37", textTransform: "uppercase", marginBottom: "0.4rem" }}>
+                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.15em", color: "#D4AF37", textTransform: "uppercase", marginBottom: "0.4rem" }}>
                       {field.label}
                     </div>
                     <input
@@ -149,7 +149,7 @@ export default function ContactSection() {
                   </div>
                 ))}
                 <div>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.15em", color: "#D4AF37", textTransform: "uppercase", marginBottom: "0.4rem" }}>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.15em", color: "#D4AF37", textTransform: "uppercase", marginBottom: "0.4rem" }}>
                     Message
                   </div>
                   <textarea
