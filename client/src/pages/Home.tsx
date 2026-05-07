@@ -19,8 +19,8 @@ export default function Home() {
       <NavBar />
       <HeroSection />
       <LoglineSection />
-      <SeriesSummarySection />
       <LeadCharactersSection />
+      <SeriesSummarySection />
       <VerticalShowcaseSection />
       <ScriptsSection />
       <BeatSheetsSection />

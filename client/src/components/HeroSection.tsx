@@ -163,52 +163,41 @@ export default function HeroSection() {
           </div>
         )}
 
-        {/* Upscale logo */}
+        {/* Upscale logo — larger */}
         <img
           src={UPSCALE_LOGO}
           alt="Upscale Promotions & Entertainment, Inc."
           style={{
-            width: "clamp(180px, 50vw, 440px)",
-            maxWidth: "88vw",
-            filter: "brightness(1.1)",
+            width: "clamp(260px, 65vw, 620px)",
+            maxWidth: "92vw",
+            filter: "brightness(1.15)",
           }}
         />
 
-        {/* Producer name */}
+        {/* Presented by Malik Davis */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
-          fontWeight: 900,
-          fontSize: "clamp(0.9rem, 2.5vw, 1.5rem)",
-          letterSpacing: "0.25em",
-          color: "#fff",
+          fontWeight: 700,
+          fontSize: "clamp(0.85rem, 2.8vw, 1.4rem)",
+          letterSpacing: "0.22em",
           textTransform: "uppercase",
+          color: "#D4AF37",
+          marginTop: "0.25rem",
         }}>
-          DEL RIVERS
+          Presented by Malik Davis
         </div>
 
-        {/* Created & Written by */}
+        {/* Written and Created by Del Rivers */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: "clamp(0.55rem, 1.5vw, 0.65rem)",
+          fontSize: "clamp(0.75rem, 2.2vw, 1.1rem)",
           fontWeight: 500,
           letterSpacing: "0.2em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.45)",
-          marginTop: "-0.4rem",
+          color: "rgba(255,255,255,0.6)",
+          marginTop: "-0.15rem",
         }}>
-          Created &amp; Written by Del Rivers
-        </div>
-
-        {/* Presents */}
-        <div style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: "clamp(0.6rem, 1.8vw, 0.75rem)",
-          fontWeight: 600,
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: "#D4AF37",
-        }}>
-          Upscale Promotions &amp; Entertainment, Inc. Presents
+          Written &amp; Created by Del Rivers
         </div>
 
         {/* Gold rule */}
