@@ -66,15 +66,6 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Subtle bottom fade so video blends into black title block */}
-        <div style={{
-          position: "absolute",
-          bottom: 0, left: 0, right: 0,
-          height: "30%",
-          background: "linear-gradient(to bottom, transparent, #000)",
-          pointerEvents: "none",
-        }} />
-
         {/* Floating gold particles over video */}
         {particles.map((p, i) => (
           <div key={i} style={{

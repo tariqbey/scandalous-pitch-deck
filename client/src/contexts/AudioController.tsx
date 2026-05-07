@@ -4,14 +4,14 @@ import React, { createContext, useContext, useRef, useState } from "react";
 const THEME_URL = "/manus-storage/LockedPhoneLine_a801c987.mp3";
 const INSTRUMENTAL_URL = "/manus-storage/LockedPhoneLine(Instrumental)_34c7e225.mp3";
 
-// Character VOs — Hobbs voice (ElevenLabs), generated 2026-05-07
+// Character VOs — Hobbs voice (ElevenLabs), v2 — slower pacing, emotional delivery
 const VO_URLS: Record<string, string> = {
-  michael: "/manus-storage/michael_8c8849f4.mp3",
-  renee:   "/manus-storage/renee_8608a1a5.mp3",
-  jada:    "/manus-storage/jada_2f3e75d0.mp3",
-  darius:  "/manus-storage/darius_f2f14d92.mp3",
-  tonya:   "/manus-storage/tonya_12301b47.mp3",
-  calvin:  "/manus-storage/calvin_30e2c0e5.mp3",
+  michael: "/manus-storage/michael_v2_c4e2d94f.mp3",
+  renee:   "/manus-storage/renee_v2_ea702f85.mp3",
+  jada:    "/manus-storage/jada_v2_07c212fb.mp3",
+  darius:  "/manus-storage/darius_v2_3ed2f4e9.mp3",
+  tonya:   "/manus-storage/tonya_v2_9c9cb03b.mp3",
+  calvin:  "/manus-storage/calvin_v2_f768b72a.mp3",
 };
 
 interface AudioContextValue {
