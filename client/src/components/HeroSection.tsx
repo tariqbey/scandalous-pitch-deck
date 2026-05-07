@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { useAudio } from "@/contexts/AudioController";
 
-const HERO_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/pOISOnpfDmMdXEEU.jpg";
+const HERO_VIDEO = "/manus-storage/hf_20260507_064013_eb5bcb13-e538-4b54-8ab3-77be6c0cc054_87c96faa.mp4";
 const UPSCALE_LOGO = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/RtaaZtYQelqLcSao.png";
-// Album cover art for spinning animation
 const COVER_ART = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/AosWsbmtdbJmwUlM.jpg";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
   const [particles, setParticles] = useState<{ x: number; y: number; size: number; delay: number }[]>([]);
   const { themeStarted, themePlaying, toggleTheme } = useAudio();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
@@ -22,34 +22,76 @@ export default function HeroSection() {
     setParticles(pts);
   }, []);
 
+  // Ensure video plays on mobile (requires user gesture workaround)
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    vid.muted = true;
+    const play = () => vid.play().catch(() => {});
+    play();
+    document.addEventListener("touchstart", play, { once: true });
+    document.addEventListener("click", play, { once: true });
+    return () => {
+      document.removeEventListener("touchstart", play);
+      document.removeEventListener("click", play);
+    };
+  }, []);
+
   const handleNav = (href: string) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="cover" style={{ position: "relative", background: "#000", paddingTop: 88, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-      {/* Hero image */}
+    <section
+      id="cover"
+      style={{
+        position: "relative",
+        background: "#000",
+        paddingTop: 64,
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* ── Hero video background ── */}
       <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
-        <img
-          src={HERO_IMG}
-          alt="BLOODLINE LIES"
+        <video
+          ref={videoRef}
+          src={HERO_VIDEO}
+          autoPlay
+          loop
+          muted
+          playsInline
           style={{
             width: "100%",
             display: "block",
-            objectFit: "contain",
+            objectFit: "cover",
             objectPosition: "center top",
-            maxHeight: "80vh",
+            maxHeight: "85vh",
+            minHeight: "50vw",
           }}
         />
-        {/* Gradient overlay at bottom */}
+
+        {/* Bottom fade to black */}
         <div style={{
           position: "absolute",
           bottom: 0, left: 0, right: 0,
-          height: "50%",
+          height: "55%",
           background: "linear-gradient(to bottom, transparent, #000)",
+          pointerEvents: "none",
         }} />
-        {/* Floating particles */}
+
+        {/* Top fade to black (for nav readability) */}
+        <div style={{
+          position: "absolute",
+          top: 0, left: 0, right: 0,
+          height: "20%",
+          background: "linear-gradient(to top, transparent, rgba(0,0,0,0.5))",
+          pointerEvents: "none",
+        }} />
+
+        {/* Floating gold particles */}
         {particles.map((p, i) => (
           <div key={i} style={{
             position: "absolute",
@@ -59,14 +101,15 @@ export default function HeroSection() {
             height: p.size,
             borderRadius: "50%",
             background: "#D4AF37",
-            opacity: 0.3,
+            opacity: 0.25,
             animation: `pulse-gold ${2 + p.delay}s ease-in-out infinite`,
             animationDelay: `${p.delay}s`,
+            pointerEvents: "none",
           }} />
         ))}
       </div>
 
-      {/* Below-video content block */}
+      {/* ── Below-video content block ── */}
       <div style={{
         background: "#000",
         textAlign: "center",
@@ -80,7 +123,7 @@ export default function HeroSection() {
         transition: "opacity 1.2s ease, transform 1.2s ease",
       }}>
 
-        {/* PLAY THEME SONG button — disappears after clicked, shows spinning album */}
+        {/* PLAY THEME SONG / spinning record */}
         {!themeStarted ? (
           <button
             onClick={toggleTheme}
@@ -90,13 +133,11 @@ export default function HeroSection() {
             ▶ PLAY THEME SONG
           </button>
         ) : (
-          /* Spinning album with pause/play toggle */
           <div
             onClick={toggleTheme}
             title={themePlaying ? "Pause theme" : "Resume theme"}
             style={{ position: "relative", width: 64, height: 64, cursor: "pointer" }}
           >
-            {/* Spinning record */}
             <div style={{
               width: 64,
               height: 64,
@@ -108,7 +149,6 @@ export default function HeroSection() {
             }}>
               <img src={COVER_ART} alt="Now Playing" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
-            {/* Center hole */}
             <div style={{
               position: "absolute",
               top: "50%", left: "50%",
@@ -118,20 +158,20 @@ export default function HeroSection() {
               background: "#000",
               border: "1px solid #D4AF37",
             }} />
-            {/* Pause/Play overlay icon — shows on hover */}
-            <div style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: "50%",
-              background: "rgba(0,0,0,0.55)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              opacity: themePlaying ? 0 : 1,
-              transition: "opacity 0.2s ease",
-            }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={e => (e.currentTarget.style.opacity = themePlaying ? "0" : "1")}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                borderRadius: "50%",
+                background: "rgba(0,0,0,0.55)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                opacity: themePlaying ? 0 : 1,
+                transition: "opacity 0.2s ease",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = themePlaying ? "0" : "1")}
             >
               <span style={{ color: "#D4AF37", fontSize: "1.1rem", lineHeight: 1 }}>
                 {themePlaying ? "⏸" : "▶"}
@@ -152,7 +192,7 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Producer name — pulled tight under logo */}
+        {/* Producer name */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
           fontWeight: 900,
@@ -235,16 +275,11 @@ export default function HeroSection() {
 
         {/* CTA buttons */}
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center", marginTop: "1rem" }}>
-          <button className="gold-btn" onClick={() => handleNav("#logline")}>
-            Read the Pitch
-          </button>
-          <button className="gold-btn" onClick={() => handleNav("#scripts")}>
-            Read Scripts
-          </button>
+          <button className="gold-btn" onClick={() => handleNav("#logline")}>Read the Pitch</button>
+          <button className="gold-btn" onClick={() => handleNav("#scripts")}>Read Scripts</button>
         </div>
       </div>
 
-      {/* Spinning album keyframe */}
       <style>{`
         @keyframes spin-album {
           from { transform: rotate(0deg); }
