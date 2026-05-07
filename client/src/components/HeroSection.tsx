@@ -3,7 +3,7 @@ import { useAudio } from "@/contexts/AudioController";
 
 const HERO_VIDEO = "/manus-storage/hf_20260507_064013_eb5bcb13-e538-4b54-8ab3-77be6c0cc054_87c96faa.mp4";
 const UPSCALE_LOGO = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/RtaaZtYQelqLcSao.png";
-const COVER_ART = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/AosWsbmtdbJmwUlM.jpg";
+const COVER_ART_VIDEO = "/manus-storage/hf_20260507_063323_bf5dc302-e160-4540-9977-3a05b28bf5a9_57618f2a.mp4";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
@@ -131,7 +131,14 @@ export default function HeroSection() {
               animation: themePlaying ? "spin-album 3s linear infinite" : "none",
               border: "2px solid #D4AF37",
             }}>
-              <img src={COVER_ART} alt="Now Playing" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <video
+                src={COVER_ART_VIDEO}
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
             <div style={{
               position: "absolute",
