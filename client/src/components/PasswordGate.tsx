@@ -106,8 +106,10 @@ export default function PasswordGate({ onUnlock }: Props) {
     <div style={{
       position: 'fixed', inset: 0, zIndex: 9999,
       background: '#000',
-      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-      overflow: 'hidden',
+      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
+      overflowY: 'auto', overflowX: 'hidden',
+      paddingTop: 'max(2rem, env(safe-area-inset-top))',
+      paddingBottom: 'max(2rem, env(safe-area-inset-bottom))',
       opacity: phase === 'done' ? 0 : 1,
       transition: phase === 'opening' ? 'opacity 1.4s ease 0.8s' : 'none',
     }}>
@@ -132,9 +134,8 @@ export default function PasswordGate({ onUnlock }: Props) {
 
       {/* ── Top header ── */}
       <div style={{
-        position: 'absolute', top: '1.5rem', left: 0, right: 0,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
-        gap: '0.25rem', zIndex: 4,
+        gap: '0.25rem', zIndex: 4, width: '100%',
         opacity: doorOpen ? 0 : 1,
         transition: 'opacity 0.4s ease',
       }}>
@@ -167,7 +168,11 @@ export default function PasswordGate({ onUnlock }: Props) {
         gap: '2rem', zIndex: 3,
         opacity: doorOpen ? 0 : 1,
         transition: 'opacity 0.4s ease',
-        marginTop: '2rem',
+        marginTop: '1rem',
+        width: '100%',
+        maxWidth: 480,
+        padding: '0 1rem',
+        boxSizing: 'border-box' as const,
       }}>
 
         {/* Vault wheel */}
@@ -388,9 +393,9 @@ export default function PasswordGate({ onUnlock }: Props) {
 
       {/* ── Bottom footer ── */}
       <div style={{
-        position: 'absolute', bottom: '1.2rem', left: 0, right: 0,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
-        gap: '0.4rem', zIndex: 4,
+        gap: '0.4rem', zIndex: 4, width: '100%',
+        marginTop: '1.5rem',
         opacity: doorOpen ? 0 : 1,
         transition: 'opacity 0.4s ease',
       }}>
