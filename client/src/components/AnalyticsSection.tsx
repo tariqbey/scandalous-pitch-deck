@@ -113,9 +113,9 @@ export default function AnalyticsSection() {
           padding: "1.25rem 2rem",
           marginBottom: "3rem",
           display: "flex",
-          gap: "1rem",
-          alignItems: "center",
-          flexWrap: "wrap",
+          gap: "0.75rem",
+          alignItems: "flex-start",
+          flexDirection: "column",
         }}>
           <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", color: "#D4AF37", textTransform: "uppercase" }}>
             Source Story
@@ -225,7 +225,7 @@ export default function AnalyticsSection() {
           marginBottom: "3rem",
         }}>
           <div className="section-label" style={{ marginBottom: "1.5rem" }}>Gender Split</div>
-          <div style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "1.5rem", alignItems: "stretch", flexDirection: "column" }}>
             <div style={{ flex: 1, minWidth: 200 }}>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
                 <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: "#e05c8a" }}>Female</span>

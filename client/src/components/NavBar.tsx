@@ -1,203 +1,218 @@
 import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
-  { label: "Logline", href: "#logline" },
-  { label: "Lead Characters", href: "#lead-characters" },
-  { label: "Scripts", href: "#scripts" },
-  { label: "Season Arc", href: "#season-arc" },
-  { label: "Analytics", href: "#analytics" },
-  { label: "Contact", href: "#contact" },
+  { label: "Logline",        href: "#logline" },
+  { label: "Characters",     href: "#lead-characters" },
+  { label: "Scripts",        href: "#scripts" },
+  { label: "Season Arc",     href: "#season-arc" },
+  { label: "Analytics",      href: "#analytics" },
+  { label: "Contact",        href: "#contact" },
 ];
 
 export default function NavBar() {
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    const onResize = () => setIsMobile(window.innerWidth < 768);
-    onResize();
-    window.addEventListener("scroll", onScroll);
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu when clicking outside
+  // Lock body scroll when drawer is open
   useEffect(() => {
-    if (!menuOpen) return;
-    const close = () => setMenuOpen(false);
-    document.addEventListener("click", close);
-    return () => document.removeEventListener("click", close);
-  }, [menuOpen]);
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
-  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+  const navigate = (href: string) => {
+    setOpen(false);
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 80);
   };
 
   return (
     <>
-      <nav
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 200,
-          height: 64,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 1.25rem",
-          background: scrolled || menuOpen ? "rgba(0,0,0,0.97)" : "rgba(0,0,0,0.6)",
-          borderBottom: scrolled || menuOpen ? "1px solid rgba(212,175,55,0.25)" : "none",
-          transition: "background 0.4s ease, border 0.4s ease",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-        }}
-      >
+      <nav style={{
+        position: "fixed",
+        top: 0, left: 0, right: 0,
+        zIndex: 1000,
+        height: 64,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0 1.25rem",
+        background: scrolled ? "rgba(0,0,0,0.95)" : "rgba(0,0,0,0.6)",
+        backdropFilter: "blur(14px)",
+        WebkitBackdropFilter: "blur(14px)",
+        borderBottom: scrolled ? "1px solid rgba(212,175,55,0.2)" : "1px solid transparent",
+        transition: "background 0.3s, border-color 0.3s",
+        boxSizing: "border-box",
+      }}>
         {/* Logo */}
-        <div style={{
-          fontFamily: "'Playfair Display', serif",
-          color: "#D4AF37",
-          fontSize: "clamp(0.75rem, 2.5vw, 1rem)",
-          fontWeight: 700,
-          letterSpacing: "0.1em",
-          textTransform: "uppercase",
-          flexShrink: 0,
-        }}>
-          SCANDALOUS: BLOODLINE LIES
-        </div>
-
-        {/* Desktop nav links — hidden on mobile */}
-        {!isMobile && (
-          <div style={{ display: "flex", gap: "1.75rem", alignItems: "center" }}>
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNav(e, link.href)}
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.65rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.7)",
-                  textDecoration: "none",
-                  transition: "color 0.2s",
-                  whiteSpace: "nowrap",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#D4AF37")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        )}
-
-        {/* Mobile hamburger button */}
-        {isMobile && (
-          <button
-            onClick={(e) => { e.stopPropagation(); setMenuOpen(!menuOpen); }}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            style={{
-              background: "none",
-              border: "1px solid rgba(212,175,55,0.4)",
-              color: "#D4AF37",
-              width: 40,
-              height: 40,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: menuOpen ? 0 : 5,
-              cursor: "pointer",
-              padding: 0,
-              flexShrink: 0,
-            }}
-          >
-            {/* Animated hamburger lines */}
-            <span style={{
-              display: "block",
-              width: 20,
-              height: 2,
-              background: "#D4AF37",
-              transition: "all 0.3s ease",
-              transform: menuOpen ? "rotate(45deg) translate(3px, 3px)" : "none",
-            }} />
-            <span style={{
-              display: "block",
-              width: 20,
-              height: 2,
-              background: "#D4AF37",
-              transition: "all 0.3s ease",
-              opacity: menuOpen ? 0 : 1,
-            }} />
-            <span style={{
-              display: "block",
-              width: 20,
-              height: 2,
-              background: "#D4AF37",
-              transition: "all 0.3s ease",
-              transform: menuOpen ? "rotate(-45deg) translate(3px, -3px)" : "none",
-            }} />
-          </button>
-        )}
-      </nav>
-
-      {/* Mobile dropdown menu */}
-      {isMobile && (
-        <div
-          onClick={(e) => e.stopPropagation()}
+        <button
+          onClick={() => navigate("#cover")}
           style={{
-            position: "fixed",
-            top: 64,
-            left: 0,
-            right: 0,
-            zIndex: 199,
-            background: "rgba(0,0,0,0.98)",
-            borderBottom: "1px solid rgba(212,175,55,0.25)",
-            overflow: "hidden",
-            maxHeight: menuOpen ? 400 : 0,
-            transition: "max-height 0.35s ease",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 900,
+            fontSize: "clamp(0.65rem, 2.2vw, 0.95rem)",
+            letterSpacing: "0.08em",
+            color: "#D4AF37",
+            textTransform: "uppercase",
+            lineHeight: 1.2,
+            textAlign: "left",
+            maxWidth: "58vw",
+            flexShrink: 0,
           }}
         >
-          <div style={{ padding: "1.5rem 1.25rem", display: "flex", flexDirection: "column", gap: "0" }}>
-            {NAV_LINKS.map((link, i) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNav(e, link.href)}
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.8rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.85)",
-                  textDecoration: "none",
-                  padding: "1rem 0",
-                  borderBottom: i < NAV_LINKS.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
-                  display: "block",
-                  transition: "color 0.2s",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#D4AF37")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+          SCANDALOUS: BLOODLINE LIES
+        </button>
+
+        {/* Desktop links — hidden below 768px via CSS */}
+        <div className="nav-desktop">
+          {NAV_LINKS.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => navigate(link.href)}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "0.62rem",
+                fontWeight: 600,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.7)",
+                padding: "0.25rem 0",
+                transition: "color 0.2s",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#D4AF37")}
+              onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
+            >
+              {link.label}
+            </button>
+          ))}
         </div>
-      )}
+
+        {/* Hamburger — shown below 768px via CSS */}
+        <button
+          className="nav-hamburger"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          style={{
+            background: "none",
+            border: "1px solid rgba(212,175,55,0.45)",
+            cursor: "pointer",
+            width: 42,
+            height: 42,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 5,
+            padding: 0,
+            flexShrink: 0,
+          }}
+        >
+          <span style={{
+            display: "block", width: 20, height: 2, background: "#D4AF37",
+            transition: "transform 0.3s",
+            transform: open ? "translateY(7px) rotate(45deg)" : "none",
+          }} />
+          <span style={{
+            display: "block", width: 20, height: 2, background: "#D4AF37",
+            transition: "opacity 0.3s",
+            opacity: open ? 0 : 1,
+          }} />
+          <span style={{
+            display: "block", width: 20, height: 2, background: "#D4AF37",
+            transition: "transform 0.3s",
+            transform: open ? "translateY(-7px) rotate(-45deg)" : "none",
+          }} />
+        </button>
+      </nav>
+
+      {/* Full-screen mobile drawer */}
+      <div
+        className="nav-drawer"
+        style={{
+          position: "fixed",
+          top: 0, left: 0, right: 0, bottom: 0,
+          zIndex: 999,
+          background: "#000",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "2rem",
+          opacity: open ? 1 : 0,
+          pointerEvents: open ? "auto" : "none",
+          transition: "opacity 0.3s ease",
+        }}
+      >
+        <div style={{ width: 48, height: 1, background: "#D4AF37", opacity: 0.4 }} />
+
+        {NAV_LINKS.map((link) => (
+          <button
+            key={link.href}
+            onClick={() => navigate(link.href)}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(1.5rem, 6vw, 2.2rem)",
+              fontWeight: 700,
+              color: "#fff",
+              letterSpacing: "0.04em",
+              padding: "0.2rem 1.5rem",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = "#D4AF37")}
+            onMouseLeave={e => (e.currentTarget.style.color = "#fff")}
+          >
+            {link.label}
+          </button>
+        ))}
+
+        <div style={{ width: 48, height: 1, background: "#D4AF37", opacity: 0.4 }} />
+
+        <div style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.58rem",
+          letterSpacing: "0.2em",
+          color: "rgba(255,255,255,0.3)",
+          textTransform: "uppercase",
+        }}>
+          Created &amp; Written by Del Rivers
+        </div>
+      </div>
+
+      <style>{`
+        /* Desktop: show links, hide hamburger */
+        @media (min-width: 768px) {
+          .nav-desktop {
+            display: flex !important;
+            gap: 1.75rem;
+            align-items: center;
+          }
+          .nav-hamburger { display: none !important; }
+          .nav-drawer { display: none !important; }
+        }
+        /* Mobile/tablet: hide links, show hamburger */
+        @media (max-width: 767px) {
+          .nav-desktop { display: none !important; }
+          .nav-hamburger { display: flex !important; }
+        }
+      `}</style>
     </>
   );
 }

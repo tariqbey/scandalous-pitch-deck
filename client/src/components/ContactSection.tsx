@@ -29,7 +29,7 @@ export default function ContactSection() {
   return (
     <section id="contact" ref={ref} style={{
       background: "#000",
-      padding: "8rem 1.5rem",
+      padding: "clamp(4rem, 10vw, 8rem) 1.25rem",
       position: "relative",
       overflow: "hidden",
     }}>

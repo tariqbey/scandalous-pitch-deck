@@ -2,7 +2,7 @@ import React, { createContext, useContext, useRef, useState } from "react";
 
 // ── CDN audio assets ──────────────────────────────────────────────────────────
 const THEME_URL = "/manus-storage/LockedPhoneLine_a801c987.mp3";
-const INSTRUMENTAL_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/TableFor2(Instrumental).mp3";
+const INSTRUMENTAL_URL = "/manus-storage/LockedPhoneLine(Instrumental)_34c7e225.mp3";
 
 // Character VOs — Hobbs voice (ElevenLabs), generated 2026-05-07
 const VO_URLS: Record<string, string> = {
@@ -64,34 +64,41 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     const url = VO_URLS[character.toLowerCase()];
     if (!url) return;
 
-    // Fade theme to 0 (keep it running in background, just silent)
-    if (themeRef.current) themeRef.current.volume = 0;
-
-    // Start instrumental bed at 18%
-    if (!instrumentalRef.current) {
-      instrumentalRef.current = new Audio(INSTRUMENTAL_URL);
-      instrumentalRef.current.loop = true;
+    // Pause theme song (not just mute — fully pause it)
+    const themeWasPlaying = themeRef.current && !themeRef.current.paused;
+    if (themeRef.current && themeWasPlaying) {
+      themeRef.current.pause();
     }
-    instrumentalRef.current.volume = 0.18;
-    instrumentalRef.current.play().catch(() => {});
 
-    // Stop any existing VO
+    // Stop any existing VO first
     if (voRef.current) {
       voRef.current.pause();
       voRef.current.currentTime = 0;
     }
 
-    // Play new VO
+    // Start instrumental bed at 20% volume, looping
+    if (!instrumentalRef.current) {
+      instrumentalRef.current = new Audio(INSTRUMENTAL_URL);
+      instrumentalRef.current.loop = true;
+    }
+    instrumentalRef.current.currentTime = 0;
+    instrumentalRef.current.volume = 0.20;
+    instrumentalRef.current.play().catch(() => {});
+
+    // Play the VO on top
     const vo = new Audio(url);
     voRef.current = vo;
+    vo.volume = 1;
     vo.play().catch(() => {});
 
-    // On VO end: restore theme volume if it was playing, stop instrumental
+    // On VO end: stop instrumental, resume theme if it was playing
     vo.onended = () => {
-      if (themeRef.current && themePlaying) themeRef.current.volume = 1;
       if (instrumentalRef.current) {
         instrumentalRef.current.pause();
         instrumentalRef.current.currentTime = 0;
+      }
+      if (themeRef.current && themeWasPlaying) {
+        themeRef.current.play().catch(() => {});
       }
     };
   };
