@@ -186,18 +186,44 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Presented by Malik Davis — BIG */}
+        {/* Presented by Executive Producer Malik Davis — STANDOUT TREATMENT */}
         <div style={{
-          fontFamily: "'Playfair Display', serif",
-          fontWeight: 900,
-          fontSize: "clamp(1.2rem, 4.5vw, 2.4rem)",
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "#D4AF37",
-          marginTop: "0.4rem",
-          textShadow: "0 2px 20px rgba(212,175,55,0.4)",
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "0.2rem",
+          marginTop: "0.5rem",
+          padding: "1rem 3rem",
+          border: "1px solid rgba(212,175,55,0.5)",
+          background: "linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(0,0,0,0) 50%, rgba(212,175,55,0.06) 100%)",
+          boxShadow: "0 0 50px rgba(212,175,55,0.15), inset 0 0 40px rgba(212,175,55,0.05)",
         }}>
-          Presented by Malik Davis
+          {/* Corner accent marks */}
+          <div style={{ position:"absolute", top:-1, left:-1, width:16, height:16, borderTop:"3px solid #D4AF37", borderLeft:"3px solid #D4AF37" }} />
+          <div style={{ position:"absolute", top:-1, right:-1, width:16, height:16, borderTop:"3px solid #D4AF37", borderRight:"3px solid #D4AF37" }} />
+          <div style={{ position:"absolute", bottom:-1, left:-1, width:16, height:16, borderBottom:"3px solid #D4AF37", borderLeft:"3px solid #D4AF37" }} />
+          <div style={{ position:"absolute", bottom:-1, right:-1, width:16, height:16, borderBottom:"3px solid #D4AF37", borderRight:"3px solid #D4AF37" }} />
+          {/* Label line */}
+          <div style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "clamp(0.5rem, 1.2vw, 0.65rem)",
+            fontWeight: 700,
+            letterSpacing: "0.5em",
+            textTransform: "uppercase",
+            color: "rgba(212,175,55,0.75)",
+          }}>Presented by Executive Producer</div>
+          {/* Name — large, white, glowing */}
+          <div style={{
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 900,
+            fontSize: "clamp(1.8rem, 6vw, 3.5rem)",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "#fff",
+            lineHeight: 1.1,
+            textShadow: "0 0 60px rgba(212,175,55,0.7), 0 0 120px rgba(212,175,55,0.3), 0 2px 30px rgba(212,175,55,0.4)",
+          }}>Malik Davis</div>
         </div>
 
         {/* Written and Created by Del Rivers */}
