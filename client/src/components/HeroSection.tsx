@@ -13,7 +13,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
-    const pts = Array.from({ length: 30 }, () => ({
+    const pts = Array.from({ length: 24 }, () => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 3 + 1,
@@ -22,7 +22,6 @@ export default function HeroSection() {
     setParticles(pts);
   }, []);
 
-  // Ensure video plays on mobile (requires user gesture workaround)
   useEffect(() => {
     const vid = videoRef.current;
     if (!vid) return;
@@ -46,16 +45,12 @@ export default function HeroSection() {
     <section
       id="cover"
       style={{
-        position: "relative",
         background: "#000",
-        paddingTop: 64,
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
+        paddingTop: 64, // nav height offset
       }}
     >
-      {/* ── Hero video background ── */}
-      <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
+      {/* ── 1. HERO VIDEO — full width, 16:9, no cropping ── */}
+      <div style={{ position: "relative", width: "100%", lineHeight: 0 }}>
         <video
           ref={videoRef}
           src={HERO_VIDEO}
@@ -65,33 +60,22 @@ export default function HeroSection() {
           playsInline
           style={{
             width: "100%",
-            display: "block",
+            aspectRatio: "16/9",
             objectFit: "cover",
-            objectPosition: "center top",
-            maxHeight: "85vh",
-            minHeight: "50vw",
+            display: "block",
           }}
         />
 
-        {/* Bottom fade to black */}
+        {/* Subtle bottom fade so video blends into black title block */}
         <div style={{
           position: "absolute",
           bottom: 0, left: 0, right: 0,
-          height: "55%",
+          height: "30%",
           background: "linear-gradient(to bottom, transparent, #000)",
           pointerEvents: "none",
         }} />
 
-        {/* Top fade to black (for nav readability) */}
-        <div style={{
-          position: "absolute",
-          top: 0, left: 0, right: 0,
-          height: "20%",
-          background: "linear-gradient(to top, transparent, rgba(0,0,0,0.5))",
-          pointerEvents: "none",
-        }} />
-
-        {/* Floating gold particles */}
+        {/* Floating gold particles over video */}
         {particles.map((p, i) => (
           <div key={i} style={{
             position: "absolute",
@@ -101,7 +85,7 @@ export default function HeroSection() {
             height: p.size,
             borderRadius: "50%",
             background: "#D4AF37",
-            opacity: 0.25,
+            opacity: 0.2,
             animation: `pulse-gold ${2 + p.delay}s ease-in-out infinite`,
             animationDelay: `${p.delay}s`,
             pointerEvents: "none",
@@ -109,26 +93,27 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* ── Below-video content block ── */}
-      <div style={{
-        background: "#000",
-        textAlign: "center",
-        padding: "3rem 1.5rem 4rem",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "1.25rem",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(30px)",
-        transition: "opacity 1.2s ease, transform 1.2s ease",
-      }}>
-
+      {/* ── 2. TITLE BLOCK — fully visible below the video ── */}
+      <div
+        style={{
+          background: "#000",
+          textAlign: "center",
+          padding: "3rem 1.25rem 5rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "1.1rem",
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(24px)",
+          transition: "opacity 1s ease 0.3s, transform 1s ease 0.3s",
+        }}
+      >
         {/* PLAY THEME SONG / spinning record */}
         {!themeStarted ? (
           <button
             onClick={toggleTheme}
             className="gold-btn"
-            style={{ fontSize: "0.7rem", padding: "0.65rem 2rem", letterSpacing: "0.2em" }}
+            style={{ fontSize: "0.68rem", padding: "0.6rem 2rem", letterSpacing: "0.2em" }}
           >
             ▶ PLAY THEME SONG
           </button>
@@ -145,7 +130,6 @@ export default function HeroSection() {
               overflow: "hidden",
               animation: themePlaying ? "spin-album 3s linear infinite" : "none",
               border: "2px solid #D4AF37",
-              transition: "border-color 0.2s ease",
             }}>
               <img src={COVER_ART} alt="Now Playing" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
@@ -159,6 +143,7 @@ export default function HeroSection() {
               border: "1px solid #D4AF37",
             }} />
             <div
+              className="record-overlay"
               style={{
                 position: "absolute",
                 inset: 0,
@@ -185,9 +170,8 @@ export default function HeroSection() {
           src={UPSCALE_LOGO}
           alt="Upscale Promotions & Entertainment, Inc."
           style={{
-            width: "clamp(200px, 60vw, 500px)",
-            maxWidth: "90vw",
-            marginBottom: "-2rem",
+            width: "clamp(180px, 50vw, 440px)",
+            maxWidth: "88vw",
             filter: "brightness(1.1)",
           }}
         />
@@ -196,7 +180,7 @@ export default function HeroSection() {
         <div style={{
           fontFamily: "'Inter', sans-serif",
           fontWeight: 900,
-          fontSize: "clamp(1rem, 3vw, 1.6rem)",
+          fontSize: "clamp(0.9rem, 2.5vw, 1.5rem)",
           letterSpacing: "0.25em",
           color: "#fff",
           textTransform: "uppercase",
@@ -204,15 +188,15 @@ export default function HeroSection() {
           DEL RIVERS
         </div>
 
-        {/* Created and Written by */}
+        {/* Created & Written by */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: "0.62rem",
+          fontSize: "clamp(0.55rem, 1.5vw, 0.65rem)",
           fontWeight: 500,
           letterSpacing: "0.2em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.5)",
-          marginTop: "-0.5rem",
+          color: "rgba(255,255,255,0.45)",
+          marginTop: "-0.4rem",
         }}>
           Created &amp; Written by Del Rivers
         </div>
@@ -220,9 +204,9 @@ export default function HeroSection() {
         {/* Presents */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: "0.7rem",
+          fontSize: "clamp(0.6rem, 1.8vw, 0.75rem)",
           fontWeight: 600,
-          letterSpacing: "0.3em",
+          letterSpacing: "0.28em",
           textTransform: "uppercase",
           color: "#D4AF37",
         }}>
@@ -230,56 +214,85 @@ export default function HeroSection() {
         </div>
 
         {/* Gold rule */}
-        <div className="gold-rule" style={{ maxWidth: 600 }} />
+        <div style={{
+          width: "clamp(120px, 40vw, 500px)",
+          height: 1,
+          background: "linear-gradient(to right, transparent, #D4AF37, transparent)",
+        }} />
 
-        {/* Show title */}
+        {/* MAIN TITLE */}
         <div style={{
           fontFamily: "'Playfair Display', serif",
           fontWeight: 900,
-          fontSize: "clamp(2.5rem, 10vw, 8rem)",
+          fontSize: "clamp(2.2rem, 8vw, 7.5rem)",
           color: "#fff",
           lineHeight: 1,
           letterSpacing: "-0.02em",
-          textShadow: "0 0 60px rgba(212,175,55,0.3)",
+          textShadow: "0 0 60px rgba(212,175,55,0.25)",
+          wordBreak: "break-word",
+          maxWidth: "95vw",
         }}>
-          SCANDALOUS: BLOODLINE LIES
+          SCANDALOUS:
+        </div>
+        <div style={{
+          fontFamily: "'Playfair Display', serif",
+          fontWeight: 900,
+          fontSize: "clamp(2.2rem, 8vw, 7.5rem)",
+          color: "#D4AF37",
+          lineHeight: 1,
+          letterSpacing: "-0.02em",
+          textShadow: "0 0 60px rgba(212,175,55,0.35)",
+          marginTop: "-0.5rem",
+          wordBreak: "break-word",
+          maxWidth: "95vw",
+        }}>
+          BLOODLINE LIES
         </div>
 
         {/* Subtitle */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: "clamp(0.6rem, 2vw, 0.85rem)",
+          fontSize: "clamp(0.55rem, 1.8vw, 0.82rem)",
           fontWeight: 600,
-          letterSpacing: "0.4em",
+          letterSpacing: "0.38em",
           textTransform: "uppercase",
           color: "#D4AF37",
+          marginTop: "0.25rem",
         }}>
-          A VERTICAL MICRO-DRAMA SERIES
+          A Vertical Micro-Drama Series
         </div>
 
         {/* Tagline */}
         <div style={{
           fontFamily: "'Playfair Display', serif",
           fontStyle: "italic",
-          fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
-          color: "rgba(255,255,255,0.7)",
-          maxWidth: 600,
+          fontSize: "clamp(0.9rem, 2.2vw, 1.35rem)",
+          color: "rgba(255,255,255,0.65)",
+          maxWidth: 620,
+          lineHeight: 1.7,
+          padding: "0 0.5rem",
         }}>
           "He recognized her in a family photo. He said nothing. Then he went to the bathroom and called her."
         </div>
 
         {/* Genre pills */}
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", justifyContent: "center", marginTop: "0.5rem" }}>
+        <div style={{
+          display: "flex",
+          gap: "0.6rem",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          marginTop: "0.25rem",
+        }}>
           {["Romance & Power", "Secrets & Betrayal", "Vertical Micro-Drama", "60 Episodes"].map((tag) => (
             <span key={tag} style={{
               border: "1px solid #D4AF37",
               color: "#D4AF37",
               fontFamily: "'Inter', sans-serif",
-              fontSize: "0.65rem",
+              fontSize: "clamp(0.55rem, 1.5vw, 0.65rem)",
               fontWeight: 600,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              padding: "0.4rem 1rem",
+              padding: "0.35rem 0.85rem",
             }}>
               {tag}
             </span>
@@ -287,7 +300,13 @@ export default function HeroSection() {
         </div>
 
         {/* CTA buttons */}
-        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center", marginTop: "1rem" }}>
+        <div style={{
+          display: "flex",
+          gap: "1rem",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          marginTop: "0.75rem",
+        }}>
           <button className="gold-btn" onClick={() => handleNav("#logline")}>Read the Pitch</button>
           <button className="gold-btn" onClick={() => handleNav("#scripts")}>Read Scripts</button>
         </div>
