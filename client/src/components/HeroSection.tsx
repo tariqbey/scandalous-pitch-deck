@@ -104,61 +104,73 @@ export default function HeroSection() {
           <button
             onClick={toggleTheme}
             className="gold-btn"
-            style={{ fontSize: "0.68rem", padding: "0.6rem 2rem", letterSpacing: "0.2em" }}
+            style={{ fontSize: "1rem", padding: "1rem 3rem", letterSpacing: "0.22em", fontWeight: 700 }}
           >
             ▶ PLAY THEME SONG
           </button>
         ) : (
-          <div
-            onClick={toggleTheme}
-            title={themePlaying ? "Pause theme" : "Resume theme"}
-            style={{ position: "relative", width: 64, height: 64, cursor: "pointer" }}
-          >
-            <div style={{
-              width: 64,
-              height: 64,
-              borderRadius: "50%",
-              overflow: "hidden",
-              animation: themePlaying ? "spin-album 3s linear infinite" : "none",
-              border: "2px solid #D4AF37",
-            }}>
-              <video
-                src={COVER_ART_VIDEO}
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              />
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.6rem" }}>
+            <div
+              onClick={toggleTheme}
+              title={themePlaying ? "Pause theme" : "Resume theme"}
+              style={{ position: "relative", width: 160, height: 160, cursor: "pointer" }}
+            >
+              <div style={{
+                width: 160,
+                height: 160,
+                borderRadius: "50%",
+                overflow: "hidden",
+                animation: themePlaying ? "spin-album 3s linear infinite" : "none",
+                border: "3px solid #D4AF37",
+                boxShadow: "0 0 32px rgba(212,175,55,0.35)",
+              }}>
+                <video
+                  src={COVER_ART_VIDEO}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              </div>
+              <div style={{
+                position: "absolute",
+                top: "50%", left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: 22, height: 22,
+                borderRadius: "50%",
+                background: "#000",
+                border: "2px solid #D4AF37",
+              }} />
+              <div
+                className="record-overlay"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  borderRadius: "50%",
+                  background: "rgba(0,0,0,0.55)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  opacity: themePlaying ? 0 : 1,
+                  transition: "opacity 0.2s ease",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                onMouseLeave={e => (e.currentTarget.style.opacity = themePlaying ? "0" : "1")}
+              >
+                <span style={{ color: "#D4AF37", fontSize: "2.2rem", lineHeight: 1 }}>
+                  {themePlaying ? "⏸" : "▶"}
+                </span>
+              </div>
             </div>
             <div style={{
-              position: "absolute",
-              top: "50%", left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: 10, height: 10,
-              borderRadius: "50%",
-              background: "#000",
-              border: "1px solid #D4AF37",
-            }} />
-            <div
-              className="record-overlay"
-              style={{
-                position: "absolute",
-                inset: 0,
-                borderRadius: "50%",
-                background: "rgba(0,0,0,0.55)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                opacity: themePlaying ? 0 : 1,
-                transition: "opacity 0.2s ease",
-              }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = themePlaying ? "0" : "1")}
-            >
-              <span style={{ color: "#D4AF37", fontSize: "1.1rem", lineHeight: 1 }}>
-                {themePlaying ? "⏸" : "▶"}
-              </span>
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "0.65rem",
+              color: "rgba(212,175,55,0.7)",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+            }}>
+              {themePlaying ? "Now Playing — Tap to Pause" : "Tap to Resume"}
             </div>
           </div>
         )}
