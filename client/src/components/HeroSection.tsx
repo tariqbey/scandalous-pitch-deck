@@ -174,7 +174,7 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Presented by Malik Davis */}
+        {/* Presented by Del Rivers */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
           fontWeight: 700,
@@ -184,7 +184,7 @@ export default function HeroSection() {
           color: "#D4AF37",
           marginTop: "0.25rem",
         }}>
-          Presented by Malik Davis
+          Presented by Del Rivers
         </div>
 
         {/* Written and Created by Del Rivers */}

@@ -43,7 +43,7 @@ function TitleBlock({ title }: { title: string }) {
       <div>SCANDALOUS: BLOODLINE LIES</div>
       <div>"{title}"</div>
       <div style={{ fontWeight: "normal" }}>written by</div>
-      <div>Malik Davis</div>
+      <div>Del Rivers</div>
       <div>Upscale Promotions & Entertainment, Inc.</div>
     </div>
   );
