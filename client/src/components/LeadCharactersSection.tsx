@@ -7,7 +7,7 @@ const CHAR_VIDEOS: Record<string, string> = {
   renee:   "/manus-storage/renee_69e34bc3.mp4",
   jada:    "/manus-storage/jada_ad0689fa.mp4",
   darius:  "/manus-storage/darius_6156ca03.mp4",
-  tonya:   "/manus-storage/marcus_6734376d.mp4",   // closest match available
+  tonya:   "/manus-storage/tonya_ce06404a.mp4",
   calvin:  "/manus-storage/calvin_cb9fe4fd.mp4",
 };
 
