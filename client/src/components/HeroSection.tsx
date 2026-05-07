@@ -174,28 +174,29 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Presented by Del Rivers */}
+        {/* Presented by Malik Davis — BIG */}
         <div style={{
-          fontFamily: "'Inter', sans-serif",
-          fontWeight: 700,
-          fontSize: "clamp(0.85rem, 2.8vw, 1.4rem)",
-          letterSpacing: "0.22em",
+          fontFamily: "'Playfair Display', serif",
+          fontWeight: 900,
+          fontSize: "clamp(1.2rem, 4.5vw, 2.4rem)",
+          letterSpacing: "0.18em",
           textTransform: "uppercase",
           color: "#D4AF37",
-          marginTop: "0.25rem",
+          marginTop: "0.4rem",
+          textShadow: "0 2px 20px rgba(212,175,55,0.4)",
         }}>
-          Presented by Del Rivers
+          Presented by Malik Davis
         </div>
 
         {/* Written and Created by Del Rivers */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: "clamp(0.75rem, 2.2vw, 1.1rem)",
-          fontWeight: 500,
+          fontSize: "clamp(0.85rem, 2.5vw, 1.2rem)",
+          fontWeight: 600,
           letterSpacing: "0.2em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.6)",
-          marginTop: "-0.15rem",
+          color: "rgba(255,255,255,0.75)",
+          marginTop: "0.1rem",
         }}>
           Written &amp; Created by Del Rivers
         </div>
