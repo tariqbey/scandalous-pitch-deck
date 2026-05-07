@@ -26,10 +26,10 @@ const COMPS = [
     note: "Authentic Black storytelling that built a massive loyal audience. BLOODLINE LIES targets the same demographic with higher-stakes drama and a viral origin story.",
   },
   {
-    title: "Power",
-    img: "/manus-storage/1FwgMn0HCj5Z_a68006a4.jpg",
-    platform: "Starz · 50 Cent",
-    note: "Secrets, double lives, and consequences that destroy families. BLOODLINE LIES mirrors this intensity — with a DNA test as the weapon that levels everything.",
+    title: "Tyler Perry's Sistas",
+    img: "/manus-storage/WjyqgXLcwu7R_21243f5a.jpg",
+    platform: "BET · Tyler Perry",
+    note: "Relationship drama with Black women at the center — one of BET's highest-rated series. BLOODLINE LIES matches this audience with a story ripped straight from viral reality.",
   },
   {
     title: "Greenleaf",
@@ -42,7 +42,6 @@ const COMPS = [
 export default function ComparablesSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const [hovered, setHovered] = useState<number | null>(null);
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.1 });
@@ -62,61 +61,75 @@ export default function ComparablesSection() {
           SCANDALOUS: BLOODLINE LIES sits at the intersection of premium family drama and viral social content — a market position no current title occupies.
         </p>
 
-        {/* Poster grid */}
+        {/* Poster grid — text BELOW each poster, nothing overlaid on the image */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 160px), 1fr))",
-          gap: "1.5rem",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 170px), 1fr))",
+          gap: "2rem",
         }}>
           {COMPS.map((comp, i) => (
             <div
               key={comp.title}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
               style={{
-                position: "relative",
-                cursor: "pointer",
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(30px)",
                 transition: `opacity 0.7s ease ${i * 0.08}s, transform 0.7s ease ${i * 0.08}s`,
-              }}
-            >
-              <img
-                src={comp.img}
-                alt={comp.title}
-                style={{
-                  width: "100%",
-                  display: "block",
-                  aspectRatio: "9/16",
-                  objectFit: "cover",
-                  objectPosition: "top",
-                  transition: "transform 0.4s ease",
-                  transform: hovered === i ? "scale(1.03)" : "scale(1)",
-                }}
-              />
-              {/* Hover overlay */}
-              <div style={{
-                position: "absolute",
-                inset: 0,
-                background: "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
-                opacity: hovered === i ? 1 : 0.6,
-                transition: "opacity 0.3s ease",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "flex-end",
-                padding: "1rem",
+                gap: "0.75rem",
+              }}
+            >
+              {/* Poster image — full, uncropped, no overlay */}
+              <div style={{
+                borderRadius: "0.5rem",
+                overflow: "hidden",
+                border: "1px solid rgba(212,175,55,0.15)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
+                flexShrink: 0,
               }}>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.9rem", fontWeight: 700, color: "#fff", marginBottom: "0.25rem" }}>
+                <img
+                  src={comp.img}
+                  alt={comp.title}
+                  style={{
+                    width: "100%",
+                    display: "block",
+                    aspectRatio: "2/3",
+                    objectFit: "cover",
+                    objectPosition: "top center",
+                  }}
+                />
+              </div>
+
+              {/* Text block — sits BELOW the poster */}
+              <div>
+                <div style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "clamp(0.85rem, 2vw, 1rem)",
+                  fontWeight: 700,
+                  color: "#fff",
+                  marginBottom: "0.2rem",
+                  lineHeight: 1.3,
+                }}>
                   {comp.title}
                 </div>
-                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", color: "#D4AF37", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: hovered === i ? "0.5rem" : 0 }}>
+                <div style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.65rem",
+                  color: "#D4AF37",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  marginBottom: "0.4rem",
+                }}>
                   {comp.platform}
                 </div>
-                {hovered === i && (
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>
-                    {comp.note}
-                  </div>
-                )}
+                <div style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.72rem",
+                  color: "rgba(255,255,255,0.55)",
+                  lineHeight: 1.6,
+                }}>
+                  {comp.note}
+                </div>
               </div>
             </div>
           ))}
