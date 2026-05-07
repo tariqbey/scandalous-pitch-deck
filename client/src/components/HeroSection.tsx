@@ -201,7 +201,20 @@ export default function HeroSection() {
           color: "#fff",
           textTransform: "uppercase",
         }}>
-          MALIK DAVIS
+          DEL RIVERS
+        </div>
+
+        {/* Created and Written by */}
+        <div style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.62rem",
+          fontWeight: 500,
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.5)",
+          marginTop: "-0.5rem",
+        }}>
+          Created &amp; Written by Del Rivers
         </div>
 
         {/* Presents */}
@@ -213,7 +226,7 @@ export default function HeroSection() {
           textTransform: "uppercase",
           color: "#D4AF37",
         }}>
-          Upscale Promotions & Entertainment, Inc. Presents
+          Upscale Promotions &amp; Entertainment, Inc. Presents
         </div>
 
         {/* Gold rule */}
@@ -229,7 +242,7 @@ export default function HeroSection() {
           letterSpacing: "-0.02em",
           textShadow: "0 0 60px rgba(212,175,55,0.3)",
         }}>
-          BLOODLINE LIES
+          SCANDALOUS: BLOODLINE LIES
         </div>
 
         {/* Subtitle */}

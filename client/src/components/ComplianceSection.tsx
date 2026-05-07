@@ -61,7 +61,7 @@ const LEGAL_NOTES = [
     category: "IP & Rights",
     status: "OWNED",
     color: "#D4AF37",
-    note: "All 60 episodes written by Malik Davis. Full copyright held by Upscale Promotions & Entertainment, Inc. All characters are original fictional creations. BLOODLINE LIES is an original title.",
+    note: "All 60 episodes written by Del Rivers. Full copyright held by Upscale Promotions & Entertainment, Inc. All characters are original fictional creations. SCANDALOUS: BLOODLINE LIES is an original title.",
   },
 ];
 
@@ -213,7 +213,7 @@ export default function ComplianceSection() {
           background: "rgba(255,255,255,0.02)",
         }}>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", color: "rgba(255,255,255,0.3)", lineHeight: 1.7, margin: 0 }}>
-            <strong style={{ color: "rgba(255,255,255,0.45)" }}>Legal Disclaimer:</strong> BLOODLINE LIES is a work of fiction. All characters, events, and locations depicted are fictional. Any resemblance to real persons, living or dead, is coincidental. The series is inspired by publicly documented social media content. Full legal review recommended prior to production. All rights reserved © 2026 Upscale Promotions & Entertainment, Inc. Legal representation: The Law Office of Omara S. Harris, Esq, LLC · musicandfilmlaw@omaraharris.com · 404-409-7354
+            <strong style={{ color: "rgba(255,255,255,0.45)" }}>Legal Disclaimer:</strong> SCANDALOUS: BLOODLINE LIES is a work of fiction. All characters, events, and locations depicted are fictional. Any resemblance to real persons, living or dead, is coincidental. The series is inspired by publicly documented social media content. Full legal review recommended prior to production. All rights reserved © 2026 Upscale Promotions & Entertainment, Inc. Legal representation: The Law Office of Omara S. Harris, Esq, LLC · musicandfilmlaw@omaraharris.com · 404-409-7354
           </p>
         </div>
       </div>

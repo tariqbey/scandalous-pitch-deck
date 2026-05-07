@@ -40,7 +40,7 @@ const titleBlockStyle: React.CSSProperties = {
 function TitleBlock({ title }: { title: string }) {
   return (
     <div style={titleBlockStyle}>
-      <div>BLOODLINE LIES</div>
+      <div>SCANDALOUS: BLOODLINE LIES</div>
       <div>"{title}"</div>
       <div style={{ fontWeight: "normal" }}>written by</div>
       <div>Malik Davis</div>

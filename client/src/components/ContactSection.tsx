@@ -15,7 +15,7 @@ export default function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Build mailto with summary to both addresses
-    const subject = encodeURIComponent(`BLOODLINE LIES Pitch Inquiry — ${form.name} / ${form.company}`);
+    const subject = encodeURIComponent(`SCANDALOUS: BLOODLINE LIES Pitch Inquiry — ${form.name} / ${form.company}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
     );
@@ -69,7 +69,7 @@ export default function ContactSection() {
           <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             <div>
               <div className="section-label" style={{ marginBottom: "0.5rem" }}>Producer</div>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", color: "#fff" }}>Malik Davis</div>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", color: "#fff" }}>Del Rivers</div>
             </div>
             <div>
               <div className="section-label" style={{ marginBottom: "0.5rem" }}>Production Company</div>
@@ -114,7 +114,7 @@ export default function ContactSection() {
                   Message Sent
                 </div>
                 <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.5)" }}>
-                  Thank you for your interest in BLOODLINE LIES. We'll be in touch shortly.
+                  Thank you for your interest in SCANDALOUS: BLOODLINE LIES. We'll be in touch shortly.
                 </div>
               </div>
             ) : (

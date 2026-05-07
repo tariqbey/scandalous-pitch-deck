@@ -72,7 +72,7 @@ export default function NavBar() {
           textTransform: "uppercase",
           flexShrink: 0,
         }}>
-          BLOODLINE LIES
+          SCANDALOUS: BLOODLINE LIES
         </div>
 
         {/* Desktop nav links — hidden on mobile */}

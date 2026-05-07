@@ -1,22 +1,17 @@
 import React, { createContext, useContext, useRef, useState } from "react";
 
 // ── CDN audio assets ──────────────────────────────────────────────────────────
-const THEME_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/QUaCVDiiMFbFunXS.mp3";
+const THEME_URL = "/manus-storage/LockedPhoneLine_a801c987.mp3";
 const INSTRUMENTAL_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/TableFor2(Instrumental).mp3";
 
-// Character VOs
+// Character VOs — Hobbs voice (ElevenLabs), generated 2026-05-07
 const VO_URLS: Record<string, string> = {
-  marcus:  "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/dante2.mp3",
-  vanessa: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/angi2.mp3",
-  elena:   "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/lisa2.mp3",
-  tiana:   "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/tammy2.mp3",
-  leo:     "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/faleshia2.mp3",
-  michael: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/dante2.mp3",
-  renee:   "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/angi2.mp3",
-  jada:    "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/tammy2.mp3",
-  darius:  "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/faleshia.mp3",
-  tonya:   "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/lisa2.mp3",
-  calvin:  "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/dante2.mp3",
+  michael: "/manus-storage/michael_8c8849f4.mp3",
+  renee:   "/manus-storage/renee_8608a1a5.mp3",
+  jada:    "/manus-storage/jada_2f3e75d0.mp3",
+  darius:  "/manus-storage/darius_f2f14d92.mp3",
+  tonya:   "/manus-storage/tonya_12301b47.mp3",
+  calvin:  "/manus-storage/calvin_30e2c0e5.mp3",
 };
 
 interface AudioContextValue {

@@ -28,7 +28,7 @@ export default function SeriesSummarySection() {
           60 Episodes.<br />One Devastating Truth.
         </h2>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", maxWidth: 700, lineHeight: 1.8, marginBottom: "4rem" }}>
-          BLOODLINE LIES is a 60-episode vertical micro-drama series. Each episode runs 60 seconds, designed for mobile-first consumption. The full arc is pre-written, production-ready, and built for binge retention — with a cliffhanger every single episode.
+          SCANDALOUS: BLOODLINE LIES is a 60-episode vertical micro-drama series. Each episode runs 60 seconds, designed for mobile-first consumption. The full arc is pre-written, production-ready, and built for binge retention — with a cliffhanger every single episode.
         </p>
 
         {/* Arc timeline */}

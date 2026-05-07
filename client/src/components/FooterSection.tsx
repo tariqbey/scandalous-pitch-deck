@@ -16,7 +16,7 @@ export default function FooterSection() {
             style={{ height: 80, objectFit: "contain" }}
           />
           <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.9rem", color: "#D4AF37", letterSpacing: "0.1em", textAlign: "center" }}>
-            BLOODLINE LIES
+            SCANDALOUS: BLOODLINE LIES
           </div>
         </div>
 
@@ -32,7 +32,7 @@ export default function FooterSection() {
             Legal: The Law Office of Omara S. Harris, Esq, LLC · musicandfilmlaw@omaraharris.com · 404-409-7354
           </div>
           <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-            Written by Malik Davis · Confidential
+            Written by Del Rivers · Confidential
           </div>
         </div>
       </div>

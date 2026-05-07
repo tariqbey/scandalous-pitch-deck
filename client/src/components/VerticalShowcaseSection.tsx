@@ -42,7 +42,7 @@ export default function VerticalShowcaseSection() {
               }}>
                 <img
                   src={COVER_IMG}
-                  alt="BLOODLINE LIES Cover Art"
+                  alt="SCANDALOUS: BLOODLINE LIES Cover Art"
                   style={{ width: "100%", display: "block" }}
                 />
               </div>

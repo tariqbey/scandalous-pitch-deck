@@ -5,19 +5,19 @@ const COMPS = [
     title: "Forbidden Bloodline",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/MeviHoWWVnDeBlDz.jpg",
     platform: "Aurora Streaming",
-    note: "Closest DNA to BLOODLINE LIES — forbidden romance + biological revelation. Our version adds the real-world virality hook.",
+    note: "Closest DNA to SCANDALOUS: BLOODLINE LIES — forbidden romance + biological revelation. Our version adds the real-world virality hook.",
   },
   {
     title: "Dynasty Secrets",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/AosWsbmtdbJmwUlM.jpg",
     platform: "Onyx Original",
-    note: "Ensemble family drama with luxury aesthetic. BLOODLINE LIES matches the production value at a fraction of the cost.",
+    note: "Ensemble family drama with luxury aesthetic. SCANDALOUS: BLOODLINE LIES matches the production value at a fraction of the cost.",
   },
   {
     title: "Paternity War",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/POAFzCUnbDHBVAez.jpg",
     platform: "New Series",
-    note: "DNA-test drama with high stakes. BLOODLINE LIES adds the vertical micro-drama format and social media pre-awareness.",
+    note: "DNA-test drama with high stakes. SCANDALOUS: BLOODLINE LIES adds the vertical micro-drama format and social media pre-awareness.",
   },
   {
     title: "The Heir",
@@ -29,13 +29,13 @@ const COMPS = [
     title: "Betrayal",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/DqEfFynfHykwVOKN.jpg",
     platform: "Netrix Original",
-    note: "Power-woman lead with secrets. BLOODLINE LIES's Renee Cole is this archetype — but with 20 years of receipts.",
+    note: "Power-woman lead with secrets. SCANDALOUS: BLOODLINE LIES's Renee Cole is this archetype — but with 20 years of receipts.",
   },
   {
     title: "The Arrangement",
     img: "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/JzQzppYhdeZEDtga.jpg",
     platform: "LuxeStream",
-    note: "Wedding drama with family horror. BLOODLINE LIES is this concept executed with the micro-drama format's precision.",
+    note: "Wedding drama with family horror. SCANDALOUS: BLOODLINE LIES is this concept executed with the micro-drama format's precision.",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function ComparablesSection() {
           Comparable Titles
         </h2>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", marginBottom: "3rem" }}>
-          BLOODLINE LIES sits at the intersection of premium family drama and viral social content — a market position no current title occupies.
+          SCANDALOUS: BLOODLINE LIES sits at the intersection of premium family drama and viral social content — a market position no current title occupies.
         </p>
 
         {/* Poster grid */}
