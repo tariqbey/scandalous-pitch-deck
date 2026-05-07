@@ -272,7 +272,7 @@ export default function HeroSection() {
           lineHeight: 1.7,
           padding: "0 0.5rem",
         }}>
-          "He recognized her in a family photo. He said nothing. Then he went to the bathroom and called her."
+          "He saw her face in a family photo on the wall.  Smiled. Said nothing.  Excused himself.  Locked the bathroom door.  And dialed the number he hadn't called in twenty years."
         </div>
 
         {/* Genre pills */}
