@@ -7,11 +7,11 @@ const INSTRUMENTAL_URL = "/manus-storage/LockedPhoneLine(Instrumental)_34c7e225.
 // Character VOs — Zuri voice (ElevenLabs) — New Yorker, calm, female, middle-aged
 const VO_URLS: Record<string, string> = {
   michael: "/manus-storage/michael_zuri_0afc34a0.mp3",
-  renee:   "/manus-storage/renee_zuri_0aee52cd.mp3",
+  renee:   "/manus-storage/renee_cole_zuri_d0cd2f77.mp3",
   jada:    "/manus-storage/jada_zuri_49558894.mp3",
-  darius:  "/manus-storage/darius_zuri_bf875745.mp3",
-  tonya:   "/manus-storage/tonya_zuri_601af2e0.mp3",
-  calvin:  "/manus-storage/calvin_zuri_fa16703d.mp3",
+  darius:  "/manus-storage/darius_cole_zuri_58c8eb2f.mp3",
+  tonya:   "/manus-storage/tonya_reid_zuri_c629a765.mp3",
+  calvin:  "/manus-storage/calvin_cole_zuri_bece095d.mp3",
 };
 
 interface AudioContextValue {
