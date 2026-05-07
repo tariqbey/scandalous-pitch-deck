@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const COVER_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/jLzRjqMxYTFeSpoq.jpg";
+const PHONE_VIDEO = "/manus-storage/hf_20260507_063323_bf5dc302-e160-4540-9977-3a05b28bf5a9_efbd086d.mp4";
 
 export default function VerticalShowcaseSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -39,11 +39,15 @@ export default function VerticalShowcaseSection() {
                 overflow: "hidden",
                 boxShadow: "0 0 80px rgba(212,175,55,0.15), 0 40px 80px rgba(0,0,0,0.8)",
                 background: "#000",
+                aspectRatio: "9/16",
               }}>
-                <img
-                  src={COVER_IMG}
-                  alt="SCANDALOUS: BLOODLINE LIES Cover Art"
-                  style={{ width: "100%", display: "block" }}
+                <video
+                  src={PHONE_VIDEO}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
               </div>
               {/* Glow */}
