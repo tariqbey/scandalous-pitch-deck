@@ -298,10 +298,13 @@ export default function BeatSheetsSection() {
         <div style={{
           background: "#0A0A0A",
           border: "1px solid rgba(212,175,55,0.18)",
-          padding: "2.5rem",
+          padding: "clamp(1rem, 4vw, 2.5rem)",
           opacity: visible ? (animating ? 0 : 1) : 0,
           transform: animating ? "translateY(10px)" : "translateY(0)",
           transition: "opacity 0.22s ease, transform 0.22s ease",
+          boxSizing: "border-box" as const,
+          width: "100%",
+          overflowX: "hidden",
         }}>
           {/* Card header */}
           <div style={{
@@ -362,45 +365,54 @@ export default function BeatSheetsSection() {
             ))}
           </div>
 
-          {/* Beat rows */}
+          {/* Beat rows — stacked layout (mobile-first) */}
           {ep.beats.map((beat, i) => (
             <div
-              key={beat.label}
+              key={beat.label + i}
               style={{
-                display: "grid",
-                gridTemplateColumns: "90px 160px 1fr",
-                gap: "1rem",
                 paddingBottom: "1.4rem",
                 marginBottom: "1.4rem",
                 borderBottom: i < ep.beats.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
-                alignItems: "start",
               }}
             >
+              {/* Meta row: time + label pill side by side */}
               <div style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "0.75rem",
-                color: "rgba(255,255,255,0.3)",
-                paddingTop: 3,
-                whiteSpace: "nowrap",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                marginBottom: "0.5rem",
+                flexWrap: "wrap",
               }}>
-                {beat.time}
+                <span style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.72rem",
+                  color: "rgba(255,255,255,0.3)",
+                  whiteSpace: "nowrap",
+                }}>
+                  {beat.time}
+                </span>
+                <span style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.7rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  color: LABEL_COLORS[beat.label] ?? "#D4AF37",
+                  textTransform: "uppercase",
+                  background: `${LABEL_COLORS[beat.label] ?? "#D4AF37"}18`,
+                  border: `1px solid ${LABEL_COLORS[beat.label] ?? "#D4AF37"}44`,
+                  padding: "0.2rem 0.6rem",
+                  borderRadius: 2,
+                }}>
+                  {beat.label}
+                </span>
               </div>
+              {/* Description — full width, wraps naturally */}
               <div style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: "0.72rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                color: LABEL_COLORS[beat.label] ?? "#D4AF37",
-                textTransform: "uppercase",
-                paddingTop: 3,
-              }}>
-                {beat.label}
-              </div>
-              <div style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "0.95rem",
+                fontSize: "clamp(0.88rem, 2.5vw, 0.95rem)",
                 color: "rgba(255,255,255,0.78)",
-                lineHeight: 1.75,
+                lineHeight: 1.8,
+                wordBreak: "break-word" as const,
               }}>
                 {beat.desc}
               </div>

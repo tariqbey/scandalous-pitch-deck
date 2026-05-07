@@ -404,8 +404,8 @@ export default function AnalyticsSection() {
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: "rgba(255,255,255,0.35)", marginBottom: "1.5rem" }}>
                 Percentage of total audience
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap" }}>
-                <div style={{ flex: "0 0 160px", width: 160, height: 160 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}>
+                <div style={{ flex: "0 0 160px", width: 160, height: 160, flexShrink: 0 }}>
                   <PieChart width={160} height={160}>
                     <Pie
                       data={DEMO_DATA}
