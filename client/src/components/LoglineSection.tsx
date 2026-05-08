@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
 const WHY_IT_WORKS = [
-  { label: "Invisible Danger", desc: "The audience sees Michael panic. The kids do not. Renee does not know why he is calling. The danger stretches instead of exploding too soon." },
-  { label: "Six-Person War", desc: "Two marriages, one buried pregnancy, one DNA test. Every character has something to lose — and the truth destroys all of them differently." },
+  { label: "Two Ticking Bombs", desc: "Renee's bomb: if the truth comes out, Calvin learns she cheated and may have let him raise another man's child. Michael's bomb: if the truth comes out, Tonya learns he cheated and possibly fathered a child outside their marriage." },
+  { label: "Mutual Trap", desc: "Renee cannot expose Michael without exposing herself. Michael cannot expose Renee without destroying his own marriage. But if neither tells the truth, their children may be living inside the worst possible lie." },
   { label: "Real-World Source", desc: "Inspired by a viral story with 7M+ documented views across platforms — with zero paid promotion." },
   { label: "Mobile-First Format", desc: "9:16 vertical, 60-second episodes, 60-ep arc — engineered for scroll culture and binge retention." },
 ];
@@ -36,7 +36,7 @@ export default function LoglineSection() {
           transform: visible ? "translateX(0)" : "translateX(-30px)",
           transition: "opacity 0.9s ease, transform 0.9s ease",
         }}>
-          When Michael's daughter brings home her boyfriend, Michael silently recognizes the boy's mother as Renee — the married woman who got pregnant during their affair 20 years ago and refused a DNA test. Now Michael must force Renee to face the truth before their children's relationship goes too far, while both of them fight to keep their spouses from discovering the secret that could destroy two families.
+          Twenty years after Renee and Michael cheated on their spouses and buried a pregnancy without a DNA test, Michael discovers Renee's son is dating his daughter. Now Renee must lead the cover-up to protect her marriage, while Michael pressures her for the truth without exposing his own affair — forcing both former lovers into a dangerous battle where every lie risks destroying two families.
         </blockquote>
 
         {/* Format specs */}
@@ -77,10 +77,10 @@ export default function LoglineSection() {
             }}>
               <div style={{
                 fontFamily: "'Playfair Display', serif",
-              fontSize: "1.25rem",
-              fontWeight: 700,
-              color: "#D4AF37",
-              marginBottom: "0.5rem",
+                fontSize: "1.25rem",
+                fontWeight: 700,
+                color: "#D4AF37",
+                marginBottom: "0.5rem",
               }}>{item.label}</div>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.75 }}>
                 {item.desc}

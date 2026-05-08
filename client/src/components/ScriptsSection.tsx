@@ -4,10 +4,10 @@ type EpKey = "ep1" | "ep2" | "ep3" | "ep4" | "ep5" | "ep6" | "ep7" | "ep8" | "ep
 
 const EPISODES: { key: EpKey; label: string; title: string }[] = [
   { key: "ep1",  label: "Ep 1",  title: "MEET DARIUS" },
-  { key: "ep2",  label: "Ep 2",  title: "THE PHOTO" },
-  { key: "ep3",  label: "Ep 3",  title: "THE BATHROOM CALL" },
-  { key: "ep4",  label: "Ep 4",  title: "TWENTY YEARS" },
-  { key: "ep5",  label: "Ep 5",  title: "YOUR SON" },
+  { key: "ep2",  label: "Ep 2",  title: "THE CALL SHE NEVER EXPECTED" },
+  { key: "ep3",  label: "Ep 3",  title: "YOUR SON, MY DAUGHTER" },
+  { key: "ep4",  label: "Ep 4",  title: "YOU WERE MARRIED TOO" },
+  { key: "ep5",  label: "Ep 5",  title: "KEEP BOTH SPOUSES OUT" },
   { key: "ep6",  label: "Ep 6",  title: "THROW HIM OFF" },
   { key: "ep7",  label: "Ep 7",  title: "ACT NORMAL" },
   { key: "ep8",  label: "Ep 8",  title: "THE GOODBYE" },
@@ -107,36 +107,47 @@ function Ep1() {
 function Ep2() {
   return (
     <div style={scriptStyle}>
-      <TitleBlock title="THE PHOTO" />
+      <TitleBlock title="THE CALL SHE NEVER EXPECTED" />
       <span className="sp-action">FADE IN:</span>
-      <span className="sp-slug">INT. MICHAEL'S LIVING ROOM — CONTINUOUS</span>
+      <span className="sp-slug">INT. MICHAEL'S BATHROOM / RENEE'S KITCHEN — EVENING</span>
+      <span className="sp-action">Renee answers the phone.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Hello?</span>
+      <span className="sp-action">Michael whispers from the bathroom.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Your family from around here?</span>
-      <span className="sp-char">DARIUS</span>
-      <span className="sp-dialog">Yes, sir. Born and raised.</span>
+      <span className="sp-dialog">Renee.</span>
+      <span className="sp-action">She freezes.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Who is this?</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Your father in your life?</span>
-      <span className="sp-char">DARIUS</span>
-      <span className="sp-dialog">Every day. That's my guy.</span>
+      <span className="sp-dialog">Michael.</span>
+      <span className="sp-action">Renee turns cold.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Michael Reed?</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Good. A man needs that.</span>
-      <span className="sp-action">Darius pulls out his phone.</span>
-      <span className="sp-char">DARIUS</span>
-      <span className="sp-dialog">Matter fact, that's him right there. My dad Calvin. And my mom.</span>
-      <span className="sp-action">He turns the phone toward Michael. INSERT PHONE PHOTO: Darius with Calvin and Renee.</span>
-      <span className="sp-action">Michael sees Renee. His face almost breaks.</span>
-      <span className="sp-action">FLASH CUTS: Young Renee laughing in a motel room. Michael taking off his wedding ring. Renee holding a pregnancy test. Michael saying "We need a DNA test." Renee saying "I'm not blowing up my marriage." Phone screen: BLOCKED.</span>
-      <span className="sp-action">Back to Michael. He is frozen too long.</span>
-      <span className="sp-char">JADA</span>
-      <span className="sp-dialog">Dad?</span>
-      <span className="sp-action">Michael blinks. He hands the phone back.</span>
+      <span className="sp-dialog">Yeah.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Why the fuck are you calling me after twenty years?</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Beautiful family.</span>
-      <span className="sp-char">DARIUS</span>
-      <span className="sp-dialog">Appreciate that. That's everything to me.</span>
-      <span className="sp-action">Michael looks at Jada's hand resting near Darius's. Under his breath:</span>
+      <span className="sp-dialog">Because we need to talk.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">No. We don't. I got a husband. You got a wife. Whatever you feeling guilty about, take it to God.</span>
+      <span className="sp-action">Michael lowers his voice.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">No…</span>
+      <span className="sp-dialog">You remember the last time we spoke?</span>
+      <span className="sp-action">Renee grips the counter.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Don't.</span>
+      <span className="sp-char">MICHAEL</span>
+      <span className="sp-dialog">You told me you were pregnant.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">And you disappeared behind your marriage just like I disappeared behind mine.</span>
+      <span className="sp-action">Michael takes that hit.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">So don't call me acting like I buried this alone.</span>
+      <span className="sp-action">Michael looks toward the bathroom door, where his daughter is laughing with Darius outside.</span>
+      <span className="sp-char">MICHAEL</span>
+      <span className="sp-dialog">I'm calling because it just walked into my house.</span>
       <span className="sp-trans">CUT TO BLACK.</span>
       <span className="sp-trans">END OF EPISODE 2</span>
     </div>
@@ -146,40 +157,43 @@ function Ep2() {
 function Ep3() {
   return (
     <div style={scriptStyle}>
-      <TitleBlock title="THE BATHROOM CALL" />
+      <TitleBlock title="YOUR SON, MY DAUGHTER" />
       <span className="sp-action">FADE IN:</span>
-      <span className="sp-slug">INT. MICHAEL'S LIVING ROOM / BATHROOM — CONTINUOUS</span>
-      <span className="sp-action">Michael stands abruptly.</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Excuse me one second.</span>
-      <span className="sp-char">JADA</span>
-      <span className="sp-dialog">Dad, you okay?</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Yeah. I'm good.</span>
-      <span className="sp-action">He walks down the hall. Bathroom door closes. His face drops.</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-paren">(to himself)</span>
-      <span className="sp-dialog">Fuck.</span>
-      <span className="sp-action">Michael pulls out his phone. Scrolls through old contacts. Stops on: RENEE COLE. His thumb hovers. From the living room, muffled laughter — Jada and Darius still there. Michael presses call. Phone rings.</span>
+      <span className="sp-slug">INT. RENEE'S KITCHEN / MICHAEL'S BATHROOM — CONTINUOUS</span>
+      <span className="sp-action">Renee whispers.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">Hello?</span>
-      <span className="sp-action">Michael freezes.</span>
-      <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">Hello? Who is this?</span>
+      <span className="sp-dialog">What walked into your house?</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Renee.</span>
-      <span className="sp-beat">Beat.</span>
+      <span className="sp-dialog">Your son.</span>
+      <span className="sp-action">Renee's face changes.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">Who the hell is this?</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">It's Michael.</span>
-      <span className="sp-action">Silence. Renee's voice turns cold.</span>
-      <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">Michael Reed?</span>
+      <span className="sp-dialog">Darius?</span>
       <span className="sp-char">MICHAEL</span>
       <span className="sp-dialog">Yeah.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">Why the fuck are you calling me?</span>
+      <span className="sp-dialog">Why was my son in your house?</span>
+      <span className="sp-char">MICHAEL</span>
+      <span className="sp-dialog">Because my daughter brought him.</span>
+      <span className="sp-beat">Beat.</span>
+      <span className="sp-char">MICHAEL</span>
+      <span className="sp-dialog">As her boyfriend.</span>
+      <span className="sp-action">Renee almost drops the phone.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">No.</span>
+      <span className="sp-char">MICHAEL</span>
+      <span className="sp-dialog">Almost a year, Renee.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Darius has a father.</span>
+      <span className="sp-char">MICHAEL</span>
+      <span className="sp-dialog">Then say Calvin is his father.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Calvin raised him.</span>
+      <span className="sp-char">MICHAEL</span>
+      <span className="sp-dialog">That's not what I asked.</span>
+      <span className="sp-action">Renee snaps.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Careful, Michael. You keep pushing, your wife finds out why you care so damn much.</span>
+      <span className="sp-action">Michael goes silent. Because she is right.</span>
       <span className="sp-trans">CUT TO BLACK.</span>
       <span className="sp-trans">END OF EPISODE 3</span>
     </div>
@@ -189,43 +203,40 @@ function Ep3() {
 function Ep4() {
   return (
     <div style={scriptStyle}>
-      <TitleBlock title="TWENTY YEARS" />
+      <TitleBlock title="YOU WERE MARRIED TOO" />
       <span className="sp-action">FADE IN:</span>
       <span className="sp-slug">INT. MICHAEL'S BATHROOM / RENEE'S KITCHEN — CONTINUOUS</span>
-      <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">Why the fuck are you calling me?</span>
+      <span className="sp-action">Michael whispers.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Because we need to talk.</span>
+      <span className="sp-dialog">Don't threaten me.</span>
+      <span className="sp-action">Renee is shaking but sharp.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">No, we don't. Whatever you got going on, leave me out of it.</span>
-      <span className="sp-action">Michael hears Jada laugh in the living room. He looks at the bathroom door.</span>
+      <span className="sp-dialog">I'm not threatening you. I'm reminding you.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">You remember the last time I saw you?</span>
-      <span className="sp-action">Renee goes quiet.</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">You told me you was pregnant.</span>
+      <span className="sp-dialog">Our kids might be—</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">Don't do this.</span>
+      <span className="sp-dialog">Don't say it.</span>
+      <span className="sp-action">Michael hardens.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">I asked you for a DNA test.</span>
+      <span className="sp-dialog">You refused the DNA test.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">And I said no.</span>
+      <span className="sp-dialog">Because I had a husband.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Because you didn't wanna fuck up your marriage.</span>
+      <span className="sp-dialog">And I had a right to know.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">And you didn't wanna fuck up yours. Don't act like I was the only coward.</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">I know what we did.</span>
+      <span className="sp-dialog">You had a wife. You had a daughter coming. You had a whole life you didn't want blown up either.</span>
+      <span className="sp-action">Michael cannot deny it.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">Then why bring it up now?</span>
-      <span className="sp-action">Michael looks toward the living room. Darius's voice is faint.</span>
-      <span className="sp-char">DARIUS</span>
-      <span className="sp-paren">(from living room)</span>
-      <span className="sp-dialog">Yes, ma'am, I respect Jada. Always.</span>
+      <span className="sp-dialog">You wanted answers without consequences.</span>
+      <span className="sp-action">Michael goes quiet.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Now you want the truth, but you still don't want Tonya to know why.</span>
+      <span className="sp-action">From Michael's hallway:</span>
+      <span className="sp-char">JADA</span>
+      <span className="sp-dialog">Dad? You okay in there?</span>
       <span className="sp-action">Michael closes his eyes.</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Because your past is sitting in my living room.</span>
-      <span className="sp-action">Renee freezes.</span>
+      <span className="sp-char">RENEE</span>
+      <span className="sp-dialog">Go answer your daughter, Michael.</span>
       <span className="sp-trans">CUT TO BLACK.</span>
       <span className="sp-trans">END OF EPISODE 4</span>
     </div>
@@ -235,46 +246,37 @@ function Ep4() {
 function Ep5() {
   return (
     <div style={scriptStyle}>
-      <TitleBlock title="YOUR SON" />
+      <TitleBlock title="KEEP BOTH SPOUSES OUT" />
       <span className="sp-action">FADE IN:</span>
       <span className="sp-slug">INT. MICHAEL'S BATHROOM / RENEE'S KITCHEN — CONTINUOUS</span>
+      <span className="sp-action">Michael whispers into the phone.</span>
+      <span className="sp-char">MICHAEL</span>
+      <span className="sp-dialog">We need a DNA test.</span>
+      <span className="sp-action">Renee looks toward her hallway.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">What the hell does that mean?</span>
+      <span className="sp-dialog">No.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">My daughter brought a boy home tonight.</span>
+      <span className="sp-dialog">Renee—</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">What boy?</span>
+      <span className="sp-dialog">No. Not unless we know how to keep Calvin and Tonya out of it.</span>
+      <span className="sp-action">Michael is furious.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">A boy she's been dating almost a year.</span>
+      <span className="sp-dialog">This is about our kids.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">And what does that have to do with me?</span>
+      <span className="sp-dialog">And our marriages.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">He was respectful. Cool kid. Talking about his dad Calvin.</span>
-      <span className="sp-action">Renee's face shifts slightly.</span>
+      <span className="sp-dialog">You care more about Calvin than Darius?</span>
+      <span className="sp-action">Renee snaps.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">What did you say?</span>
+      <span className="sp-dialog">Don't you dare. Everything I did was to keep my son's life whole.</span>
       <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">He pulled out his phone. Showed me a picture of his family.</span>
-      <span className="sp-beat">Beat.</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">His dad Calvin.</span>
-      <span className="sp-beat">Beat.</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">His mother.</span>
-      <span className="sp-action">Renee stops breathing.</span>
+      <span className="sp-dialog">Whole? Or fake?</span>
+      <span className="sp-action">That wounds her.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">What's his name?</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Darius.</span>
-      <span className="sp-char">RENEE</span>
-      <span className="sp-paren">(whisper)</span>
-      <span className="sp-dialog">Oh my God.</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">Yeah.</span>
-      <span className="sp-action">Michael's voice cracks into anger.</span>
-      <span className="sp-char">MICHAEL</span>
-      <span className="sp-dialog">So now I need to know if that's my son before my daughter ends up with her brother.</span>
-      <span className="sp-action">Renee covers her mouth.</span>
+      <span className="sp-dialog">Ask yourself that before Tonya asks why you're hiding in the bathroom calling me.</span>
+      <span className="sp-action">Michael hears Jada knock again. Renee hears Calvin approaching her kitchen. Both freeze on opposite ends of the call. They whisper at the same time:</span>
+      <span className="sp-char">MICHAEL / RENEE</span>
+      <span className="sp-dialog">I gotta go.</span>
       <span className="sp-trans">CUT TO BLACK.</span>
       <span className="sp-trans">END OF EPISODE 5</span>
     </div>

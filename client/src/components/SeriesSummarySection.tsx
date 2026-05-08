@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
 const ARCS = [
-  { ep: "Ep 1–10", title: "The Photo & The First Call", color: "#D4AF37", desc: "Michael meets Darius, recognizes Renee in a family photo, and calls her from the bathroom. Renee is defensive and clueless — until Michael explains their children are dating." },
-  { ep: "Ep 11–20", title: "The Silent War", color: "#8B0000", desc: "Michael tells Jada to slow down with no explanation. Renee warns Darius. Calvin grows suspicious. Tonya finds Renee's name on Michael's phone." },
-  { ep: "Ep 21–30", title: "Pressure From Both Homes", color: "#4ecdc4", desc: "Tonya confronts Michael. Calvin checks Renee's phone. Jada considers moving in with Darius. Michael and Renee meet in person. Renee cannot say Darius is not Michael's son." },
-  { ep: "Ep 31–40", title: "The Affair Surfaces", color: "#e05c8a", desc: "Tonya follows Michael and sees him with Renee. Michael confesses the affair. Calvin questions Renee. Jada leaves home. Michael tells Tonya Renee was pregnant." },
-  { ep: "Ep 41–50", title: "The DNA Question Explodes", color: "#D4AF37", desc: "Tonya realizes Jada may be dating Michael's child. Darius learns the truth. Renee refuses the DNA test again. Jada and Darius book the test themselves." },
-  { ep: "Ep 51–60", title: "Bloodline Reckoning", color: "#8B0000", desc: "All six sit in the clinic waiting room. The results arrive. Darius is not Michael's son. Then the second page: he is not Calvin's either. Marcus enters. 'Tell them why you put my son in Calvin's house.'" },
+  { ep: "Ep 1–10", title: "Discovery & Mutual Guilt", color: "#D4AF37", desc: "Michael meets Darius and sees Renee’s photo. He calls her from the bathroom. Renee is defensive — until she learns their children are dating. She reminds Michael he was married too. They agree on one thing: keep both spouses out of it. Then the spouses start noticing anyway." },
+  { ep: "Ep 11–20", title: "Two Houses Start to Crack", color: "#8B0000", desc: "Tonya asks why Michael is acting strange. Calvin asks why Renee suddenly fears Darius dating. Jada demands a reason. Darius asks why Renee dislikes Jada. Old affair flashbacks surface — both removing wedding rings, Renee telling Michael she is pregnant, and the block that followed." },
+  { ep: "Ep 21–30", title: "The Cover-Up Gets Messy", color: "#4ecdc4", desc: "Tonya finds Renee’s name in Michael’s phone. Calvin sees deleted calls. Michael lies: old friend. Renee lies: school fundraiser. Jada visits Darius’s house and Renee nearly breaks. Then Jada and Darius announce they may move in together." },
+  { ep: "Ep 31–40", title: "Spouses Enter the War", color: "#e05c8a", desc: "Both parents forbid the move. The kids compare notes and realize both families are acting strange. Tonya confronts Renee woman-to-woman. Calvin calls Michael directly. Tonya follows Michael and catches him meeting Renee. The affair comes out in a parking lot explosion." },
+  { ep: "Ep 41–50", title: "Paternity Becomes Family War", color: "#D4AF37", desc: "Calvin learns Renee cheated during their marriage. Tonya learns about the pregnancy. Darius realizes this is about him. Jada hears the fear: Darius might be Michael’s son. Both marriages break. The kids separate in horror. Renee and Michael both try to delay the DNA test — but Jada and Darius take control and swab themselves." },
+  { ep: "Ep 51–60", title: "Bloodline Reckoning", color: "#8B0000", desc: "All six sit in the clinic waiting room. Results arrive. Darius is not Michael’s son. Then the second page: he is not Calvin’s either. Renee tries to run. Michael stops her. Then Marcus appears — and says: ‘Tell them why you put my son in Calvin’s house.’" },
 ];
 
 export default function SeriesSummarySection() {
