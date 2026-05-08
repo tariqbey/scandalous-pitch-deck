@@ -88,6 +88,37 @@ export default function LoglineSection() {
             </div>
           ))}
         </div>
+
+        {/* Tagline Options */}
+        <div style={{ marginTop: "4rem" }}>
+          <div className="section-label">Tagline Options</div>
+          <div className="gold-rule" style={{ maxWidth: 80, margin: "0 0 2rem" }} />
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            {[
+              "Two cheaters. Two marriages. One bloodline lie.",
+              "They both cheated. Their children paid.",
+              "The affair ended. The damage grew up.",
+              "Her son. His daughter. Their secret.",
+              "One DNA test could destroy two families.",
+              "They buried the affair. Their children found it.",
+              "Twenty years later, both marriages are on trial.",
+            ].map((line, i) => (
+              <div key={i} style={{
+                fontFamily: "'Playfair Display', serif",
+                fontStyle: "italic",
+                fontSize: "clamp(1rem, 2.5vw, 1.35rem)",
+                color: i === 0 ? "#D4AF37" : "rgba(255,255,255,0.65)",
+                borderLeft: `3px solid ${i === 0 ? "#D4AF37" : "rgba(212,175,55,0.25)"}`,
+                paddingLeft: "1.5rem",
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateX(0)" : "translateX(-20px)",
+                transition: `opacity 0.7s ease ${0.1 + i * 0.08}s, transform 0.7s ease ${0.1 + i * 0.08}s`,
+              }}>
+                "{line}"
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
