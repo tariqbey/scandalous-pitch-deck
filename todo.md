@@ -14,3 +14,12 @@
 - [x] Update Beat Sheets Ep 2-5 to match revised scripts
 - [x] Update episode titles in Beat Sheets (Ep 1-6)
 - [x] Update 60-episode arc with all 6 acts (10 eps each) from revision doc
+
+## Media & Character Order Updates
+- [x] Upload new hero video (hf_20260508_233344) to webdev storage
+- [x] Upload new cover video (hf_20260508_233458) to webdev storage
+- [x] Upload new theme song (BackThen.mp3) to webdev storage
+- [x] Replace hero video URL in HeroSection
+- [x] Replace vertical cover video URL in VerticalShowcaseSection
+- [x] Replace theme song URL in AudioController/HeroSection
+- [x] Reorder characters in LeadCharactersSection with Renee first (already in correct order)

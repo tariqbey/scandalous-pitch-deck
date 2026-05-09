@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useRef, useState } from "react";
 
 // ── CDN audio assets ──────────────────────────────────────────────────────────
-const THEME_URL = "/manus-storage/LockedPhoneLine_a801c987.mp3";
+const THEME_URL = "/manus-storage/BackThen_b2dc6a88.mp3";
 const INSTRUMENTAL_URL = "/manus-storage/LockedPhoneLine(Instrumental)_34c7e225.mp3";
 
 // Character VOs — Zuri voice (ElevenLabs) — New Yorker, calm, female, middle-aged

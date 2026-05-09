@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const PHONE_VIDEO = "/manus-storage/hf_20260507_063323_bf5dc302-e160-4540-9977-3a05b28bf5a9_efbd086d.mp4";
+const PHONE_VIDEO = "/manus-storage/hf_20260508_233458_cf2db3a7-084f-486d-b5b4-05cdae8ad0a9_895b083f.mp4";
 
 export default function VerticalShowcaseSection() {
   const ref = useRef<HTMLDivElement>(null);
