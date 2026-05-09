@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useAudio } from "@/contexts/AudioController";
 
-const HERO_VIDEO = "/manus-storage/hf_20260508_233344_1bbf4e03-b3c8-415b-b366-124d7d0d42e7_693af98e.mp4";
+const HERO_VIDEO = "/manus-storage/hf_20260509_001619_e867b87e-bb0a-4555-8bf5-d6a5c45c5e4c_78746023.mp4";
 const UPSCALE_LOGO = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/RtaaZtYQelqLcSao.png";
 const COVER_ART_VIDEO = "/manus-storage/hf_20260508_233458_cf2db3a7-084f-486d-b5b4-05cdae8ad0a9_895b083f.mp4";
 

@@ -35,8 +35,11 @@ function App() {
         <AudioProvider>
           <TooltipProvider>
             <Toaster />
-            {!unlocked && <PasswordGate onUnlock={handleUnlock} />}
-            <Router />
+            {!unlocked ? (
+              <PasswordGate onUnlock={handleUnlock} />
+            ) : (
+              <Router />
+            )}
           </TooltipProvider>
         </AudioProvider>
       </ThemeProvider>

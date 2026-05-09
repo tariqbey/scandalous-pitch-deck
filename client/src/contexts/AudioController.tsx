@@ -45,23 +45,30 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   // so the onended closure always sees the latest value
   const themeWasPlayingRef = useRef(false);
 
-  const toggleTheme = () => {
+   const toggleTheme = () => {
     // First time: create and play
     if (!themeRef.current) {
       const audio = new Audio(THEME_URL);
       audio.loop = true;
       audio.volume = 1;
       themeRef.current = audio;
-      audio.play().catch(() => {});
+      // Mark as started immediately so the UI switches to the spinning record
       setThemeStarted(true);
-      setThemePlaying(true);
+      audio.play()
+        .then(() => {
+          setThemePlaying(true);
+        })
+        .catch(() => {
+          // Autoplay blocked — still show the record, user can tap again
+          setThemePlaying(false);
+        });
       return;
     }
-
     // Already created: toggle pause/play
     if (themeRef.current.paused) {
-      themeRef.current.play().catch(() => {});
-      setThemePlaying(true);
+      themeRef.current.play()
+        .then(() => setThemePlaying(true))
+        .catch(() => setThemePlaying(false));
     } else {
       themeRef.current.pause();
       setThemePlaying(false);
