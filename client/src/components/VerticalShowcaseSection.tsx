@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const PHONE_VIDEO = "/manus-storage/hf_20260508_233458_cf2db3a7-084f-486d-b5b4-05cdae8ad0a9_895b083f.mp4";
+const PHONE_VIDEO = "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611988/scandalous/hf_20260508_233458_cf2db3a7-084f-486d-b5b4-05cdae8ad0a9_895b083f.mp4";
 
 export default function VerticalShowcaseSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -47,6 +47,7 @@ export default function VerticalShowcaseSection() {
                   loop
                   muted
                   playsInline
+                  preload="auto"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
               </div>

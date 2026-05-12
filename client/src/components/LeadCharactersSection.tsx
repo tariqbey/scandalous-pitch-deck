@@ -3,12 +3,12 @@ import { useAudio } from "@/contexts/AudioController";
 
 // Character video CDN paths (looping, muted, autoplay)
 const CHAR_VIDEOS: Record<string, string> = {
-  michael: "/manus-storage/micheal_a7d5ce3d.mp4",
-  renee:   "/manus-storage/renee_69e34bc3.mp4",
-  jada:    "/manus-storage/jada_ad0689fa.mp4",
-  darius:  "/manus-storage/darius_6156ca03.mp4",
-  tonya:   "/manus-storage/tonya_ce06404a.mp4",
-  calvin:  "/manus-storage/calvin_cb9fe4fd.mp4",
+  michael: "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611999/scandalous/micheal_a7d5ce3d.mp4",
+  renee:   "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778612001/scandalous/renee_69e34bc3.mp4",
+  jada:    "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611994/scandalous/jada_ad0689fa.mp4",
+  darius:  "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611985/scandalous/darius_6156ca03.mp4",
+  tonya:   "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778612005/scandalous/tonya_ce06404a.mp4",
+  calvin:  "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611981/scandalous/calvin_cb9fe4fd.mp4",
 };
 
 const CHARS = [
@@ -121,6 +121,7 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
               loop
               muted
               playsInline
+              preload="auto"
               style={{
                 width: "100%",
                 height: "100%",

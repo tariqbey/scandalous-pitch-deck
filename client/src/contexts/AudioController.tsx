@@ -1,17 +1,19 @@
 import React, { createContext, useContext, useRef, useState } from "react";
 
 // ── CDN audio assets ──────────────────────────────────────────────────────────
-const THEME_URL = "/manus-storage/BackThen_b2dc6a88.mp3";
-const INSTRUMENTAL_URL = "/manus-storage/LockedPhoneLine(Instrumental)_34c7e225.mp3";
+// f_auto tells Cloudinary to serve the optimal audio format for the requesting browser
+// This ensures iOS Safari and Android receive compatible audio streams
+const THEME_URL = "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto/v1778611973/scandalous/BackThen_b2dc6a88.mp3";
+const INSTRUMENTAL_URL = "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto/v1778611977/scandalous/LockedPhoneLine_Instrumental__34c7e225.mp3";
 
 // Character VOs — Zuri voice (ElevenLabs) — New Yorker, calm, female, middle-aged
 const VO_URLS: Record<string, string> = {
-  michael: "/manus-storage/michael_zuri_ef0f2efb.mp3",
-  renee:   "/manus-storage/renee_zuri_d37dfe34.mp3",
-  jada:    "/manus-storage/jada_zuri_f299bea9.mp3",
-  darius:  "/manus-storage/darius_zuri_dd150cf6.mp3",
-  tonya:   "/manus-storage/tonya_zuri_4b13504e.mp3",
-  calvin:  "/manus-storage/calvin_zuri_a205919d.mp3",
+  michael: "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto/v1778611997/scandalous/michael_zuri_ef0f2efb.mp3",
+  renee:   "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto/v1778612003/scandalous/renee_zuri_d37dfe34.mp3",
+  jada:    "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto/v1778611996/scandalous/jada_zuri_f299bea9.mp3",
+  darius:  "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto/v1778611987/scandalous/darius_zuri_dd150cf6.mp3",
+  tonya:   "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto/v1778612006/scandalous/tonya_zuri_4b13504e.mp3",
+  calvin:  "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto/v1778611983/scandalous/calvin_zuri_a205919d.mp3",
 };
 
 interface AudioContextValue {

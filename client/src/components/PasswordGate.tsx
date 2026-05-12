@@ -4,7 +4,6 @@
  * Layout: vault wheel centered top, keypad stacked directly below
  */
 import { useEffect, useRef, useState } from 'react';
-import { trpc } from '@/lib/trpc';
 
 // ─── CONFIGURATION ────────────────────────────────────────────────────────────
 const VALID_CODES   = new Set(['2077', '1972', '4021', '5555']);
@@ -30,7 +29,6 @@ export default function PasswordGate({ onUnlock }: Props) {
   const [input, setInput]   = useState('');
   const [shake, setShake]   = useState(false);
   const [phase, setPhase]   = useState<'idle' | 'correct' | 'spinning' | 'opening' | 'done'>('idle');
-  const logAccess = trpc.vault.logAccess.useMutation();
   const [vaultRotation, setVaultRotation] = useState(0);
   const [doorOpen, setDoorOpen] = useState(false);
   const [boltRetracted, setBoltRetracted] = useState(false);
@@ -56,7 +54,25 @@ export default function PasswordGate({ onUnlock }: Props) {
     setInput(next);
     if (next.length === 4) {
       if (VALID_CODES.has(next)) {
-        logAccess.mutate({ code: next });
+        // Client-side access logging
+        (() => {
+          const nameMap: Record<string,string> = { '2077':'Owner','1972':'Malik Davis','4021':'Jeff Clanagan','5555':'James' };
+          const who = nameMap[next] ?? 'Unknown';
+          try {
+            const existing = JSON.parse(localStorage.getItem('vault_access_log') ?? '[]');
+            existing.push({ code: next, name: who, timestamp: new Date().toISOString() });
+            localStorage.setItem('vault_access_log', JSON.stringify(existing));
+          } catch {}
+          const forgeUrl = (import.meta.env.VITE_FRONTEND_FORGE_API_URL ?? '').replace(/\/+$/,'');
+          const forgeKey = import.meta.env.VITE_FRONTEND_FORGE_API_KEY;
+          if (forgeUrl && forgeKey) {
+            fetch(`${forgeUrl}/v1/notification/notify`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${forgeKey}` },
+              body: JSON.stringify({ title: '\uD83D\uDD13 Vault Unlocked', content: `${who} just opened the Scandalous pitch deck at ${new Date().toLocaleString()}.` }),
+            }).catch(() => {});
+          }
+        })();
         setPhase('correct');
         burstParticles();
         setTimeout(() => {
