@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useAudio } from "@/contexts/AudioController";
 
-const HERO_VIDEO = "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611991/scandalous/hf_20260509_002525_ed651b71-f061-4023-b1b3-00d945c05824_99cc38ff.mp4";
+const HERO_VIDEO = "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611991/scandalous/hf_20260509_002525_ed651b71-f061-4023-b1b3-00d945c05824_99cc38ff.mp4";
 const UPSCALE_LOGO = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/RtaaZtYQelqLcSao.png";
-const COVER_ART_VIDEO = "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611988/scandalous/hf_20260508_233458_cf2db3a7-084f-486d-b5b4-05cdae8ad0a9_895b083f.mp4";
+const COVER_ART_VIDEO = "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611988/scandalous/hf_20260508_233458_cf2db3a7-084f-486d-b5b4-05cdae8ad0a9_895b083f.mp4";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);

@@ -1,14 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAudio } from "@/contexts/AudioController";
 
 // Character video CDN paths (looping, muted, autoplay)
 const CHAR_VIDEOS: Record<string, string> = {
-  michael: "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611999/scandalous/micheal_a7d5ce3d.mp4",
-  renee:   "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778612001/scandalous/renee_69e34bc3.mp4",
-  jada:    "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611994/scandalous/jada_ad0689fa.mp4",
-  darius:  "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611985/scandalous/darius_6156ca03.mp4",
-  tonya:   "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778612005/scandalous/tonya_ce06404a.mp4",
-  calvin:  "https://res.cloudinary.com/dul3jmac0/video/upload/f_auto,q_auto,vc_auto/v1778611981/scandalous/calvin_cb9fe4fd.mp4",
+  michael: "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611999/scandalous/micheal_a7d5ce3d.mp4",
+  renee:   "https://res.cloudinary.com/dul3jmac0/video/upload/v1778612001/scandalous/renee_69e34bc3.mp4",
+  jada:    "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611994/scandalous/jada_ad0689fa.mp4",
+  darius:  "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611985/scandalous/darius_6156ca03.mp4",
+  tonya:   "https://res.cloudinary.com/dul3jmac0/video/upload/v1778612005/scandalous/tonya_ce06404a.mp4",
+  calvin:  "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611981/scandalous/calvin_cb9fe4fd.mp4",
 };
 
 const CHARS = [
@@ -83,8 +83,26 @@ const CHARS = [
 function CharacterCard({ char }: { char: typeof CHARS[0] }) {
   const { playVO } = useAudio();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  // Only load + play video when card scrolls into view
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: "200px" }
+    );
+    if (cardRef.current) obs.observe(cardRef.current);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
+    if (!inView) return;
     const vid = videoRef.current;
     if (!vid) return;
     vid.muted = true;
@@ -92,10 +110,10 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
     play();
     document.addEventListener("touchstart", play, { once: true });
     return () => document.removeEventListener("touchstart", play);
-  }, []);
+  }, [inView]);
 
   return (
-    <div style={{
+    <div ref={cardRef} style={{
       borderBottom: "1px solid rgba(255,255,255,0.07)",
       paddingBottom: "4rem",
       marginBottom: "4rem",
@@ -116,12 +134,12 @@ function CharacterCard({ char }: { char: typeof CHARS[0] }) {
           }}>
             <video
               ref={videoRef}
-              src={CHAR_VIDEOS[char.id]}
+              src={inView ? CHAR_VIDEOS[char.id] : undefined}
               autoPlay
               loop
               muted
               playsInline
-              preload="auto"
+              preload={inView ? "auto" : "none"}
               style={{
                 width: "100%",
                 height: "100%",
