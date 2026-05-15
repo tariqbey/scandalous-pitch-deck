@@ -196,11 +196,8 @@ export default defineConfig({
               id.includes('node_modules/zod')) {
             return 'utils';
           }
-          // React core — split from app code for better caching
-          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') ||
-              id.includes('node_modules/scheduler/')) {
-            return 'react-vendor';
-          }
+          // NOTE: Do NOT split react/react-dom — manus-runtime injects its own React inline
+          // and splitting React into a separate chunk causes a dual-React conflict (blank screen).
           // Routing + themes + other small vendor libs
           if (id.includes('node_modules/wouter') || id.includes('node_modules/next-themes') ||
               id.includes('node_modules/sonner') || id.includes('node_modules/class-variance') ||
