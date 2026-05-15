@@ -88,48 +88,51 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* ── 1b. LIES BANNER — directly under hero video ── */}
+      {/* ── 1b. BLAKE KARRINGTON CREDIT — directly under hero video ── */}
       <div style={{
         background: "#000",
         textAlign: "center",
-        padding: "2.5rem 1.25rem 1.5rem",
+        padding: "2.5rem 1.25rem 2rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "0.6rem",
+        gap: "0.75rem",
         borderBottom: "1px solid rgba(212,175,55,0.2)",
       }}>
-        {/* Big italic LIES title */}
-        <div style={{
-          fontFamily: "'Playfair Display', serif",
-          fontStyle: "italic",
-          fontWeight: 900,
-          fontSize: "clamp(3.5rem, 14vw, 11rem)",
-          color: "#D4AF37",
-          lineHeight: 0.9,
-          letterSpacing: "-0.03em",
-          textShadow: "0 0 80px rgba(212,175,55,0.45), 0 0 160px rgba(212,175,55,0.2)",
-        }}>Lies</div>
-        {/* Thin gold rule */}
-        <div style={{
-          width: "clamp(80px, 30vw, 320px)",
-          height: 1,
-          background: "linear-gradient(to right, transparent, #D4AF37, transparent)",
-          margin: "0.2rem 0",
-        }} />
-        {/* Blake Karrington credit */}
+        {/* Small label */}
         <div style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: "clamp(0.6rem, 1.6vw, 0.78rem)",
-          fontWeight: 600,
-          letterSpacing: "0.35em",
+          fontSize: "clamp(0.55rem, 1.4vw, 0.7rem)",
+          fontWeight: 700,
+          letterSpacing: "0.45em",
           textTransform: "uppercase",
-          color: "rgba(255,255,255,0.55)",
-        }}>
-          From the Novel by&nbsp;
-          <span style={{ color: "#D4AF37", fontWeight: 700, letterSpacing: "0.2em" }}>Blake Karrington</span>
-          &nbsp;·&nbsp;Best-Selling Author
-        </div>
+          color: "rgba(212,175,55,0.65)",
+        }}>From the Novel by</div>
+        {/* Large Blake Karrington name */}
+        <div style={{
+          fontFamily: "'Playfair Display', serif",
+          fontWeight: 900,
+          fontSize: "clamp(2.8rem, 10vw, 8rem)",
+          color: "#fff",
+          lineHeight: 1,
+          letterSpacing: "0.04em",
+          textShadow: "0 0 80px rgba(212,175,55,0.5), 0 0 160px rgba(212,175,55,0.25), 0 2px 40px rgba(212,175,55,0.3)",
+        }}>Blake Karrington</div>
+        {/* Thin gold rule */}
+        <div style={{
+          width: "clamp(100px, 35vw, 400px)",
+          height: 1,
+          background: "linear-gradient(to right, transparent, #D4AF37, transparent)",
+        }} />
+        {/* Bestselling author tag */}
+        <div style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "clamp(0.6rem, 1.5vw, 0.75rem)",
+          fontWeight: 600,
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+          color: "rgba(212,175,55,0.7)",
+        }}>Best-Selling Author</div>
       </div>
 
       {/* ── 2. TITLE BLOCK — fully visible below the video ── */}
