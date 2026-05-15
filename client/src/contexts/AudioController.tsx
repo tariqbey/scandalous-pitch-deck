@@ -23,6 +23,9 @@ interface AudioContextValue {
   toggleTheme: () => void;
   playVO: (character: string) => void;
   stopVO: () => void;
+  // Used by TrailerSection to duck audio when trailer plays
+  pauseForVideo: () => void;
+  resumeAfterVideo: () => void;
 }
 
 const AudioContext = createContext<AudioContextValue>({
@@ -32,6 +35,8 @@ const AudioContext = createContext<AudioContextValue>({
   toggleTheme: () => {},
   playVO: () => {},
   stopVO: () => {},
+  pauseForVideo: () => {},
+  resumeAfterVideo: () => {},
 });
 
 export function AudioProvider({ children }: { children: React.ReactNode }) {
@@ -46,6 +51,34 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   // Use a ref to track whether theme was playing before VO started
   // so the onended closure always sees the latest value
   const themeWasPlayingRef = useRef(false);
+  // Separate ref for video (trailer) ducking
+  const themeWasPlayingBeforeVideoRef = useRef(false);
+
+  const pauseForVideo = () => {
+    themeWasPlayingBeforeVideoRef.current = !!(themeRef.current && !themeRef.current.paused);
+    if (themeRef.current && themeWasPlayingBeforeVideoRef.current) {
+      themeRef.current.pause();
+      setThemePlaying(false);
+    }
+    // Also stop any active VO
+    if (voRef.current) {
+      voRef.current.onended = null;
+      voRef.current.pause();
+      voRef.current.currentTime = 0;
+      setVoPlaying(false);
+    }
+    if (instrumentalRef.current) {
+      instrumentalRef.current.pause();
+      instrumentalRef.current.currentTime = 0;
+    }
+  };
+
+  const resumeAfterVideo = () => {
+    if (themeRef.current && themeWasPlayingBeforeVideoRef.current) {
+      themeRef.current.play().catch(() => {});
+      setThemePlaying(true);
+    }
+  };
 
   const toggleTheme = () => {
     // First time: create and play
@@ -159,7 +192,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AudioContext.Provider value={{ themeStarted, themePlaying, voPlaying, toggleTheme, playVO, stopVO }}>
+    <AudioContext.Provider value={{ themeStarted, themePlaying, voPlaying, toggleTheme, playVO, stopVO, pauseForVideo, resumeAfterVideo }}>
       {children}
     </AudioContext.Provider>
   );
