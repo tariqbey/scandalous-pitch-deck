@@ -5,7 +5,7 @@ const BEATS = [
   {
     ep: "Ep 1",
     title: "MEET DARIUS",
-    runtime: "1:00",
+    runtime: "1:30",
     beats: [
       {
         time: "0:00–0:05",
@@ -23,12 +23,12 @@ const BEATS = [
         desc: "Michael presses: \"You always this respectful, or is this just first-meeting behavior?\" Darius: \"My dad raised me not to play with another man's daughter.\"",
       },
       {
-        time: "0:45–0:55",
+        time: "1:00–1:20",
         label: "SHIFT",
         desc: "Michael nods, impressed despite himself. Jada: \"See? He's not bad.\" Michael: \"I didn't say he was bad.\" A beat of silence.",
       },
       {
-        time: "0:55–1:00",
+        time: "1:20–1:30",
         label: "CLIFFHANGER",
         desc: "Michael, measured and unreadable: \"I'm still deciding what he is.\" CUT TO BLACK.",
       },
@@ -37,7 +37,7 @@ const BEATS = [
   {
     ep: "Ep 2",
     title: "THE CALL SHE NEVER EXPECTED",
-    runtime: "1:00",
+    runtime: "1:30",
     beats: [
       {
         time: "0:00–0:05",
@@ -55,12 +55,12 @@ const BEATS = [
         desc: "Michael: \"You told me you were pregnant.\" Renee: \"And you disappeared behind your marriage just like I disappeared behind mine. Don't call me acting like I buried this alone.\"",
       },
       {
-        time: "0:40–0:55",
+        time: "1:00–1:20",
         label: "SHIFT",
         desc: "Michael takes the hit. He looks toward the bathroom door where Jada is laughing with Darius outside.",
       },
       {
-        time: "0:55–1:00",
+        time: "1:20–1:30",
         label: "CLIFFHANGER",
         desc: "Michael: \"I'm calling because it just walked into my house.\" CUT TO BLACK.",
       },
@@ -69,7 +69,7 @@ const BEATS = [
   {
     ep: "Ep 3",
     title: "YOUR SON, MY DAUGHTER",
-    runtime: "1:00",
+    runtime: "1:30",
     beats: [
       {
         time: "0:00–0:05",
@@ -87,12 +87,12 @@ const BEATS = [
         desc: "Michael: \"Almost a year, Renee.\" Renee: \"Darius has a father.\" Michael: \"Then say Calvin is his father.\" Renee: \"Calvin raised him.\" Michael: \"That's not what I asked.\"",
       },
       {
-        time: "0:40–0:55",
+        time: "1:00–1:20",
         label: "COUNTER-THREAT",
         desc: "Renee snaps: \"Careful, Michael. You keep pushing, your wife finds out why you care so damn much.\"",
       },
       {
-        time: "0:55–1:00",
+        time: "1:20–1:30",
         label: "CLIFFHANGER",
         desc: "Michael goes silent. Because she is right. CUT TO BLACK.",
       },
@@ -101,7 +101,7 @@ const BEATS = [
   {
     ep: "Ep 4",
     title: "YOU WERE MARRIED TOO",
-    runtime: "1:00",
+    runtime: "1:30",
     beats: [
       {
         time: "0:00–0:05",
@@ -119,12 +119,12 @@ const BEATS = [
         desc: "Renee: \"You had a wife. You had a daughter coming. You had a whole life you didn't want blown up either. You wanted answers without consequences.\"",
       },
       {
-        time: "0:40–0:55",
+        time: "1:00–1:20",
         label: "WOUND",
         desc: "Renee: \"Now you want the truth, but you still don't want Tonya to know why.\" Michael cannot deny it. From the hallway: Jada: \"Dad? You okay in there?\"",
       },
       {
-        time: "0:55–1:00",
+        time: "1:20–1:30",
         label: "CLIFFHANGER",
         desc: "Renee: \"Go answer your daughter, Michael.\" CUT TO BLACK.",
       },
@@ -133,7 +133,7 @@ const BEATS = [
   {
     ep: "Ep 5",
     title: "KEEP BOTH SPOUSES OUT",
-    runtime: "1:00",
+    runtime: "1:30",
     beats: [
       {
         time: "0:00–0:05",
@@ -151,12 +151,12 @@ const BEATS = [
         desc: "Michael: \"You care more about Calvin than Darius?\" Renee snaps: \"Don't you dare. Everything I did was to keep my son's life whole.\"",
       },
       {
-        time: "0:40–0:55",
+        time: "1:00–1:20",
         label: "REVERSAL",
         desc: "Michael: \"Whole? Or fake?\" That wounds her. Renee: \"Ask yourself that before Tonya asks why you're hiding in the bathroom calling me.\"",
       },
       {
-        time: "0:55–1:00",
+        time: "1:20–1:30",
         label: "CLIFFHANGER",
         desc: "Michael hears Jada knock. Renee hears Calvin approaching. Both freeze. They whisper at the same time: \"I gotta go.\" CUT TO BLACK.",
       },
@@ -165,7 +165,7 @@ const BEATS = [
   {
     ep: "Ep 6",
     title: "THROW HIM OFF",
-    runtime: "1:00",
+    runtime: "1:30",
     beats: [
       {
         time: "0:00–0:05",
@@ -183,12 +183,12 @@ const BEATS = [
         desc: "Calvin: \"School stuff got you pale?\" Michael's voice through the phone: \"Is that Calvin?\" Renee, whispering: \"Shut up.\" Calvin: \"Why you whispering?\" Renee deflects: \"Because you walked in asking questions while I'm on the phone.\"",
       },
       {
-        time: "0:40–0:55",
+        time: "1:00–1:20",
         label: "LIE",
         desc: "Renee: \"It's this fundraiser mess. I'm irritated.\" Calvin backs off. Renee turns away and whispers into the phone: \"Do not call me again tonight.\" Michael: \"We're not done.\" She hangs up.",
       },
       {
-        time: "0:55–1:00",
+        time: "1:20–1:30",
         label: "CLIFFHANGER",
         desc: "Calvin watches her. \"Fundraiser got you shaking?\" Renee forces a smile. CUT TO BLACK.",
       },

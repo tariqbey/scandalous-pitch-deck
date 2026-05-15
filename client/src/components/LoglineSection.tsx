@@ -4,7 +4,7 @@ const WHY_IT_WORKS = [
   { label: "Two Ticking Bombs", desc: "Renee's bomb: if the truth comes out, Calvin learns she cheated and may have let him raise another man's child. Michael's bomb: if the truth comes out, Tonya learns he cheated and possibly fathered a child outside their marriage." },
   { label: "Mutual Trap", desc: "Renee cannot expose Michael without exposing herself. Michael cannot expose Renee without destroying his own marriage. But if neither tells the truth, their children may be living inside the worst possible lie." },
   { label: "Real-World Source", desc: "Inspired by a viral story with 7M+ documented views across platforms — with zero paid promotion." },
-  { label: "Mobile-First Format", desc: "9:16 vertical, 60-second episodes, 60-ep arc — engineered for scroll culture and binge retention." },
+  { label: "Mobile-First Format", desc: "9:16 vertical, 90-second episodes, 60-ep arc — engineered for scroll culture and binge retention." },
 ];
 
 export default function LoglineSection() {
@@ -51,7 +51,7 @@ export default function LoglineSection() {
           {[
             { label: "Format", value: "9:16 Vertical" },
             { label: "Episodes", value: "60 LOCKED" },
-            { label: "Runtime", value: "60 Seconds" },
+            { label: "Runtime", value: "90 Seconds" },
             { label: "Locations", value: "4 Standing" },
           ].map((spec) => (
             <div key={spec.label} style={{ background: "#0A0A0A", padding: "1.5rem 2rem" }}>

@@ -17,7 +17,7 @@ const COMPS = [
     title: "Empire",
     img: "https://res.cloudinary.com/dul3jmac0/image/upload/v1778611978/scandalous/RP9zuPDsxhji_26c06638.jpg",
     platform: "Fox · Lee Daniels",
-    note: "Family power, betrayal, and empire-level stakes. BLOODLINE LIES delivers the same dynasty-destroying drama in 60-second episodes built for today's audience.",
+    note: "Family power, betrayal, and empire-level stakes. BLOODLINE LIES delivers the same dynasty-destroying drama in 90-second episodes built for today's audience.",
   },
   {
     title: "Insecure",

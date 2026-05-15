@@ -73,13 +73,13 @@ export default function VerticalShowcaseSection() {
               Built for the<br />Scroll Generation
             </h2>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.82rem, 2vw, 0.9rem)", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: "2.5rem" }}>
-              Every episode is engineered for vertical mobile viewing — 9:16 aspect ratio, 60-second runtime, cold-open hook in the first 5 seconds, and a cliffhanger that makes skipping impossible. This is not television adapted for phones. This is drama born in the feed.
+              Every episode is engineered for vertical mobile viewing — 9:16 aspect ratio, 90-second runtime, cold-open hook in the first 5 seconds, and a cliffhanger that makes skipping impossible. This is not television adapted for phones. This is drama born in the feed.
             </p>
 
             {/* Feature list */}
             {[
               { icon: "📱", label: "9:16 Vertical Format", sub: "Native to TikTok, Reels, YouTube Shorts" },
-              { icon: "⏱", label: "60-Second Episodes", sub: "Maximum tension, zero filler" },
+              { icon: "⏱", label: "90-Second Episodes", sub: "Maximum tension, zero filler" },
               { icon: "🎬", label: "60 Episodes Pre-Written", sub: "Full arc locked, production-ready" },
               { icon: "📍", label: "4 Standing Sets", sub: "Lean production, high output" },
               { icon: "🔥", label: "Cliffhanger Every Episode", sub: "Engineered for binge retention" },
