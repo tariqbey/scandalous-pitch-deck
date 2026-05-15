@@ -206,16 +206,7 @@ export default function NavBar() {
         }}>
           Based on the Novel by Blake Karrington
         </div>
-        <div style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: "0.58rem",
-          letterSpacing: "0.2em",
-          color: "rgba(255,255,255,0.3)",
-          textTransform: "uppercase",
-          textAlign: "center",
-        }}>
-          Presented by Blake Cavendish
-        </div>
+
       </div>
 
       <style>{`
