@@ -240,6 +240,33 @@ export default function HeroSection() {
         }}>
           Written &amp; Created by Del Rivers
         </div>
+        {/* Blake Karrington — book author */}
+        <div style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "clamp(0.65rem, 1.8vw, 0.82rem)",
+          fontWeight: 500,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.5)",
+          marginTop: "-0.2rem",
+        }}>
+          Based on the Novel by&nbsp;
+          <span style={{ color: "#D4AF37", fontWeight: 700 }}>Blake Karrington</span>
+          &nbsp;·&nbsp;Bestselling Author
+        </div>
+        {/* Blake Cavendish — presented by */}
+        <div style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "clamp(0.65rem, 1.8vw, 0.82rem)",
+          fontWeight: 500,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.5)",
+          marginTop: "-0.2rem",
+        }}>
+          Presented by&nbsp;
+          <span style={{ color: "#D4AF37", fontWeight: 700 }}>Blake Cavendish</span>
+        </div>
 
         {/* Gold rule */}
         <div style={{

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
+  { label: "Trailer",        href: "#trailer" },
   { label: "Logline",        href: "#logline" },
   { label: "Characters",     href: "#lead-characters" },
   { label: "Scripts",        href: "#scripts" },
@@ -191,8 +192,29 @@ export default function NavBar() {
           letterSpacing: "0.2em",
           color: "rgba(255,255,255,0.3)",
           textTransform: "uppercase",
+          textAlign: "center",
         }}>
           Created &amp; Written by Del Rivers
+        </div>
+        <div style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.58rem",
+          letterSpacing: "0.2em",
+          color: "rgba(255,255,255,0.3)",
+          textTransform: "uppercase",
+          textAlign: "center",
+        }}>
+          Based on the Novel by Blake Karrington
+        </div>
+        <div style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.58rem",
+          letterSpacing: "0.2em",
+          color: "rgba(255,255,255,0.3)",
+          textTransform: "uppercase",
+          textAlign: "center",
+        }}>
+          Presented by Blake Cavendish
         </div>
       </div>
 

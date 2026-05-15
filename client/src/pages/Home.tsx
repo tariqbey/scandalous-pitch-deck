@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import NavBar from "@/components/NavBar";
 import HeroSection from "@/components/HeroSection";
+import TrailerSection from "@/components/TrailerSection";
 
 // Lazy-load all sections below the fold — they only download when needed
 const LoglineSection = lazy(() => import("@/components/LoglineSection"));
@@ -27,6 +28,8 @@ export default function Home() {
       <NavBar />
       {/* Hero loads immediately — no lazy */}
       <HeroSection />
+      {/* Trailer — loads eagerly, right below hero */}
+      <TrailerSection />
       {/* Everything below the fold loads on demand */}
       <Suspense fallback={<SectionFallback />}>
         <LoglineSection />
