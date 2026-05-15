@@ -167,6 +167,49 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          // recharts + d3 — 400KB+, only used in AnalyticsSection (lazy-loaded)
+          if (id.includes('node_modules/recharts') || id.includes('node_modules/d3-') ||
+              id.includes('node_modules/d3/') || id.includes('node_modules/victory')) {
+            return 'recharts';
+          }
+          // framer-motion — heavy animation library
+          if (id.includes('node_modules/framer-motion')) {
+            return 'framer-motion';
+          }
+          // tRPC + react-query — not needed until after password gate
+          if (id.includes('node_modules/@trpc') || id.includes('node_modules/@tanstack')) {
+            return 'trpc-query';
+          }
+          // Radix UI primitives
+          if (id.includes('node_modules/@radix-ui')) {
+            return 'radix-ui';
+          }
+          // Lucide icons
+          if (id.includes('node_modules/lucide-react')) {
+            return 'lucide';
+          }
+          // superjson + jose + zod — utility libs
+          if (id.includes('node_modules/superjson') || id.includes('node_modules/jose') ||
+              id.includes('node_modules/zod')) {
+            return 'utils';
+          }
+          // React core — split from app code for better caching
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') ||
+              id.includes('node_modules/scheduler/')) {
+            return 'react-vendor';
+          }
+          // Routing + themes + other small vendor libs
+          if (id.includes('node_modules/wouter') || id.includes('node_modules/next-themes') ||
+              id.includes('node_modules/sonner') || id.includes('node_modules/class-variance') ||
+              id.includes('node_modules/clsx') || id.includes('node_modules/tailwind-merge')) {
+            return 'app-vendor';
+          }
+        },
+      },
+    },
   },
   server: {
     host: true,
