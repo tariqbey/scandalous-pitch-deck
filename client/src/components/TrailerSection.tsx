@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { useAudio } from "@/contexts/AudioController";
 
 const TRAILER_URL =
-  "https://assets.cdn.filesafe.space/frvRxvx59njjviZN68Yz/media/6a079cabc56db4013f825555.mp4";
+  "https://assets.cdn.filesafe.space/BKkGmIfa4p8vcMaH7JTj/media/6a09056ddbe569a25d8995e3.mp4";
 
 export default function TrailerSection() {
   const videoRef = useRef<HTMLVideoElement>(null);

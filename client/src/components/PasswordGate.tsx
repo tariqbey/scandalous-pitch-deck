@@ -63,15 +63,13 @@ export default function PasswordGate({ onUnlock }: Props) {
             existing.push({ code: next, name: who, timestamp: new Date().toISOString() });
             localStorage.setItem('vault_access_log', JSON.stringify(existing));
           } catch {}
-          const forgeUrl = (import.meta.env.VITE_FRONTEND_FORGE_API_URL ?? '').replace(/\/+$/,'');
-          const forgeKey = import.meta.env.VITE_FRONTEND_FORGE_API_KEY;
-          if (forgeUrl && forgeKey) {
-            fetch(`${forgeUrl}/v1/notification/notify`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${forgeKey}` },
-              body: JSON.stringify({ title: '\uD83D\uDD13 Vault Unlocked', content: `${who} just opened the Scandalous pitch deck at ${new Date().toLocaleString()}.` }),
-            }).catch(() => {});
-          }
+          // Notify owner via tRPC server — works on both Manus and Netlify
+          fetch('/api/trpc/vault.logAccess', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ json: { code: next } }),
+          }).catch(() => {});
         })();
         setPhase('correct');
         burstParticles();
