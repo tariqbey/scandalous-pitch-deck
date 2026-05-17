@@ -92,6 +92,7 @@ export default function TrailerSection() {
         <video
           ref={videoRef}
           src={TRAILER_URL}
+          poster="/manus-storage/scandalous-trailer-poster_08a5154a.webp"
           controls
           playsInline
           preload="metadata"
