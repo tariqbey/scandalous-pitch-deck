@@ -1,29 +1,41 @@
 import { useRef, useEffect } from "react";
 import { useAudio } from "@/contexts/AudioController";
 
-const TRAILER_URL =
-  "https://assets.cdn.filesafe.space/BKkGmIfa4p8vcMaH7JTj/media/6a09056ddbe569a25d8995e3.mp4";
+const VIMEO_VIDEO_ID = "1192710961";
 
 export default function TrailerSection() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const playerRef = useRef<any>(null);
   const { pauseForVideo, resumeAfterVideo } = useAudio();
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    // Load Vimeo Player.js SDK
+    const existingScript = document.getElementById("vimeo-player-sdk");
+    const initPlayer = () => {
+      if (!(window as any).Vimeo || !iframeRef.current) return;
+      const player = new (window as any).Vimeo.Player(iframeRef.current);
+      playerRef.current = player;
+      player.on("play", () => pauseForVideo());
+      player.on("pause", () => resumeAfterVideo());
+      player.on("ended", () => resumeAfterVideo());
+    };
 
-    const onPlay = () => pauseForVideo();
-    const onPause = () => resumeAfterVideo();
-    const onEnded = () => resumeAfterVideo();
-
-    video.addEventListener("play", onPlay);
-    video.addEventListener("pause", onPause);
-    video.addEventListener("ended", onEnded);
+    if (existingScript) {
+      initPlayer();
+    } else {
+      const script = document.createElement("script");
+      script.id = "vimeo-player-sdk";
+      script.src = "https://player.vimeo.com/api/player.js";
+      script.onload = initPlayer;
+      document.head.appendChild(script);
+    }
 
     return () => {
-      video.removeEventListener("play", onPlay);
-      video.removeEventListener("pause", onPause);
-      video.removeEventListener("ended", onEnded);
+      if (playerRef.current) {
+        playerRef.current.off("play");
+        playerRef.current.off("pause");
+        playerRef.current.off("ended");
+      }
     };
   }, [pauseForVideo, resumeAfterVideo]);
 
@@ -77,7 +89,7 @@ export default function TrailerSection() {
         }}
       />
 
-      {/* Video player */}
+      {/* Vimeo embed */}
       <div
         style={{
           width: "min(90vw, 1100px)",
@@ -87,20 +99,22 @@ export default function TrailerSection() {
           boxShadow: "0 0 60px rgba(212,175,55,0.15), 0 20px 60px rgba(0,0,0,0.8)",
           border: "1px solid rgba(212,175,55,0.2)",
           background: "#000",
+          paddingTop: "56.25%", // 16:9 aspect ratio
         }}
       >
-        <video
-          ref={videoRef}
-          src={TRAILER_URL}
-          poster="/manus-storage/scandalous-trailer-poster_08a5154a.webp"
-          controls
-          playsInline
-          preload="metadata"
+        <iframe
+          ref={iframeRef}
+          src={`https://player.vimeo.com/video/${VIMEO_VIDEO_ID}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479`}
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="Bloodline Lies"
           style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
             width: "100%",
-            display: "block",
-            aspectRatio: "16/9",
-            background: "#000",
+            height: "100%",
           }}
         />
       </div>
