@@ -8,3 +8,7 @@ shared/
 drizzle/
 patches/
 client/
+# Exclude TypeScript API source files (use pre-bundled .js files)
+api/trpc.ts
+api/blob.ts
+api/oauth/callback.ts
