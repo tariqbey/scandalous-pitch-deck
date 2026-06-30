@@ -1,11 +1,7 @@
 /**
  * build-api.mjs
- * Bundles the Vercel serverless API functions with esbuild so all
- * server-side imports (server/routers, shared/*, drizzle/*) are
- * included in the output and Vercel can run them without node_modules.
- *
- * Output: api/trpc.js, api/blob.js, api/oauth/callback.js
- * These replace the TypeScript source files in-place for the Vercel deployment.
+ * Bundles the Vercel serverless API functions with esbuild.
+ * Uses CJS format to avoid "Dynamic require" issues with Node.js built-ins.
  */
 
 import { build } from "esbuild";
@@ -17,14 +13,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const sharedOptions = {
   bundle: true,
   platform: "node",
-  format: "esm",
+  format: "cjs",          // CJS avoids "Dynamic require of X is not supported"
   target: "node20",
-  // Keep node built-ins and Vercel runtime external; bundle everything else
+  // Keep only true native Node.js built-ins external; bundle everything else
   external: [
     "node:*",
     "mysql2",
     "mysql2/promise",
-    "@aws-sdk/*",
   ],
   // Path aliases matching tsconfig
   alias: {
