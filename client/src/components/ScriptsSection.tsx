@@ -60,7 +60,7 @@ function Ep1() {
       <span className="sp-dialog">Dad… this is Darius.</span>
       <span className="sp-action">Darius extends his hand.</span>
       <span className="sp-char">DARIUS</span>
-      <span className="sp-dialog">Mr. Reed. Good to finally meet you, sir.</span>
+      <span className="sp-dialog">Mr. Lawson. Good to finally meet you, sir.</span>
       <span className="sp-action">Michael shakes his hand firmly.</span>
       <span className="sp-char">MICHAEL</span>
       <span className="sp-dialog">So you the young man my daughter been hiding from me?</span>
@@ -123,7 +123,7 @@ function Ep2() {
       <span className="sp-dialog">Michael.</span>
       <span className="sp-action">Renee turns cold.</span>
       <span className="sp-char">RENEE</span>
-      <span className="sp-dialog">Michael Reed?</span>
+      <span className="sp-dialog">Michael Lawson?</span>
       <span className="sp-char">MICHAEL</span>
       <span className="sp-dialog">Yeah.</span>
       <span className="sp-char">RENEE</span>
@@ -385,7 +385,7 @@ function Ep8() {
       <span className="sp-slug">INT. MICHAEL'S FRONT DOOR / LIVING ROOM — CONTINUOUS</span>
       <span className="sp-action">Jada walks Darius to the door. Michael watches from the living room.</span>
       <span className="sp-char">DARIUS</span>
-      <span className="sp-dialog">Thank you again, Mr. Reed.</span>
+      <span className="sp-dialog">Thank you again, Mr. Lawson.</span>
       <span className="sp-char">MICHAEL</span>
       <span className="sp-dialog">Mm-hmm.</span>
       <span className="sp-action">Jada shoots Michael a look. At the door, Darius lowers his voice to Jada.</span>

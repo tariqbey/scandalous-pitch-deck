@@ -1,0 +1,61 @@
+Source: /home/ubuntu/upload/pasted_file_jJJotr_ScandalousBloodlineLies.pdf.pdf
+
+Key findings extracted from PDF:
+- Title remains: SCANDALOUS: BLOODLINE LIES
+- Format: 60-Episode Series Outline — Vertical Micro-Drama
+- Engine/logline language in PDF: Two buried bombs, one mutual trap. Every episode ends on a button that either tightens the trap or lights a fuse. The DNA test is the clock; the affair is the wound; the kids' relationship is the detonator.
+
+Conflict map from PDF:
+- Renee ↔ Calvin: must keep him from learning she cheated and passed off another man's child
+- Renee ↔ Michael: must control him without him cracking
+- Michael → Renee: wants the truth but can't force it without confessing to Tonya
+- Michael → Tonya: must hide twenty years and the new discovery
+- Jada ↔ Darius: in love, unaware they may be half-siblings
+- Tonya → everyone: the last to know, the first to act — the wild card
+- Calvin → Renee: slow-burning suspicion that curdles into investigation
+
+Act structure summary from PDF:
+- Act One (Ep 1–10): Recognition
+- Act Two (Ep 11–20): Pressure
+- Act Three (Ep 21–30): The wives and husbands close in
+- Act Four (Ep 31–40): The test
+- Act Five (Ep 41–50): Detonation
+- Act Six (Ep 51–60): The reckoning
+
+Important episode/button details explicitly stated in PDF:
+- Ep 1: Meet Darius. Jada brings Darius home. Michael freezes on handshake; he knows that smile.
+- Ep 2: The Call She Never Expected. Michael locks the bathroom, dials a number 20 years old. Renee's phone lights up with a name she deleted.
+- Ep 3: Your Son, My Daughter. Michael confronts Renee privately.
+- Ep 4: You Were Married Too. Renee fires back.
+- Ep 5–6: Jada and Darius get serious. Michael panics. Renee stalls. Jada says she's never been this happy.
+- Ep 7: Tonya notices.
+- Ep 8: Calvin's first itch.
+- Ep 9: The old photo.
+- Ep 10 act break: Michael slides one word across the table: DNA.
+- Ep 20 act break: Darius proposes to Jada.
+- Ep 23 button: Tonya says Darius's birthday lines up with a work trip.
+- Ep 26 button: Calvin receives a manila envelope.
+- Ep 28 button: Jada walks in on Renee and Michael whispering, misreads it as an affair.
+- Ep 30 act break: Tonya confronts Michael. She says: Then prove it. We're getting that test.
+- Ep 33 button: Renee calls Darius a mistake.
+- Ep 35 button: Michael sends the lab results and has 48 hours.
+- Ep 38 button: wedding date set for the same week results arrive.
+- Ep 40 act break: Calvin opens envelope; single sentence: Ask Renee about Michael Reed.
+- Ep 42 button: Calvin says: Is Darius mine?
+- Ep 44 button: the number doesn't match either man; result is inconclusive/tampered/publicly framed.
+- Ep 47 button: Tonya threatens to tell the kids at the wedding.
+- Ep 50 act break: Jada looks at Darius and realizes what they might be to each other.
+- Ep 53: Calvin to Darius: You're still my son.
+- Ep 55 button: Renee must choose her son for the first time in 20 years.
+- Ep 57 button: real result lands; they are / are not half-siblings — confirmed.
+- Ep 59–60 resolution and final lie / new secret hook for Season 4.
+
+Name-change instruction from user to incorporate:
+- Change Renee, Jada, and Michael last name to Lawson throughout the deck/site.
+- Darius and Calvin remain Cole based on current instruction.
+- Tonya should likely remain Reed unless user later says otherwise.
+
+Open follow-up work:
+- Apply updated outline language and any affected copy across deck sections.
+- Replace references to Michael Reed in PDF-derived copy where needed if user wants full Lawson update reflected in story text.
+- Find 9:16 comparable cover art and update ComparablesSection once assets are selected.

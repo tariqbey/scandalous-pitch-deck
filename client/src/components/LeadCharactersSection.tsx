@@ -15,7 +15,7 @@ const CHAR_VIDEOS: Record<string, string> = {
 const CHARS = [
   {
     id: "renee",
-    name: "RENEE COLE",
+    name: "RENEE LAWSON",
     role: "LEAD — THE COVER-UP",
     roleColor: "#e05c8a",
     textOnBadge: "#000",
@@ -26,7 +26,7 @@ const CHARS = [
   },
   {
     id: "michael",
-    name: "MICHAEL REED",
+    name: "MICHAEL LAWSON",
     role: "CO-LEAD — THE PRESSURE",
     roleColor: "#D4AF37",
     textOnBadge: "#000",
@@ -37,7 +37,7 @@ const CHARS = [
   },
   {
     id: "jada",
-    name: "JADA REED",
+    name: "JADA LAWSON",
     role: "LEAD — THE DAUGHTER",
     roleColor: "#e05c8a",
     textOnBadge: "#000",
@@ -59,7 +59,7 @@ const CHARS = [
   },
   {
     id: "tonya",
-    name: "TONYA REED",
+    name: "TONYA LAWSON",
     role: "SUPPORTING — THE WIFE",
     roleColor: "#D4AF37",
     textOnBadge: "#000",

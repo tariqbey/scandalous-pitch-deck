@@ -10,7 +10,7 @@ const BEATS = [
       {
         time: "0:00–0:05",
         label: "COLD OPEN",
-        desc: "Michael opens the front door. Jada stands with Darius. Darius extends his hand: \"Mr. Reed. Good to finally meet you, sir.\"",
+        desc: "Michael opens the front door. Jada stands with Darius. Darius extends his hand: \"Mr. Lawson. Good to finally meet you, sir.\"",
       },
       {
         time: "0:05–0:20",

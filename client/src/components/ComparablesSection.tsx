@@ -1,39 +1,40 @@
 import { useEffect, useRef, useState } from "react";
 
+const BLOB = "https://sqmxeuedmlqe0psk.public.blob.vercel-storage.com";
 const COMPS = [
   {
     title: "Scandal",
-    img: "https://res.cloudinary.com/dul3jmac0/image/upload/v1778611972/scandalous/9vMOHyvWAvQk_6008d993.jpg",
+    img: `${BLOB}/scandalous/comps/scandal.jpg`,
     platform: "ABC · Shonda Rhimes",
     note: "The gold standard for Black-led primetime drama. BLOODLINE LIES delivers the same explosive secrets and moral complexity — engineered for the vertical scroll generation.",
   },
   {
     title: "How to Get Away with Murder",
-    img: "https://res.cloudinary.com/dul3jmac0/image/upload/v1778611976/scandalous/I7Q2GnqSrhFF_fa677c02.jpg",
+    img: `${BLOB}/scandalous/comps/htgawm.jpg`,
     platform: "ABC · Shonda Rhimes",
     note: "Secrets, lies, and a Black woman at the center of every storm. BLOODLINE LIES shares the same DNA — but the twist is ripped from a real viral story with 5M+ pre-built views.",
   },
   {
     title: "Empire",
-    img: "https://res.cloudinary.com/dul3jmac0/image/upload/v1778611978/scandalous/RP9zuPDsxhji_26c06638.jpg",
+    img: `${BLOB}/scandalous/comps/empire.jpg`,
     platform: "Fox · Lee Daniels",
     note: "Family power, betrayal, and empire-level stakes. BLOODLINE LIES delivers the same dynasty-destroying drama in 90-second episodes built for today's audience.",
   },
   {
     title: "Insecure",
-    img: "https://res.cloudinary.com/dul3jmac0/image/upload/v1778612000/scandalous/rG7SuIf5yLfa_1c496064.jpg",
+    img: `${BLOB}/scandalous/comps/insecure.jpg`,
     platform: "HBO · Issa Rae",
     note: "Authentic Black storytelling that built a massive loyal audience. BLOODLINE LIES targets the same demographic with higher-stakes drama and a viral origin story.",
   },
   {
     title: "Tyler Perry's Sistas",
-    img: "https://res.cloudinary.com/dul3jmac0/image/upload/v1778611980/scandalous/WjyqgXLcwu7R_21243f5a.jpg",
+    img: `${BLOB}/scandalous/comps/sistas.jpg`,
     platform: "BET · Tyler Perry",
     note: "Relationship drama with Black women at the center — one of BET's highest-rated series. BLOODLINE LIES matches this audience with a story ripped straight from viral reality.",
   },
   {
     title: "Greenleaf",
-    img: "https://res.cloudinary.com/dul3jmac0/image/upload/v1778611975/scandalous/DXzH2d3ZoYqH_35f36ea9.jpg",
+    img: `${BLOB}/scandalous/comps/greenleaf.jpg`,
     platform: "OWN · Oprah Winfrey",
     note: "Family secrets hidden behind respectability. BLOODLINE LIES is this story — but the secret isn't in the church. It's in the bloodline.",
   },
