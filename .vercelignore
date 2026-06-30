@@ -1,9 +1,10 @@
-# Exclude TypeScript API source files — Vercel should use the bundled .js files
-api/trpc.ts
-api/blob.ts
-api/oauth/callback.ts
-
-# Exclude dev/build artifacts
+# Exclude dev/build artifacts not needed in Vercel deployment
 .manus-logs/
 node_modules/
 .env.local
+build-api.mjs
+server/
+shared/
+drizzle/
+patches/
+client/
