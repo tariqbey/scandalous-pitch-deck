@@ -4,11 +4,6 @@
   "outputDirectory": "dist/public",
   "installCommand": "echo 'No install needed'",
   "framework": null,
-  "functions": {
-    "api/trpc.cjs": { "runtime": "nodejs20.x" },
-    "api/blob.cjs": { "runtime": "nodejs20.x" },
-    "api/oauth/callback.cjs": { "runtime": "nodejs20.x" }
-  },
   "rewrites": [
     { "source": "/api/trpc/:path*", "destination": "/api/trpc.cjs" },
     { "source": "/api/blob/:path*", "destination": "/api/blob.cjs" },
