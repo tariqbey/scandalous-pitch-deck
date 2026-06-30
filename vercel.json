@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "pnpm run build:vercel",
+  "buildCommand": "echo 'Using pre-built output'",
   "outputDirectory": "dist/public",
-  "installCommand": "pnpm install --ignore-scripts",
+  "installCommand": "echo 'No install needed'",
   "framework": null,
   "rewrites": [
     { "source": "/api/trpc/:path*", "destination": "/api/trpc" },

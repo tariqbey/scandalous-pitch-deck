@@ -3,9 +3,12 @@
 .pnpm-store/
 
 # Build outputs
-dist/
 build/
 *.dist
+# Allow dist/public for Vercel pre-built deployment
+!dist/
+!dist/public/
+!dist/public/**
 
 # Environment variables
 .env
