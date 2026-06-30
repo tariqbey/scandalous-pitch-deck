@@ -1,0 +1,22 @@
+Comparable cover audit notes
+
+Current issue identified:
+The first round of generated 9:16 comparable images was created by cropping existing posters to 900x1600. This causes important art and typography to be cut off, especially for Scandal and Insecure. The user's instruction is to ensure the posters remain full 9:16 without cutting anything off, and to specifically look at Italian covers.
+
+Current cover audit summary:
+- Scandal: current crop is too aggressive; title art and subject framing are cut.
+- How to Get Away with Murder: acceptable vertical composition, but still based on cropped art; should be replaced with a full poster version if available.
+- Empire: visually strong but still crop-derived; should use full vertical poster instead.
+- Insecure: title at top is clipped; needs replacement or padded version.
+- Sistas: current version looks good, but still should be verified against a full-poster source.
+- Greenleaf: looks acceptable, but should be validated against a full-poster source.
+
+Next action:
+Search for full-height vertical posters, prioritizing Italian poster/cover variants where they provide better complete 2:3 or near-9:16 framing, then convert using padding/letterboxing instead of crop.
+
+Working files already created:
+- /home/ubuntu/comp_art/*.jpg
+- /home/ubuntu/blob_urls.json
+- /home/ubuntu/scandalous-pitch-deck/research_notes_pdf_update.txt
+
+Live site currently needs a second comparable-cover pass after better sources are found.

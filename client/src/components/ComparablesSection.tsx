@@ -94,9 +94,9 @@ export default function ComparablesSection() {
                   style={{
                     width: "100%",
                     display: "block",
-                    aspectRatio: "2/3",
-                    objectFit: "cover",
-                    objectPosition: "top center",
+                    aspectRatio: "9/16",
+                    objectFit: "contain",
+                    background: "#000",
                   }}
                 />
               </div>
