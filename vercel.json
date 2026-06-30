@@ -5,9 +5,9 @@
   "installCommand": "echo 'No install needed'",
   "framework": null,
   "rewrites": [
-    { "source": "/api/trpc/:path*", "destination": "/api/trpc.cjs" },
-    { "source": "/api/blob/:path*", "destination": "/api/blob.cjs" },
-    { "source": "/api/oauth/callback", "destination": "/api/oauth/callback.cjs" },
+    { "source": "/api/trpc/:path*", "destination": "/api/trpc" },
+    { "source": "/api/blob/:path*", "destination": "/api/blob" },
+    { "source": "/api/oauth/callback", "destination": "/api/oauth/callback" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
   "headers": [
