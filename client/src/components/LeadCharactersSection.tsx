@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { useAudio } from "@/contexts/AudioController";
 
-// Character video CDN paths (looping, muted, autoplay)
+// Character video paths — served from Vercel Blob Storage
+const BLOB = "https://sqmxeuedmlqe0psk.public.blob.vercel-storage.com";
 const CHAR_VIDEOS: Record<string, string> = {
-  michael: "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611999/scandalous/micheal_a7d5ce3d.mp4",
-  renee:   "https://res.cloudinary.com/dul3jmac0/video/upload/v1778612001/scandalous/renee_69e34bc3.mp4",
-  jada:    "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611994/scandalous/jada_ad0689fa.mp4",
-  darius:  "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611985/scandalous/darius_6156ca03.mp4",
-  tonya:   "https://res.cloudinary.com/dul3jmac0/video/upload/v1778612005/scandalous/tonya_ce06404a.mp4",
-  calvin:  "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611981/scandalous/calvin_cb9fe4fd.mp4",
+  michael: `${BLOB}/scandalous/characters/micheal.mp4`,
+  renee:   `${BLOB}/scandalous/characters/renee.mp4`,
+  jada:    `${BLOB}/scandalous/characters/jada.mp4`,
+  darius:  `${BLOB}/scandalous/characters/darius.mp4`,
+  tonya:   `${BLOB}/scandalous/characters/tonya.mp4`,
+  calvin:  `${BLOB}/scandalous/characters/calvin.mp4`,
 };
 
 const CHARS = [

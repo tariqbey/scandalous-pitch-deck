@@ -7,8 +7,11 @@ import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 // Only import Manus runtime plugin in non-Vercel builds
 let vitePluginManusRuntime: () => Plugin = () => ({ name: "noop" });
 try {
-  const mod = await import("vite-plugin-manus-runtime");
-  vitePluginManusRuntime = mod.vitePluginManusRuntime;
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const mod = require("vite-plugin-manus-runtime");
+  if (mod && mod.vitePluginManusRuntime) {
+    vitePluginManusRuntime = mod.vitePluginManusRuntime;
+  }
 } catch {
   // Not available in Vercel build environment — skip gracefully
 }

@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useAudio } from "@/contexts/AudioController";
 
-const HERO_VIDEO = "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611991/scandalous/hf_20260509_002525_ed651b71-f061-4023-b1b3-00d945c05824_99cc38ff.mp4";
-const HERO_POSTER = "https://res.cloudinary.com/dul3jmac0/video/upload/so_0,f_jpg,q_80,w_1280/v1778611991/scandalous/hf_20260509_002525_ed651b71-f061-4023-b1b3-00d945c05824_99cc38ff.jpg";
-const COVER_ART_POSTER = "https://res.cloudinary.com/dul3jmac0/video/upload/so_0,f_jpg,q_60,w_400/v1778611988/scandalous/hf_20260508_233458_cf2db3a7-084f-486d-b5b4-05cdae8ad0a9_895b083f.jpg";
+const BLOB = "https://sqmxeuedmlqe0psk.public.blob.vercel-storage.com";
+const HERO_VIDEO = `${BLOB}/scandalous/hero-video.mp4`;
+const HERO_POSTER = "";
+const COVER_ART_POSTER = "";
 const UPSCALE_LOGO = "https://files.manuscdn.com/user_upload_by_module/session_file/116078281/RtaaZtYQelqLcSao.png";
-const COVER_ART_VIDEO = "https://res.cloudinary.com/dul3jmac0/video/upload/v1778611988/scandalous/hf_20260508_233458_cf2db3a7-084f-486d-b5b4-05cdae8ad0a9_895b083f.mp4";
+const COVER_ART_VIDEO = `${BLOB}/scandalous/cover-art-video.mp4`;
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
